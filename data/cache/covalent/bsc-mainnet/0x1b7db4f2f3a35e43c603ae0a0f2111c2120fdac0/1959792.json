@@ -1,0 +1,115 @@
+{
+  "items": [
+    {
+      "block_signed_at": "2025-11-22T12:02:55Z",
+      "block_height": 69082201,
+      "block_hash": "0xb386de6143d87cc1c6c3f6c9ff33e444358a0809a961f2a946f3e72890c1d867",
+      "tx_hash": "0x76835453afa84f92d8627212ecfdef3da3f3e55a503b425e53ca1c7c7642417c",
+      "tx_offset": 47,
+      "successful": false,
+      "miner_address": "0xca503a7ed99eca485da2e875aedf7758472c378c",
+      "from_address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+      "from_address_label": null,
+      "to_address": "0xcfdd3377461bbb83b3e9f03a45d475638220d29b",
+      "to_address_label": null,
+      "value": "0",
+      "value_quote": 0.0,
+      "pretty_value_quote": "$0.00",
+      "gas_metadata": {
+        "contract_decimals": 18,
+        "contract_name": "Binance Coin",
+        "contract_ticker_symbol": "BNB",
+        "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "supports_erc": [],
+        "logo_url": "https://www.datocms-assets.com/86369/1670003808-binance-smart-chain-icon-white.svg"
+      },
+      "gas_offered": 8000000,
+      "gas_spent": 89310,
+      "gas_price": 100000000,
+      "fees_paid": "8931000000000",
+      "gas_quote": 0.007350664514293276,
+      "pretty_gas_quote": "$0.01",
+      "gas_quote_rate": 823.0505558496559,
+      "explorers": [
+        {
+          "label": "BscScan",
+          "url": "https://bscscan.com/tx/0x76835453afa84f92d8627212ecfdef3da3f3e55a503b425e53ca1c7c7642417c"
+        }
+      ]
+    },
+    {
+      "block_signed_at": "2025-11-22T12:10:42Z",
+      "block_height": 69082824,
+      "block_hash": "0x72ee92fa1b7147636b5b1042998e32793596c74332a9d2a36babe8cf8014606e",
+      "tx_hash": "0x8c07568bb173226d55d39f08ab59cdafee4026d3a65bb723b783ca99999dbdae",
+      "tx_offset": 62,
+      "successful": false,
+      "miner_address": "0xb4647b856cb9c3856d559c885bed8b43e0846a47",
+      "from_address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+      "from_address_label": null,
+      "to_address": "0xcfdd3377461bbb83b3e9f03a45d475638220d29b",
+      "to_address_label": null,
+      "value": "0",
+      "value_quote": 0.0,
+      "pretty_value_quote": "$0.00",
+      "gas_metadata": {
+        "contract_decimals": 18,
+        "contract_name": "Binance Coin",
+        "contract_ticker_symbol": "BNB",
+        "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "supports_erc": [],
+        "logo_url": "https://www.datocms-assets.com/86369/1670003808-binance-smart-chain-icon-white.svg"
+      },
+      "gas_offered": 8000000,
+      "gas_spent": 72620,
+      "gas_price": 100000000,
+      "fees_paid": "7262000000000",
+      "gas_quote": 0.005976993136580201,
+      "pretty_gas_quote": "$0.01",
+      "gas_quote_rate": 823.0505558496559,
+      "explorers": [
+        {
+          "label": "BscScan",
+          "url": "https://bscscan.com/tx/0x8c07568bb173226d55d39f08ab59cdafee4026d3a65bb723b783ca99999dbdae"
+        }
+      ]
+    },
+    {
+      "block_signed_at": "2025-11-22T12:12:16Z",
+      "block_height": 69082949,
+      "block_hash": "0x5ee6a7bc2ac598f0e224e03c9db7e49d743f3633ef7084e26d768ec1a5be80ee",
+      "tx_hash": "0xaf20182fbd2c309b321d3d382b1faea2f16ab113eb8b00c28cc376cc063feeb3",
+      "tx_offset": 41,
+      "successful": true,
+      "miner_address": "0x1cfdbd2dff70c6e2e30df5012726f87731f38164",
+      "from_address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+      "from_address_label": null,
+      "to_address": "0xcfdd3377461bbb83b3e9f03a45d475638220d29b",
+      "to_address_label": null,
+      "value": "0",
+      "value_quote": 0.0,
+      "pretty_value_quote": "$0.00",
+      "gas_metadata": {
+        "contract_decimals": 18,
+        "contract_name": "Binance Coin",
+        "contract_ticker_symbol": "BNB",
+        "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "supports_erc": [],
+        "logo_url": "https://www.datocms-assets.com/86369/1670003808-binance-smart-chain-icon-white.svg"
+      },
+      "gas_offered": 8000000,
+      "gas_spent": 89310,
+      "gas_price": 100000000,
+      "fees_paid": "8931000000000",
+      "gas_quote": 0.007350664514293276,
+      "pretty_gas_quote": "$0.01",
+      "gas_quote_rate": 823.0505558496559,
+      "explorers": [
+        {
+          "label": "BscScan",
+          "url": "https://bscscan.com/tx/0xaf20182fbd2c309b321d3d382b1faea2f16ab113eb8b00c28cc376cc063feeb3"
+        }
+      ]
+    }
+  ]
+}

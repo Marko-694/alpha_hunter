@@ -1,0 +1,56 @@
+[
+  {
+    "address": "0x01d71e5443e8f6d02f2387837e010e0712830658",
+    "chain": "bsc",
+    "pumps_count": 2,
+    "best_pamper_level": "inner_circle",
+    "actor_score": 19.241157568680876,
+    "avg_roi": 0.030238610865952743,
+    "avg_share_of_pump_volume": 0.007445270001313544
+  },
+  {
+    "address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+    "chain": "bsc",
+    "pumps_count": 3,
+    "best_pamper_level": "inner_circle",
+    "actor_score": 16.635532333438686,
+    "avg_roi": -0.814212420644977,
+    "avg_share_of_pump_volume": 0.00920579075237062
+  },
+  {
+    "address": "0x9a98c8b4e29989e05fb374ba9370e9143828f6a0",
+    "chain": "bsc",
+    "pumps_count": 2,
+    "best_pamper_level": "inner_circle",
+    "actor_score": 13.183347464017316,
+    "avg_roi": -0.7863890957735701,
+    "avg_share_of_pump_volume": 0.01421754982238713
+  },
+  {
+    "address": "0xba31691d4ee292de9949a75eeb806df3da7f5484",
+    "chain": "bsc",
+    "pumps_count": 2,
+    "best_pamper_level": "inner_circle",
+    "actor_score": 13.183347464017316,
+    "avg_roi": -0.4901730069280555,
+    "avg_share_of_pump_volume": 0.007390877875847767
+  },
+  {
+    "address": "0x27872ee8f6cf0f4da4a6eae61924afaa86d48482",
+    "chain": "bsc",
+    "pumps_count": 2,
+    "best_pamper_level": "inner_circle",
+    "actor_score": 13.183347464017316,
+    "avg_roi": -0.9999966906526782,
+    "avg_share_of_pump_volume": 0.0071484241327156315
+  },
+  {
+    "address": "0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb",
+    "chain": "bsc",
+    "pumps_count": 2,
+    "best_pamper_level": "inner_circle",
+    "actor_score": 13.183347464017316,
+    "avg_roi": -0.9999972618697516,
+    "avg_share_of_pump_volume": 0.0057613491962030024
+  }
+]

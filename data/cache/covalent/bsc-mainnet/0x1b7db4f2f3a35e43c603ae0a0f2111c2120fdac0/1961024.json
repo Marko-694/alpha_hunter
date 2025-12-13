@@ -1,0 +1,189 @@
+{
+  "items": [
+    {
+      "block_signed_at": "2025-12-05T08:03:36Z",
+      "block_height": 70560314,
+      "block_hash": "0xafa1624609e054fe9a9da233043443d79990cafdbc171bd797f075cb119f926a",
+      "tx_hash": "0x56fc8562f868a9e458c85f4954fea8baab04b3d82f7f13574405e5c6457f9d55",
+      "tx_offset": 4,
+      "successful": true,
+      "miner_address": "0xf8b99643fafc79d9404de68e48c4d49a3936f787",
+      "from_address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+      "from_address_label": null,
+      "to_address": "0xd9c500dff816a1da21a48a732d3498bf09dc9aeb",
+      "to_address_label": null,
+      "value": "0",
+      "value_quote": 0.0,
+      "pretty_value_quote": "$0.00",
+      "gas_metadata": {
+        "contract_decimals": 18,
+        "contract_name": "Binance Coin",
+        "contract_ticker_symbol": "BNB",
+        "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "supports_erc": [],
+        "logo_url": "https://www.datocms-assets.com/86369/1670003808-binance-smart-chain-icon-white.svg"
+      },
+      "gas_offered": 5000000,
+      "gas_spent": 808740,
+      "gas_price": 100000000,
+      "fees_paid": "80874000000000",
+      "gas_quote": 0.07150849703564116,
+      "pretty_gas_quote": "$0.07",
+      "gas_quote_rate": 884.1963676291658,
+      "explorers": [
+        {
+          "label": "BscScan",
+          "url": "https://bscscan.com/tx/0x56fc8562f868a9e458c85f4954fea8baab04b3d82f7f13574405e5c6457f9d55"
+        }
+      ]
+    },
+    {
+      "block_signed_at": "2025-12-05T08:08:59Z",
+      "block_height": 70560745,
+      "block_hash": "0xc3fa5adf43f819badfee66dd3b3a3ca6fa283a3ed10dd634e91438bab29d3655",
+      "tx_hash": "0x9309b9947afd3c7ac3a300e9b6e26389c7cb003fb0ce4f578225634b6a91c395",
+      "tx_offset": 40,
+      "successful": false,
+      "miner_address": "0x5009317fd4f6f8feea9dae41e5f0a4737bb7a7d5",
+      "from_address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+      "from_address_label": null,
+      "to_address": "0x452244f592eff4cde9deaeb8907bca9b64c44947",
+      "to_address_label": null,
+      "value": "0",
+      "value_quote": 0.0,
+      "pretty_value_quote": "$0.00",
+      "gas_metadata": {
+        "contract_decimals": 18,
+        "contract_name": "Binance Coin",
+        "contract_ticker_symbol": "BNB",
+        "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "supports_erc": [],
+        "logo_url": "https://www.datocms-assets.com/86369/1670003808-binance-smart-chain-icon-white.svg"
+      },
+      "gas_offered": 8000000,
+      "gas_spent": 47820,
+      "gas_price": 100000000,
+      "fees_paid": "4782000000000",
+      "gas_quote": 0.004228227030002671,
+      "pretty_gas_quote": "$0.00",
+      "gas_quote_rate": 884.1963676291658,
+      "explorers": [
+        {
+          "label": "BscScan",
+          "url": "https://bscscan.com/tx/0x9309b9947afd3c7ac3a300e9b6e26389c7cb003fb0ce4f578225634b6a91c395"
+        }
+      ]
+    },
+    {
+      "block_signed_at": "2025-12-05T08:10:23Z",
+      "block_height": 70560857,
+      "block_hash": "0x11acfe7f733ee2e91372e4ea53528eab60115686aa4dd5991828003331f33ec0",
+      "tx_hash": "0x25a9700fda207506103168d5fae2e1f6276ef62732dff1cae0a35d23708dff90",
+      "tx_offset": 35,
+      "successful": true,
+      "miner_address": "0x8a239732871adc8829ea2f47e94087c5fbad47b6",
+      "from_address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+      "from_address_label": null,
+      "to_address": "0xd544ced21d431886fb7ce01cfb7082d846e19e33",
+      "to_address_label": null,
+      "value": "0",
+      "value_quote": 0.0,
+      "pretty_value_quote": "$0.00",
+      "gas_metadata": {
+        "contract_decimals": 18,
+        "contract_name": "Binance Coin",
+        "contract_ticker_symbol": "BNB",
+        "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "supports_erc": [],
+        "logo_url": "https://www.datocms-assets.com/86369/1670003808-binance-smart-chain-icon-white.svg"
+      },
+      "gas_offered": 8000000,
+      "gas_spent": 78867,
+      "gas_price": 100000000,
+      "fees_paid": "7886700000000",
+      "gas_quote": 0.006973391492580942,
+      "pretty_gas_quote": "$0.01",
+      "gas_quote_rate": 884.1963676291658,
+      "explorers": [
+        {
+          "label": "BscScan",
+          "url": "https://bscscan.com/tx/0x25a9700fda207506103168d5fae2e1f6276ef62732dff1cae0a35d23708dff90"
+        }
+      ]
+    },
+    {
+      "block_signed_at": "2025-12-05T08:10:45Z",
+      "block_height": 70560886,
+      "block_hash": "0xd652f38bd069eeb396b8e818260d303133e8fdfd2bb970d7fb0d694277173c8f",
+      "tx_hash": "0x0f9f8ba904adaf78831993e7a7d737b55e5d895e300aa1d25a46d829607631da",
+      "tx_offset": 12,
+      "successful": true,
+      "miner_address": "0x9f1b7fae54be07f4fee34eb1aacb39a1f7b6fc92",
+      "from_address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+      "from_address_label": null,
+      "to_address": "0xd544ced21d431886fb7ce01cfb7082d846e19e33",
+      "to_address_label": null,
+      "value": "0",
+      "value_quote": 0.0,
+      "pretty_value_quote": "$0.00",
+      "gas_metadata": {
+        "contract_decimals": 18,
+        "contract_name": "Binance Coin",
+        "contract_ticker_symbol": "BNB",
+        "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "supports_erc": [],
+        "logo_url": "https://www.datocms-assets.com/86369/1670003808-binance-smart-chain-icon-white.svg"
+      },
+      "gas_offered": 8000000,
+      "gas_spent": 273598,
+      "gas_price": 100000000,
+      "fees_paid": "27359800000000",
+      "gas_quote": 0.02419143577906045,
+      "pretty_gas_quote": "$0.02",
+      "gas_quote_rate": 884.1963676291658,
+      "explorers": [
+        {
+          "label": "BscScan",
+          "url": "https://bscscan.com/tx/0x0f9f8ba904adaf78831993e7a7d737b55e5d895e300aa1d25a46d829607631da"
+        }
+      ]
+    },
+    {
+      "block_signed_at": "2025-12-05T08:13:36Z",
+      "block_height": 70561115,
+      "block_hash": "0x705b0e326ddc98d9dc76118b1fff31de9931b8e95f3d4aca1ad770e8b8784239",
+      "tx_hash": "0xfb0b2e08b67576cf2a87da2f97cf9d3392cab4ffdd7651eb3229b62efb034ae8",
+      "tx_offset": 8,
+      "successful": true,
+      "miner_address": "0x58567f7a51a58708c8b40ec592a38ba64c0697de",
+      "from_address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+      "from_address_label": null,
+      "to_address": "0xd544ced21d431886fb7ce01cfb7082d846e19e33",
+      "to_address_label": null,
+      "value": "11288330324300",
+      "value_quote": 0.009981100669344224,
+      "pretty_value_quote": "$0.01",
+      "gas_metadata": {
+        "contract_decimals": 18,
+        "contract_name": "Binance Coin",
+        "contract_ticker_symbol": "BNB",
+        "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "supports_erc": [],
+        "logo_url": "https://www.datocms-assets.com/86369/1670003808-binance-smart-chain-icon-white.svg"
+      },
+      "gas_offered": 8000000,
+      "gas_spent": 104274,
+      "gas_price": 100000000,
+      "fees_paid": "10427400000000",
+      "gas_quote": 0.009219869203816363,
+      "pretty_gas_quote": "$0.01",
+      "gas_quote_rate": 884.1963676291658,
+      "explorers": [
+        {
+          "label": "BscScan",
+          "url": "https://bscscan.com/tx/0xfb0b2e08b67576cf2a87da2f97cf9d3392cab4ffdd7651eb3229b62efb034ae8"
+        }
+      ]
+    }
+  ]
+}
