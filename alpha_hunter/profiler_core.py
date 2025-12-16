@@ -3,6 +3,7 @@ import os
 import time
 import logging
 import math
+import statistics
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -541,6 +542,10 @@ def build_clusters(
                     "chains": set(),
                     "pumps_participated": 0,
                     "total_net_usd": 0.0,
+                    "exit_speeds": [],
+                    "dump_ratios": [],
+                    "early_flags": [],
+                    "pump_activity": [],
                 },
             )
             if symbol:
@@ -549,9 +554,31 @@ def build_clusters(
                 entry["chains"].add(chain)
             entry["pumps_participated"] += 1
             entry["total_net_usd"] += net_usd
+            if w.get("exit_speed_seconds") is not None:
+                try:
+                    entry["exit_speeds"].append(float(w.get("exit_speed_seconds")))
+                except Exception:
+                    pass
+            if w.get("sold_after_peak_ratio") is not None:
+                try:
+                    entry["dump_ratios"].append(float(w.get("sold_after_peak_ratio")))
+                except Exception:
+                    pass
+            entry["early_flags"].append(1 if float(w.get("balance_before_pump_tokens") or 0) > 0 else 0)
+            if w.get("tx_count") is not None:
+                try:
+                    entry["pump_activity"].append(float(w.get("tx_count")))
+                except Exception:
+                    pass
 
     cluster_list: List[Dict[str, Any]] = []
     for addr, entry in clusters.items():
+        def _median(vals):
+            try:
+                return statistics.median(vals) if vals else 0.0
+            except Exception:
+                return 0.0
+
         cluster_list.append(
             {
                 "address": addr,
@@ -559,6 +586,18 @@ def build_clusters(
                 "chains": sorted(list(entry["chains"])),
                 "pumps_participated": entry["pumps_participated"],
                 "total_net_usd": entry["total_net_usd"],
+                "median_exit_speed": _median(entry.get("exit_speeds", [])),
+                "dump_ratio_median": _median(entry.get("dump_ratios", [])),
+                "early_holder_rate": (
+                    sum(entry.get("early_flags", [])) / len(entry.get("early_flags", []))
+                    if entry.get("early_flags")
+                    else 0.0
+                ),
+                "pump_activity_mean": (
+                    sum(entry.get("pump_activity", [])) / len(entry.get("pump_activity", []))
+                    if entry.get("pump_activity")
+                    else 0.0
+                ),
             }
         )
 

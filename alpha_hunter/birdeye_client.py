@@ -13,6 +13,7 @@ MAX_RETRIES = 5
 SPENT_FILE = "data/birdeye_api_keys_spent.json"
 PROXY_FILE = "data/birdeye_proxies.txt"
 ROTATE_STATUSES = {401, 402, 403, 409, 420, 429}
+CACHE_DIR = "data/raw_cache/birdeye"
 
 
 def _get_logger(logger: Optional[logging.Logger]) -> logging.Logger:
@@ -45,6 +46,35 @@ def _load_proxies(path: str = PROXY_FILE) -> List[str]:
             if val:
                 proxies.append(val)
     return proxies
+
+
+def _page_cache_path(
+    chain: str, contract: str, start_ts: int, end_ts: int, offset: int, limit: int
+) -> str:
+    window = f"window_{start_ts}_{end_ts}"
+    fname = f"page_{offset}_{limit}.json"
+    return os.path.join(CACHE_DIR, chain, contract.lower(), window, fname)
+
+
+def _read_cache(path: str) -> Optional[Any]:
+    if not os.path.exists(path):
+        return None
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        logging.getLogger(__name__).debug("CACHE_HIT birdeye path=%s", path)
+        return data
+    except Exception:
+        return None
+
+
+def _write_cache(path: str, data: Any) -> None:
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False)
+    os.replace(tmp, path)
+    logging.getLogger(__name__).debug("CACHE_WRITE birdeye path=%s", path)
 
 
 class BirdEyeKeyManager:
@@ -160,6 +190,17 @@ class BirdEyeClient:
             config_path=config_path,
             logger=self.logger,
         )
+        self.cache_stats: Dict[str, int] = {
+            "cache_hits": 0,
+            "cache_misses": 0,
+            "api_calls": 0,
+            "pages_cached": 0,
+            "pages_missing": 0,
+        }
+        self.cache_meta_snapshot: Dict[str, Any] = {}
+        self.contract_calls: Dict[str, int] = {}
+        self.contract_pages: Dict[str, int] = {}
+        self.page_cache_enabled = bool(birdeye_cfg.get("page_cache", {}).get("enabled", False))
 
     def _get_headers(self, api_key: str) -> Dict[str, str]:
         return {
@@ -196,6 +237,7 @@ class BirdEyeClient:
                 proxy or "none",
             )
             try:
+                self.cache_stats["api_calls"] = self.cache_stats.get("api_calls", 0) + 1
                 resp = requests.get(
                     API_URL,
                     headers=self._get_headers(api_key),
@@ -243,6 +285,7 @@ class BirdEyeClient:
         end_ts: int,
         label: str,
         chain: Optional[str] = None,
+        force_refresh: bool = False,
     ) -> List[Dict[str, Any]]:
         """
         Получает swap-транзакции токена за окно [start_ts; end_ts] через BirdEye API.
@@ -271,15 +314,31 @@ class BirdEyeClient:
                 "before_time": int(end_ts),
             }
 
-            resp = self._request_page(params, f"{label} page={page}")
-            if resp is None:
-                break
+            cache_path = _page_cache_path(self.chain, token_address, start_ts, end_ts, offset, PAGE_LIMIT)
+            data = None
+            if self.page_cache_enabled and not force_refresh:
+                cached = _read_cache(cache_path)
+                if cached is not None:
+                    self.cache_stats["cache_hits"] = self.cache_stats.get("cache_hits", 0) + 1
+                    data = cached
+                else:
+                    self.cache_stats["cache_misses"] = self.cache_stats.get("cache_misses", 0) + 1
 
-            try:
-                data = resp.json()
-            except Exception as exc:
-                self.logger.error("[%s] invalid JSON: %s", label, exc)
-                break
+            if data is None:
+                resp = self._request_page(params, f"{label} page={page}")
+                if resp is None:
+                    break
+                try:
+                    data = resp.json()
+                except Exception as exc:
+                    self.logger.error("[%s] invalid JSON: %s", label, exc)
+                    break
+                if self.page_cache_enabled:
+                    try:
+                        _write_cache(cache_path, data)
+                        self.cache_stats["pages_cached"] = self.cache_stats.get("pages_cached", 0) + 1
+                    except Exception:
+                        pass
 
             if isinstance(data, dict) and data.get("success") is False:
                 msg = data.get("message") or ""
@@ -294,13 +353,19 @@ class BirdEyeClient:
             data_root = data.get("data", {}) if isinstance(data, dict) else {}
             items = data_root.get("items") or []
             has_next = bool(data_root.get("has_next"))
+            # per-contract accounting
+            self.contract_calls[token_address] = self.contract_calls.get(token_address, 0) + 1
+            self.contract_pages[token_address] = self.contract_pages.get(token_address, 0) + 1
 
             self.logger.info("[%s] page %s: %d items, has_next=%s", label, page, len(items), has_next)
 
             if not items:
+                self.cache_stats["pages_missing"] = self.cache_stats.get("pages_missing", 0) + 1
                 break
 
             items_all.extend(items)
+            # если есть next_page_key в ответе (новая схема), можно использовать offset обновлённый
+            # здесь оставляем offset += PAGE_LIMIT для совместимости
 
             if not has_next:
                 self.logger.info("[%s] pagination finished", label)
@@ -311,6 +376,41 @@ class BirdEyeClient:
             time.sleep(0.5)
 
         self.logger.info("[%s] total items fetched: %d", label, len(items_all))
+        # снимок кэша для cache_meta
+        now_iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        self.cache_meta_snapshot = {
+            "pages_cached": self.cache_stats.get("pages_cached", 0),
+            "cache_hits": self.cache_stats.get("cache_hits", 0),
+            "cache_misses": self.cache_stats.get("cache_misses", 0),
+            "pages_missing": self.cache_stats.get("pages_missing", 0),
+            "api_calls": self.cache_stats.get("api_calls", 0),
+            "last_updated": now_iso,
+            "contracts_tracked": len(self.contract_calls),
+            "api_calls_by_contract": self.contract_calls,
+            "pages_by_contract": self.contract_pages,
+            "page_cache_enabled": self.page_cache_enabled,
+        }
+        try:
+            cache_meta_path = os.path.join("data", "raw_cache", "birdeye", "cache_meta.json")
+            os.makedirs(os.path.dirname(cache_meta_path), exist_ok=True)
+            existing = {}
+            if os.path.exists(cache_meta_path):
+                try:
+                    with open(cache_meta_path, "r", encoding="utf-8") as f:
+                        existing = json.load(f) or {}
+                except Exception:
+                    existing = {}
+            if isinstance(existing, dict):
+                first_seen = existing.get("first_seen") or now_iso
+            else:
+                first_seen = now_iso
+            payload = dict(existing if isinstance(existing, dict) else {})
+            payload.update(self.cache_meta_snapshot)
+            payload["first_seen"] = first_seen
+            with open(cache_meta_path, "w", encoding="utf-8") as f:
+                json.dump(payload, f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
         return items_all
 
 

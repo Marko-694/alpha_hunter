@@ -112,7 +112,18 @@ def build_actors_watchlist(
         total_pnl = sum(pnl_list)
         avg_share = sum(share_list) / len(share_list) if share_list else 0.0
         best_level_val = best_level(levels)
-        actor_score = max_score * math.log(1 + pumps_count) * (1 + max(avg_roi, 0))
+        level_priority = {"core_operator": 3, "inner_circle": 2, "outer_circle": 1, "retail": 0}
+        pamper_level_weight = level_priority.get(best_level_val, 0) / 3.0
+        roi_weight = max(avg_roi, 0)
+        volume_share_weight = max(avg_share, 0)
+        stability_weight = 1.0  # placeholder, можем заменить на дисперсию ROI
+        actor_score_factors = {
+            "roi_weight": roi_weight,
+            "volume_share_weight": volume_share_weight,
+            "pamper_level_weight": pamper_level_weight,
+            "stability_weight": stability_weight,
+        }
+        actor_score = max_score * math.log(1 + pumps_count) * (1 + roi_weight + volume_share_weight + pamper_level_weight)
 
         actors_list.append(
             {
@@ -127,6 +138,7 @@ def build_actors_watchlist(
                 "avg_roi": avg_roi,
                 "avg_share_of_pump_volume": avg_share,
                 "actor_score": actor_score,
+                "actor_score_factors": actor_score_factors,
             }
         )
 
@@ -141,6 +153,7 @@ def build_actors_watchlist(
             "pumps_count": a.get("pumps_count", 0),
             "best_pamper_level": a.get("best_pamper_level", ""),
             "avg_roi": a.get("avg_roi", 0.0),
+            "max_pamper_score": a.get("max_pamper_score", 0.0),
         }
         for a in actors_list
         if a.get("pumps_count", 0) >= 2

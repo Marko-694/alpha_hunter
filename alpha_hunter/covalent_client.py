@@ -1,4 +1,5 @@
 import json
+import json
 import logging
 import os
 import random
@@ -37,7 +38,7 @@ class CovalentClient:
         timeout: int = 40,
         max_retries: int = 6,
         max_calls_per_minute: Optional[int] = None,
-        cache_dir: str = "data/cache/covalent",
+        cache_dir: str = "data/raw_cache/covalent",
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.api_key = api_key
@@ -65,7 +66,7 @@ class CovalentClient:
 
     # --- cache helpers ---
     def _cache_path(self, chain_name: str, address: str, bucket: int) -> str:
-        return os.path.join(self.cache_dir, chain_name, address.lower(), f"{bucket}.json")
+        return os.path.join(self.cache_dir, chain_name, address.lower(), f"bucket_{bucket}.json")
 
     def _read_cache(self, chain_name: str, address: str, bucket: int) -> Optional[Dict[str, Any]]:
         path = self._cache_path(chain_name, address, bucket)
@@ -73,7 +74,10 @@ class CovalentClient:
             return None
         try:
             with open(path, "r", encoding="utf-8") as f:
-                return json.load(f)
+                data = json.load(f)
+            if self.logger.isEnabledFor(logging.DEBUG):
+                self.logger.debug("CACHE_HIT bucket key=%s/%s/%s path=%s", chain_name, address.lower(), bucket, path)
+            return data
         except Exception:
             return None
 
@@ -84,8 +88,10 @@ class CovalentClient:
         with open(tmp, "w", encoding="utf-8") as f:
             json.dump(data, f)
         os.replace(tmp, path)
+        if self.logger.isEnabledFor(logging.DEBUG):
+            self.logger.debug("CACHE_WRITE bucket key=%s/%s/%s path=%s", chain_name, address.lower(), bucket, path)
 
-    def _request(self, path: str, params: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    def _request(self, path: str, params: Dict[str, Any], diag: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
         url = f"{self.base_url}{path}"
         params = dict(params or {})
         headers = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}
@@ -93,6 +99,8 @@ class CovalentClient:
         for attempt in range(self.max_retries):
             self._throttle()
             try:
+                if diag is not None:
+                    diag["api_calls"] = diag.get("api_calls", 0) + 1
                 resp = requests.get(url, params=params, headers=headers, timeout=self.timeout)
                 if resp.status_code == 429:
                     retry_after = resp.headers.get("Retry-After")
@@ -110,6 +118,8 @@ class CovalentClient:
                         attempt + 1,
                         self.max_retries,
                     )
+                    if diag is not None:
+                        diag["http_429_count"] = diag.get("http_429_count", 0) + 1
                     time.sleep(sleep_s)
                     continue
 
@@ -162,6 +172,7 @@ class CovalentClient:
         quote_currency: str = "USD",
         no_logs: bool = True,
         use_cache: bool = True,
+        diag: Optional[Dict[str, Any]] = None,
     ) -> Optional[List[Dict[str, Any]]]:
         if not self.api_key:
             return None
@@ -169,6 +180,8 @@ class CovalentClient:
         if use_cache:
             cached = self._read_cache(chain_name, address, bucket)
             if cached is not None:
+                if diag is not None:
+                    diag["cache_hits"] = diag.get("cache_hits", 0) + 1
                 return cached.get("items") if isinstance(cached, dict) else cached
 
         path = f"/v1/{chain_name}/bulk/transactions/{address}/{bucket}/"
@@ -176,7 +189,9 @@ class CovalentClient:
             "quote-currency": quote_currency,
             "no-logs": str(no_logs).lower(),
         }
-        data = self._request(path, params=params)
+        if diag is not None:
+            diag["cache_misses"] = diag.get("cache_misses", 0) + 1
+        data = self._request(path, params=params, diag=diag)
         if not data:
             return None
         items = data.get("data", {}).get("items") or []
@@ -207,6 +222,8 @@ class CovalentClient:
         buckets_fetched = 0
         errors = 0
         cache_hits = 0
+        cache_misses = 0
+        api_calls = 0
         http_429 = 0
         sleep_total = 0.0
 
@@ -237,11 +254,15 @@ class CovalentClient:
                     )
                 try:
                     before = time.time()
+                    # try cache
                     cached = self._read_cache(chain_name, address, current)
                     if cached is not None:
                         bucket_items = cached.get("items") if isinstance(cached, dict) else cached
                         cache_hits += 1
                         break
+
+                    # fetch
+                    diag_bucket = {"api_calls": 0, "http_429_count": 0, "cache_misses": 0, "cache_hits": 0}
                     bucket_items = self.get_time_bucket_transactions(
                         chain_name=chain_name,
                         address=address,
@@ -249,7 +270,11 @@ class CovalentClient:
                         quote_currency=quote_currency,
                         no_logs=no_logs,
                         use_cache=False,
+                        diag=diag_bucket,
                     )
+                    cache_misses += diag_bucket.get("cache_misses", 0)
+                    api_calls += diag_bucket.get("api_calls", 0)
+                    http_429 += diag_bucket.get("http_429_count", 0)
                     sleep_total += max(time.time() - before, 0)
                     if bucket_items is None:
                         attempts += 1
@@ -337,6 +362,9 @@ class CovalentClient:
             "last_bucket_processed": last_bucket,
             "buckets_fetched": buckets_fetched,
             "cache_hits": cache_hits,
+            "cache_misses": cache_misses,
+            "buckets_needed": max(0, end_bucket - start_bucket + 1),
+            "api_calls": api_calls,
             "http_429_count": http_429,
             "sleep_seconds_total": sleep_total,
             "tx_items_count": len(items_out),

@@ -12,6 +12,7 @@ from alpha_hunter.stablecoin_inflow_monitor import StablecoinInflowMonitor
 from alpha_hunter.telegram_alerts import TelegramNotifier
 from alpha_hunter.nansen_client import NansenClient
 from alpha_hunter.nansen_monitor import NansenSmartMoneyMonitor
+from alpha_hunter.features_consumer import load_features, evaluate_signals
 
 
 def load_config(path: str = "config.yaml") -> Dict[str, Any]:
@@ -81,6 +82,16 @@ def run_hunter() -> None:
         logger=logger,
         explorer_client=explorer_client,
     )
+    # optional features signals (from warehouse/features.json)
+    features = load_features()
+    feat_cfg = config.get("features", {}) if isinstance(config, dict) else {}
+    signals = evaluate_signals(features, feat_cfg.get("thresholds", {}))
+    for sig in signals[:5]:
+        logger.info(sig)
+        try:
+            notifier.send_message(sig)
+        except Exception:
+            pass
 
     interval_seconds = scanner.interval_seconds
 
