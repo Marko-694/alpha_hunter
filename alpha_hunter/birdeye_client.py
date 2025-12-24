@@ -140,15 +140,8 @@ class BirdEyeKeyManager:
             json.dump(spent, f, ensure_ascii=False, indent=2)
 
     def _remove_from_config(self, api_key: str) -> None:
-        cfg = _load_yaml(self.config_path)
-        birdeye = cfg.get("birdeye", {}) or {}
-        keys = birdeye.get("api_keys") or []
-        if api_key in keys:
-            keys = [k for k in keys if k != api_key]
-            birdeye["api_keys"] = keys
-            cfg["birdeye"] = birdeye
-            _save_yaml(self.config_path, cfg)
-            self.logger.info("BirdEye key removed from config: %s...%s", api_key[:4], api_key[-4:])
+        # Config cleanup disabled: we never mutate config.yaml automatically.
+        return
 
     def mark_spent(self, reason: str) -> None:
         key, proxy = self.current()
@@ -158,13 +151,7 @@ class BirdEyeKeyManager:
             "BirdEye key marked spent (%s...%s): %s", key[:4], key[-4:], reason
         )
         self._append_spent(key, proxy, reason)
-        self._remove_from_config(key)
-        # remove from in-memory list
-        if key in self.api_keys:
-            idx = self.api_keys.index(key)
-            self.api_keys.pop(idx)
-            if self.index >= len(self.api_keys):
-                self.index = 0
+        # keep key in rotation; caller can rotate but key remains available
 
 
 class BirdEyeClient:
@@ -201,6 +188,7 @@ class BirdEyeClient:
         self.contract_calls: Dict[str, int] = {}
         self.contract_pages: Dict[str, int] = {}
         self.page_cache_enabled = bool(birdeye_cfg.get("page_cache", {}).get("enabled", False))
+        self.last_fetch_meta: Dict[str, Any] = {}
 
     def _get_headers(self, api_key: str) -> Dict[str, str]:
         return {
@@ -286,13 +274,24 @@ class BirdEyeClient:
         label: str,
         chain: Optional[str] = None,
         force_refresh: bool = False,
-    ) -> List[Dict[str, Any]]:
+        return_meta: bool = False,
+    ) -> Any:
         """
         Получает swap-транзакции токена за окно [start_ts; end_ts] через BirdEye API.
         Включена ротация API-ключей и прокси.
         """
         if not self.manager.has_keys():
             self.logger.error("[%s] No BirdEye API keys available", label)
+            empty_meta = {
+                "status": "incomplete",
+                "reason": "no_keys",
+                "http_errors": 0,
+                "cu_exceeded": 0,
+                "items_total": 0,
+                "pages": 0,
+            }
+            if return_meta:
+                return [], empty_meta
             return []
 
         chain_use = chain or self.chain
@@ -301,6 +300,15 @@ class BirdEyeClient:
         offset = 0
         page = 1
         items_all: List[Dict[str, Any]] = []
+        fetch_meta: Dict[str, Any] = {
+            "status": "success",
+            "reason": None,
+            "http_errors": 0,
+            "cu_exceeded": 0,
+            "items_total": 0,
+            "pages": 0,
+        }
+        error_reasons: List[str] = []
 
         self.logger.info("[%s] Unix window: %s .. %s", label, start_ts, end_ts)
 
@@ -327,11 +335,14 @@ class BirdEyeClient:
             if data is None:
                 resp = self._request_page(params, f"{label} page={page}")
                 if resp is None:
+                    fetch_meta["http_errors"] = fetch_meta.get("http_errors", 0) + 1
+                    error_reasons.append("birdeye_http_error")
                     break
                 try:
                     data = resp.json()
                 except Exception as exc:
                     self.logger.error("[%s] invalid JSON: %s", label, exc)
+                    error_reasons.append("birdeye_invalid_json")
                     break
                 if self.page_cache_enabled:
                     try:
@@ -342,9 +353,16 @@ class BirdEyeClient:
 
             if isinstance(data, dict) and data.get("success") is False:
                 msg = data.get("message") or ""
+                msg_lower = msg.lower()
                 self.logger.error("[%s] API error: %s", label, msg)
+                if "compute units usage limit exceeded" in msg_lower:
+                    fetch_meta["cu_exceeded"] = fetch_meta.get("cu_exceeded", 0) + 1
+                    fetch_meta["status"] = "incomplete"
+                    fetch_meta["reason"] = "cu_exceeded"
+                    time.sleep(2)
+                    break
                 # если квота — отметим ключ и вращаем
-                if any(k in msg.lower() for k in ["quota", "limit", "exceeded", "plan"]):
+                if any(k in msg_lower for k in ["quota", "limit", "exceeded", "plan"]):
                     self.manager.mark_spent(f"API error: {msg}")
                     self.manager.rotate()
                     continue
@@ -376,6 +394,15 @@ class BirdEyeClient:
             time.sleep(0.5)
 
         self.logger.info("[%s] total items fetched: %d", label, len(items_all))
+        fetch_meta["items_total"] = len(items_all)
+        fetch_meta["pages"] = max(0, page - 1)
+        if error_reasons:
+            fetch_meta["reason"] = error_reasons[-1]
+            if not items_all:
+                fetch_meta["status"] = "incomplete"
+        elif not items_all:
+            fetch_meta["reason"] = "no_transfers"
+        self.last_fetch_meta = fetch_meta
         # снимок кэша для cache_meta
         now_iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         self.cache_meta_snapshot = {
@@ -411,6 +438,8 @@ class BirdEyeClient:
                 json.dump(payload, f, ensure_ascii=False, indent=2)
         except Exception:
             pass
+        if return_meta:
+            return items_all, fetch_meta
         return items_all
 
 
@@ -432,7 +461,9 @@ def fetch_for_window(
     logger: Optional[logging.Logger] = None,
     chain: Optional[str] = None,
     client: Optional[BirdEyeClient] = None,
-) -> List[Dict[str, Any]]:
+    force_refresh: bool = False,
+    return_meta: bool = False,
+) -> Any:
     client_use = client or _get_default_client(logger=logger)
     return client_use.fetch_for_window(
         token_address=token_address,
@@ -440,6 +471,8 @@ def fetch_for_window(
         end_ts=end_ts,
         label=label,
         chain=chain,
+        force_refresh=force_refresh,
+        return_meta=return_meta,
     )
 
 
@@ -450,3 +483,4 @@ def dry_run_rotation_simulated(reason: str = "forced_429", logger: Optional[logg
     client = _get_default_client(logger=logger)
     client.manager.mark_spent(reason)
     client.manager.rotate()
+

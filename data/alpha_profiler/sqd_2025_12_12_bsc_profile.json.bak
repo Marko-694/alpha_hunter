@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "name": "SQD_2025_12_12",
+    "symbol": "SQD",
+    "chain": "bsc",
+    "contract": "0xe50e3d1a46070444f44df911359033f2937fcc13",
+    "pump_start": "2025-07-28T15:00:00+00:00",
+    "pump_end": "2025-07-29T05:00:00+00:00",
+    "pre_window_minutes": 100,
+    "dump_window_minutes": 60,
+    "min_whale_net_usd": 2500.0,
+    "start_ts": 1753714800,
+    "end_ts": 1753765200,
+    "price_usd": 0.04057,
+    "generated_at": "2025-12-21T23:09:42.395038+00:00",
+    "profile_id": "SQD_2025_12_12:SQD:bsc:0xe50e3d1a46070444f44df911359033f2937fcc13:1753714800:1753765200:100:60:2500.0",
+    "cache_mode": "recompute",
+    "birdeye_status": "incomplete",
+    "birdeye_reason": "no_keys",
+    "status": "incomplete",
+    "empty_reason": "no_keys",
+    "counters": {
+      "tx_total": 0,
+      "log_events_total": 0,
+      "transfer_events_total": 0,
+      "unique_wallets_seen": 0,
+      "wallets_passing_threshold": 0,
+      "pricing_missing_count": 0,
+      "birdeye_items_total": 0,
+      "birdeye_http_errors": 0,
+      "birdeye_cu_exceeded_count": 0,
+      "birdeye_status": "incomplete",
+      "birdeye_reason": "no_keys",
+      "covalent_http_errors": 0,
+      "nansen_status_code": 0
+    }
+  },
+  "wallets": []
+}

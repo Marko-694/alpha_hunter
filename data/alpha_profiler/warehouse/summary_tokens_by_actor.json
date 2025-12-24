@@ -1,0 +1,138 @@
+[
+  {
+    "address": "0xdba0bb42fd2a5b380a99b336363112b9cb17f528",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 31660,
+    "usd_volume": 0.0
+  },
+  {
+    "address": "0xdba0bb42fd2a5b380a99b336363112b9cb17f528",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 7636,
+    "usd_volume": 0.0
+  },
+  {
+    "address": "0xdba0bb42fd2a5b380a99b336363112b9cb17f528",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 18089,
+    "usd_volume": 1960.0836609279343
+  },
+  {
+    "address": "0x01d71e5443e8f6d02f2387837e010e0712830658",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 8876,
+    "usd_volume": 864.5281026903874
+  },
+  {
+    "address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 2378,
+    "usd_volume": 947.784831080403
+  },
+  {
+    "address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 5141,
+    "usd_volume": 1802.0466129364183
+  },
+  {
+    "address": "0xba31691d4ee292de9949a75eeb806df3da7f5484",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 8788,
+    "usd_volume": 417.56029524636523
+  },
+  {
+    "address": "0xba31691d4ee292de9949a75eeb806df3da7f5484",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 3969,
+    "usd_volume": 42.332950059616095
+  },
+  {
+    "address": "0x9a98c8b4e29989e05fb374ba9370e9143828f6a0",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 4864,
+    "usd_volume": 1451.120340443561
+  },
+  {
+    "address": "0x27872ee8f6cf0f4da4a6eae61924afaa86d48482",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 8768,
+    "usd_volume": 742.0515526496042
+  },
+  {
+    "address": "0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 8660,
+    "usd_volume": 766.713071339861
+  },
+  {
+    "address": "0xfe6b440a8a8eef748e381b624d656bcdc886100d",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 3,
+    "usd_volume": 0.0
+  },
+  {
+    "address": "0xfe6b440a8a8eef748e381b624d656bcdc886100d",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 6312,
+    "usd_volume": 434.1006255731975
+  },
+  {
+    "address": "0x9221ed8021a815f3e48e5ce304fd5bb2720e42b2",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 7594,
+    "usd_volume": 0.0
+  },
+  {
+    "address": "0x9221ed8021a815f3e48e5ce304fd5bb2720e42b2",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 5586,
+    "usd_volume": 0.0
+  },
+  {
+    "address": "0x050563495057213b2d7d6cb20a9bf4b4c3085b0d",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 6626,
+    "usd_volume": 0.0
+  },
+  {
+    "address": "0x050563495057213b2d7d6cb20a9bf4b4c3085b0d",
+    "chain": "bsc",
+    "token_address": "",
+    "token_symbol": null,
+    "tx_count": 5614,
+    "usd_volume": 0.0
+  }
+]

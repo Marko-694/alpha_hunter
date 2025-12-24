@@ -1,0 +1,5754 @@
+{
+  "meta": {
+    "generated_at": "2025-12-15T17:02:53.449041+00:00",
+    "pre_days": 3,
+    "post_hours": 2,
+    "max_buckets_per_actor": 600,
+    "cache_version": "1.0",
+    "success": 0,
+    "failed": 1,
+    "fail_reasons": {
+      "reuse_previous": 1
+    },
+    "cache_hits": 0,
+    "cache_meta": {
+      "covalent": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "api_calls": 0,
+        "buckets_cached": 2111,
+        "buckets_missing": 0,
+        "buckets_total": 0,
+        "first_seen": "2025-12-15T07:06:12.047115+00:00",
+        "last_updated": "2025-12-15T17:02:53.444041+00:00",
+        "report": {
+          "buckets_reused": 0,
+          "buckets_fetched": 0,
+          "windows_cached": 7
+        }
+      },
+      "birdeye": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "api_calls": 0,
+        "pages_cached": 0,
+        "pages_missing": 0,
+        "pages_total": 0,
+        "first_seen": "2025-12-15T07:06:12.047115+00:00",
+        "last_updated": "2025-12-15T17:02:53.444041+00:00"
+      },
+      "first_seen": "2025-12-15T07:06:12.047115+00:00",
+      "last_updated": "2025-12-15T17:02:53.444041+00:00",
+      "cache_hits": 0,
+      "cache_misses": 0,
+      "api_calls": 0,
+      "buckets_cached": 2111,
+      "buckets_missing": 0,
+      "pages_cached": 0,
+      "pages_missing": 0,
+      "cache_version": "1.0"
+    }
+  },
+  "cache_meta": {
+    "covalent": {
+      "cache_hits": 0,
+      "cache_misses": 0,
+      "api_calls": 0,
+      "buckets_cached": 2111,
+      "buckets_missing": 0,
+      "buckets_total": 0,
+      "first_seen": "2025-12-15T07:06:12.047115+00:00",
+      "last_updated": "2025-12-15T17:02:53.444041+00:00",
+      "report": {
+        "buckets_reused": 0,
+        "buckets_fetched": 0,
+        "windows_cached": 7
+      }
+    },
+    "birdeye": {
+      "cache_hits": 0,
+      "cache_misses": 0,
+      "api_calls": 0,
+      "pages_cached": 0,
+      "pages_missing": 0,
+      "pages_total": 0,
+      "first_seen": "2025-12-15T07:06:12.047115+00:00",
+      "last_updated": "2025-12-15T17:02:53.444041+00:00"
+    },
+    "first_seen": "2025-12-15T07:06:12.047115+00:00",
+    "last_updated": "2025-12-15T17:02:53.444041+00:00",
+    "cache_hits": 0,
+    "cache_misses": 0,
+    "api_calls": 0,
+    "buckets_cached": 2111,
+    "buckets_missing": 0,
+    "pages_cached": 0,
+    "pages_missing": 0,
+    "cache_version": "1.0"
+  },
+  "actors": [
+    {
+      "address": "0x01d71e5443e8f6d02f2387837e010e0712830658",
+      "chain": "bsc",
+      "pumps_count": 2,
+      "best_pamper_level": "inner_circle",
+      "actor_score": 19.241157568680876,
+      "last_seen": "2025-12-05T09:12:00+00:00",
+      "profile_total_pnl_usd": 188.45531772734194,
+      "profile_avg_roi": 0.030238610865952743,
+      "cov_pnl_before_usd": null,
+      "cov_pnl_during_usd": null,
+      "cov_pnl_after_usd": null,
+      "cov_pnl_total_usd": null,
+      "cov_realized_pnl_usd": 640.6019141713745,
+      "cov_unrealized_pnl_usd": 138.155782767136,
+      "cov_total_pnl_usd": 778.7576969385104,
+      "cov_fees_usd": null,
+      "pumps": [
+        {
+          "symbol": "ARTX",
+          "chain": "bsc",
+          "profile_file": "",
+          "pump_start_ts": 1764924000,
+          "pump_end_ts": 1764925920,
+          "window_start_ts": 1764664800,
+          "window_end_ts": 1764933120,
+          "pnl_before_usd": 200.97746065300979,
+          "pnl_during_usd": 0.6512711608374002,
+          "pnl_after_usd": 11.905239576610986,
+          "pnl_total_usd": 213.5339713904582,
+          "roi_reason": "no_sells",
+          "has_sell_tx": false,
+          "price_missing": false,
+          "tx_count": 2200,
+          "covalent_used_chain_name": null,
+          "start_bucket": null,
+          "end_bucket": null,
+          "buckets_fetched": null,
+          "tx_items_count": null,
+          "errors_count": null,
+          "cache_hits": null,
+          "http_429_count": null,
+          "sleep_seconds_total": null,
+          "timeline_buckets": [
+            {
+              "bucket": 1960738,
+              "tx_count": 9,
+              "usd_volume": 0.006287632650606738,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960739,
+              "tx_count": 18,
+              "usd_volume": 0.3469041910128853,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960740,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960741,
+              "tx_count": 18,
+              "usd_volume": 0.003626306722528879,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960742,
+              "tx_count": 24,
+              "usd_volume": 0.1317240045154343,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960743,
+              "tx_count": 15,
+              "usd_volume": 0.20128472634060748,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960744,
+              "tx_count": 21,
+              "usd_volume": 13.257435400939308,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960745,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960746,
+              "tx_count": 24,
+              "usd_volume": 4.469681926717716,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960747,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960748,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960749,
+              "tx_count": 36,
+              "usd_volume": 7.679201984848698,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960750,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960751,
+              "tx_count": 15,
+              "usd_volume": 0.1252431241751025,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960752,
+              "tx_count": 18,
+              "usd_volume": 20.573713602328116,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960753,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960754,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960755,
+              "tx_count": 24,
+              "usd_volume": 46.256892337133735,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960756,
+              "tx_count": 21,
+              "usd_volume": 0.5769694496952974,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960757,
+              "tx_count": 6,
+              "usd_volume": 0.34321182874040085,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960758,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960759,
+              "tx_count": 15,
+              "usd_volume": 0.11663481735305543,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960760,
+              "tx_count": 15,
+              "usd_volume": 14.63454970798728,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960761,
+              "tx_count": 51,
+              "usd_volume": 10.381420301249,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960762,
+              "tx_count": 15,
+              "usd_volume": 0.1564185500712713,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960763,
+              "tx_count": 27,
+              "usd_volume": 12.129069950847246,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960764,
+              "tx_count": 30,
+              "usd_volume": 0.17239592562237738,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960765,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960766,
+              "tx_count": 18,
+              "usd_volume": 0.03821938927921203,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960767,
+              "tx_count": 18,
+              "usd_volume": 1.360640486984424,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960768,
+              "tx_count": 27,
+              "usd_volume": 0.1302308061526572,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960769,
+              "tx_count": 21,
+              "usd_volume": 0.005707857146227285,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960770,
+              "tx_count": 3,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960771,
+              "tx_count": 27,
+              "usd_volume": 0.46721625629151153,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960772,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960773,
+              "tx_count": 18,
+              "usd_volume": 0.5800878627745202,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960774,
+              "tx_count": 39,
+              "usd_volume": 0.017555210867595282,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960775,
+              "tx_count": 27,
+              "usd_volume": 0.6697844082644742,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960776,
+              "tx_count": 24,
+              "usd_volume": 0.03818661436115574,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960777,
+              "tx_count": 15,
+              "usd_volume": 4.460090503781696,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960778,
+              "tx_count": 18,
+              "usd_volume": 0.9023032180769002,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960779,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960780,
+              "tx_count": 21,
+              "usd_volume": 4.156521999804732,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960781,
+              "tx_count": 12,
+              "usd_volume": 0.8479787890838761,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960782,
+              "tx_count": 15,
+              "usd_volume": 5.13915337112309,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960783,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960784,
+              "tx_count": 27,
+              "usd_volume": 1.8570305275595647,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960785,
+              "tx_count": 21,
+              "usd_volume": 0.028328527316372414,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960786,
+              "tx_count": 24,
+              "usd_volume": 0.4585297232524869,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960787,
+              "tx_count": 21,
+              "usd_volume": 6.445463464723137,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960788,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960789,
+              "tx_count": 15,
+              "usd_volume": 8.480742287170532,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960790,
+              "tx_count": 12,
+              "usd_volume": 0.07350666297000406,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960791,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960792,
+              "tx_count": 24,
+              "usd_volume": 10.123676596604744,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960793,
+              "tx_count": 21,
+              "usd_volume": 3.838041172308927,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960794,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960795,
+              "tx_count": 15,
+              "usd_volume": 1.5696136396608509,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960796,
+              "tx_count": 21,
+              "usd_volume": 0.00552066900911802,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960797,
+              "tx_count": 6,
+              "usd_volume": 0.06621396878311432,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960798,
+              "tx_count": 3,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960799,
+              "tx_count": 27,
+              "usd_volume": 0.945332414013243,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960800,
+              "tx_count": 18,
+              "usd_volume": 0.07310447976653005,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960801,
+              "tx_count": 12,
+              "usd_volume": 0.008174747670560725,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960802,
+              "tx_count": 15,
+              "usd_volume": 0.027500765992892313,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960803,
+              "tx_count": 18,
+              "usd_volume": 29.365298386763726,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960804,
+              "tx_count": 24,
+              "usd_volume": 11.491304984889453,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960805,
+              "tx_count": 21,
+              "usd_volume": 1.8578954436469133,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960806,
+              "tx_count": 33,
+              "usd_volume": 0.00894753940907645,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960807,
+              "tx_count": 27,
+              "usd_volume": 12.451806249564736,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960808,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960809,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960810,
+              "tx_count": 24,
+              "usd_volume": 0.008626322836558523,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960811,
+              "tx_count": 24,
+              "usd_volume": 0.0029001348551522,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960812,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960813,
+              "tx_count": 21,
+              "usd_volume": 0.14498914124551354,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960814,
+              "tx_count": 24,
+              "usd_volume": 0.16549980863175962,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960815,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960816,
+              "tx_count": 21,
+              "usd_volume": 0.013880722251576421,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960817,
+              "tx_count": 18,
+              "usd_volume": 2.0282498908539406,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960818,
+              "tx_count": 30,
+              "usd_volume": 0.04784043025366644,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960819,
+              "tx_count": 18,
+              "usd_volume": 0.07311331305640686,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960820,
+              "tx_count": 36,
+              "usd_volume": 0.07592181698285642,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960821,
+              "tx_count": 42,
+              "usd_volume": 13.998837326377451,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960822,
+              "tx_count": 30,
+              "usd_volume": 1.830971149471139,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960823,
+              "tx_count": 24,
+              "usd_volume": 0.009211901543599391,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960824,
+              "tx_count": 24,
+              "usd_volume": 0.012708813739383634,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960825,
+              "tx_count": 21,
+              "usd_volume": 0.03642555934602861,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960826,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960827,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960828,
+              "tx_count": 18,
+              "usd_volume": 0.7844369879345457,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960829,
+              "tx_count": 33,
+              "usd_volume": 0.20896966833127295,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960830,
+              "tx_count": 12,
+              "usd_volume": 0.052495173603840206,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960831,
+              "tx_count": 27,
+              "usd_volume": 0.17967475673538205,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960832,
+              "tx_count": 18,
+              "usd_volume": 0.008595504714938846,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960833,
+              "tx_count": 18,
+              "usd_volume": 1.0376469440499787,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960834,
+              "tx_count": 39,
+              "usd_volume": 0.3055284343919127,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960835,
+              "tx_count": 30,
+              "usd_volume": 10.900723490527906,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960836,
+              "tx_count": 21,
+              "usd_volume": 0.06708381331973218,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960837,
+              "tx_count": 27,
+              "usd_volume": 0.006151879942986712,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960838,
+              "tx_count": 24,
+              "usd_volume": 0.08749097006249684,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960839,
+              "tx_count": 30,
+              "usd_volume": 10.263065675812063,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960840,
+              "tx_count": 24,
+              "usd_volume": 0.11814133400912095,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960841,
+              "tx_count": 21,
+              "usd_volume": 0.018931695116439044,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960842,
+              "tx_count": 24,
+              "usd_volume": 0.11251957434426464,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960843,
+              "tx_count": 36,
+              "usd_volume": 0.089985702708663,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960844,
+              "tx_count": 39,
+              "usd_volume": 0.29987976678531364,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960845,
+              "tx_count": 36,
+              "usd_volume": 0.6657384939487676,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960846,
+              "tx_count": 30,
+              "usd_volume": 0.1511407809477598,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960847,
+              "tx_count": 21,
+              "usd_volume": 0.014742254811545223,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960848,
+              "tx_count": 18,
+              "usd_volume": 0.014560000445838248,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960849,
+              "tx_count": 33,
+              "usd_volume": 0.3561806840661434,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960850,
+              "tx_count": 21,
+              "usd_volume": 0.05568245180628054,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960851,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960852,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960853,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960854,
+              "tx_count": 9,
+              "usd_volume": 0.0188025388739625,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960855,
+              "tx_count": 15,
+              "usd_volume": 0.04164359939522169,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960856,
+              "tx_count": 24,
+              "usd_volume": 0.629082165573436,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960857,
+              "tx_count": 24,
+              "usd_volume": 0.012312865080318987,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960858,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960859,
+              "tx_count": 27,
+              "usd_volume": 0.18964660421362112,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960860,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960861,
+              "tx_count": 30,
+              "usd_volume": 0.5789147237803182,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960862,
+              "tx_count": 21,
+              "usd_volume": 0.02587408053580391,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960863,
+              "tx_count": 24,
+              "usd_volume": 0.030228955961102214,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960864,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960865,
+              "tx_count": 27,
+              "usd_volume": 4.376504420520142,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960866,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960867,
+              "tx_count": 30,
+              "usd_volume": 0.3277312302600151,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960868,
+              "tx_count": 36,
+              "usd_volume": 6.676335483522697,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960869,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960870,
+              "tx_count": 6,
+              "usd_volume": 0.001393808709711512,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960871,
+              "tx_count": 18,
+              "usd_volume": 3.6091275200857638,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960872,
+              "tx_count": 30,
+              "usd_volume": 0.00951001190375085,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960873,
+              "tx_count": 15,
+              "usd_volume": 0.057977185454746345,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960874,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960875,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960876,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960877,
+              "tx_count": 30,
+              "usd_volume": 18.358385533012225,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960878,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960879,
+              "tx_count": 21,
+              "usd_volume": 0.05637904648519482,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960880,
+              "tx_count": 21,
+              "usd_volume": 0.07246981227959133,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960881,
+              "tx_count": 15,
+              "usd_volume": 0.05159038824653078,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960882,
+              "tx_count": 21,
+              "usd_volume": 4.598907069414853,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960883,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960884,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960885,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960886,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960887,
+              "tx_count": 18,
+              "usd_volume": 0.0608451412667746,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960888,
+              "tx_count": 12,
+              "usd_volume": 0.010310313437757967,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960889,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960890,
+              "tx_count": 9,
+              "usd_volume": 0.812256567221211,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960891,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960892,
+              "tx_count": 21,
+              "usd_volume": 0.1121023911416706,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960893,
+              "tx_count": 18,
+              "usd_volume": 0.9808727361403283,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960894,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960895,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960896,
+              "tx_count": 21,
+              "usd_volume": 0.12105578550082463,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960897,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960898,
+              "tx_count": 27,
+              "usd_volume": 0.5224283935820435,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960899,
+              "tx_count": 24,
+              "usd_volume": 0.2155414593727616,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960900,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960901,
+              "tx_count": 21,
+              "usd_volume": 0.14090880450343218,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960902,
+              "tx_count": 21,
+              "usd_volume": 0.014619571094212452,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960903,
+              "tx_count": 27,
+              "usd_volume": 0.09660201744163488,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960904,
+              "tx_count": 18,
+              "usd_volume": 3.930647178656878,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960905,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960906,
+              "tx_count": 6,
+              "usd_volume": 10.69638014279214,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960907,
+              "tx_count": 3,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960908,
+              "tx_count": 12,
+              "usd_volume": 1.3712593907855941,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960909,
+              "tx_count": 6,
+              "usd_volume": 0.044745075728851294,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960910,
+              "tx_count": 15,
+              "usd_volume": 0.1791360328632094,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960911,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960912,
+              "tx_count": 24,
+              "usd_volume": 1.231393159017047,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960913,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960914,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960915,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960916,
+              "tx_count": 36,
+              "usd_volume": 0.08030303031395719,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960917,
+              "tx_count": 24,
+              "usd_volume": 0.2654633137235807,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960918,
+              "tx_count": 18,
+              "usd_volume": 0.11008081776264313,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960919,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960920,
+              "tx_count": 15,
+              "usd_volume": 0.007664960635013573,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960921,
+              "tx_count": 30,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960922,
+              "tx_count": 24,
+              "usd_volume": 0.13335243678502995,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960923,
+              "tx_count": 42,
+              "usd_volume": 1.5609830571001002,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960924,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960925,
+              "tx_count": 33,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960926,
+              "tx_count": 12,
+              "usd_volume": 0.10584871923877795,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960927,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960928,
+              "tx_count": 21,
+              "usd_volume": 0.3120283738616195,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960929,
+              "tx_count": 42,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960930,
+              "tx_count": 45,
+              "usd_volume": 0.28008413771410223,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960931,
+              "tx_count": 24,
+              "usd_volume": 0.40813300664262575,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960932,
+              "tx_count": 21,
+              "usd_volume": 28.19787451660464,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960933,
+              "tx_count": 24,
+              "usd_volume": 2.3517037063743804,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960934,
+              "tx_count": 27,
+              "usd_volume": 8.181651077793418,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960935,
+              "tx_count": 15,
+              "usd_volume": 2.763123876416915,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960936,
+              "tx_count": 9,
+              "usd_volume": 0.1555106825340305,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960937,
+              "tx_count": 30,
+              "usd_volume": 1.81060300622947e-5,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960938,
+              "tx_count": 21,
+              "usd_volume": 19.484667551744064,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960939,
+              "tx_count": 21,
+              "usd_volume": 13.097640359022567,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960940,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960941,
+              "tx_count": 21,
+              "usd_volume": 0.21516023197039832,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960942,
+              "tx_count": 21,
+              "usd_volume": 0.3652541613585901,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960943,
+              "tx_count": 36,
+              "usd_volume": 24.175325356567118,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960944,
+              "tx_count": 15,
+              "usd_volume": 0.5477978929549908,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960945,
+              "tx_count": 33,
+              "usd_volume": 0.06128479306853518,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960946,
+              "tx_count": 24,
+              "usd_volume": 0.19962760777609734,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960947,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960948,
+              "tx_count": 24,
+              "usd_volume": 0.5439429561977029,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960949,
+              "tx_count": 27,
+              "usd_volume": 24.34524274151123,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960950,
+              "tx_count": 24,
+              "usd_volume": 4.460346218844648,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960951,
+              "tx_count": 18,
+              "usd_volume": 28.330454091783132,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960952,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960953,
+              "tx_count": 42,
+              "usd_volume": 26.71693068727979,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960954,
+              "tx_count": 18,
+              "usd_volume": 0.42752613318746213,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960955,
+              "tx_count": 24,
+              "usd_volume": 0.6166890832134178,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960956,
+              "tx_count": 30,
+              "usd_volume": 0.007927815101131379,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960957,
+              "tx_count": 9,
+              "usd_volume": 10.02449679614366,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960958,
+              "tx_count": 30,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960959,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960960,
+              "tx_count": 30,
+              "usd_volume": 0.05998744422725055,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960961,
+              "tx_count": 39,
+              "usd_volume": 1.0625572703814634,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960962,
+              "tx_count": 18,
+              "usd_volume": 0.8075240473298761,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960963,
+              "tx_count": 33,
+              "usd_volume": 0.10807782299230963,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960964,
+              "tx_count": 27,
+              "usd_volume": 0.2463566849184355,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960965,
+              "tx_count": 27,
+              "usd_volume": 0.08567307676832897,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960966,
+              "tx_count": 24,
+              "usd_volume": 1.2668949847083124,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960967,
+              "tx_count": 45,
+              "usd_volume": 0.10846680321653919,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960968,
+              "tx_count": 60,
+              "usd_volume": 0.500785406693697,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960969,
+              "tx_count": 48,
+              "usd_volume": 0.11334575965587855,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960970,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960971,
+              "tx_count": 21,
+              "usd_volume": 0.13000670213745594,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960972,
+              "tx_count": 27,
+              "usd_volume": 0.2220854384970689,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960973,
+              "tx_count": 15,
+              "usd_volume": 7.48495758504829,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960974,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960975,
+              "tx_count": 3,
+              "usd_volume": 0.008338068482811056,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960976,
+              "tx_count": 27,
+              "usd_volume": 3.048606963736915,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960977,
+              "tx_count": 27,
+              "usd_volume": 3.018516006897857,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960978,
+              "tx_count": 27,
+              "usd_volume": 0.434304707591541,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960979,
+              "tx_count": 18,
+              "usd_volume": 0.03396726937493376,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960980,
+              "tx_count": 18,
+              "usd_volume": 0.03449333116957963,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960981,
+              "tx_count": 18,
+              "usd_volume": 2.3662041752294867,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960982,
+              "tx_count": 36,
+              "usd_volume": 1.2087652504687307,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960983,
+              "tx_count": 15,
+              "usd_volume": 0.019879761769303162,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960984,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960985,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960986,
+              "tx_count": 15,
+              "usd_volume": 1.642503342523315,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960987,
+              "tx_count": 42,
+              "usd_volume": 0.5068241428552002,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960988,
+              "tx_count": 30,
+              "usd_volume": 0.7489583056290016,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960989,
+              "tx_count": 30,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960990,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960991,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960992,
+              "tx_count": 12,
+              "usd_volume": 0.04702240994796698,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960993,
+              "tx_count": 27,
+              "usd_volume": 0.0293975198650462,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960994,
+              "tx_count": 12,
+              "usd_volume": 0.00947381174236568,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960995,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960996,
+              "tx_count": 27,
+              "usd_volume": 2.633663235307688,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960997,
+              "tx_count": 27,
+              "usd_volume": 5.632411590846305,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960998,
+              "tx_count": 21,
+              "usd_volume": 0.025738987158673295,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960999,
+              "tx_count": 30,
+              "usd_volume": 0.09087105878506753,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961000,
+              "tx_count": 18,
+              "usd_volume": 0.05259045279193021,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961001,
+              "tx_count": 24,
+              "usd_volume": 0.005820346429753109,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961002,
+              "tx_count": 42,
+              "usd_volume": 0.3247028392770181,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961003,
+              "tx_count": 6,
+              "usd_volume": 0.17932687125812347,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961004,
+              "tx_count": 45,
+              "usd_volume": 0.23360510661655787,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961005,
+              "tx_count": 48,
+              "usd_volume": 0.014215579026000888,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961006,
+              "tx_count": 18,
+              "usd_volume": 0.010919394998595027,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961007,
+              "tx_count": 21,
+              "usd_volume": 0.03586672409158409,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961008,
+              "tx_count": 24,
+              "usd_volume": 15.580587084465819,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961009,
+              "tx_count": 39,
+              "usd_volume": 0.5724211001471268,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961010,
+              "tx_count": 21,
+              "usd_volume": 0.01820548645515357,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961011,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961012,
+              "tx_count": 33,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961013,
+              "tx_count": 30,
+              "usd_volume": 0.015425936279469655,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961014,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961015,
+              "tx_count": 30,
+              "usd_volume": 0.04123980055471682,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961016,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961017,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961018,
+              "tx_count": 24,
+              "usd_volume": 0.9154932735219865,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961019,
+              "tx_count": 27,
+              "usd_volume": 1.383934691061833,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961020,
+              "tx_count": 12,
+              "usd_volume": 0.8395575860271848,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961021,
+              "tx_count": 18,
+              "usd_volume": 0.2940641478124113,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961022,
+              "tx_count": 39,
+              "usd_volume": 0.15057630493393914,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961023,
+              "tx_count": 30,
+              "usd_volume": 0.11127406490816122,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961024,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961025,
+              "tx_count": 24,
+              "usd_volume": 0.23741449927822245,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961026,
+              "tx_count": 18,
+              "usd_volume": 5.579505038145317,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961027,
+              "tx_count": 24,
+              "usd_volume": 0.8564758635974973,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961028,
+              "tx_count": 21,
+              "usd_volume": 1.0973376189147035,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961029,
+              "tx_count": 27,
+              "usd_volume": 0.8583285063635673,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961030,
+              "tx_count": 24,
+              "usd_volume": 4.543506877021047,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961031,
+              "tx_count": 45,
+              "usd_volume": 14.697939665529466,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961032,
+              "tx_count": 12,
+              "usd_volume": 4.501782289093359,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961033,
+              "tx_count": 39,
+              "usd_volume": 10.08933543492622,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961034,
+              "tx_count": 30,
+              "usd_volume": 0.017067655912599768,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961035,
+              "tx_count": 24,
+              "usd_volume": 0.9710914478572925,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961036,
+              "tx_count": 33,
+              "usd_volume": 0.03666685312940208,
+              "fees_usd": 0.0
+            }
+          ],
+          "pnl_mode": "value_minus_fees"
+        },
+        {
+          "symbol": "ARTX",
+          "chain": "bsc",
+          "profile_file": "",
+          "pump_start_ts": 1764924000,
+          "pump_end_ts": 1764925920,
+          "window_start_ts": 1764664800,
+          "window_end_ts": 1764933120,
+          "pnl_before_usd": 200.97746065300979,
+          "pnl_during_usd": 0.6512711608374002,
+          "pnl_after_usd": 11.905239576610986,
+          "pnl_total_usd": 213.5339713904582,
+          "roi_reason": "no_sells",
+          "has_sell_tx": false,
+          "price_missing": false,
+          "tx_count": 2200,
+          "covalent_used_chain_name": null,
+          "start_bucket": null,
+          "end_bucket": null,
+          "buckets_fetched": null,
+          "tx_items_count": null,
+          "errors_count": null,
+          "cache_hits": null,
+          "http_429_count": null,
+          "sleep_seconds_total": null,
+          "timeline_buckets": [
+            {
+              "bucket": 1960738,
+              "tx_count": 9,
+              "usd_volume": 0.006287632650606738,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960739,
+              "tx_count": 18,
+              "usd_volume": 0.3469041910128853,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960740,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960741,
+              "tx_count": 18,
+              "usd_volume": 0.003626306722528879,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960742,
+              "tx_count": 24,
+              "usd_volume": 0.1317240045154343,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960743,
+              "tx_count": 15,
+              "usd_volume": 0.20128472634060748,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960744,
+              "tx_count": 21,
+              "usd_volume": 13.257435400939308,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960745,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960746,
+              "tx_count": 24,
+              "usd_volume": 4.469681926717716,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960747,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960748,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960749,
+              "tx_count": 36,
+              "usd_volume": 7.679201984848698,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960750,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960751,
+              "tx_count": 15,
+              "usd_volume": 0.1252431241751025,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960752,
+              "tx_count": 18,
+              "usd_volume": 20.573713602328116,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960753,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960754,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960755,
+              "tx_count": 24,
+              "usd_volume": 46.256892337133735,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960756,
+              "tx_count": 21,
+              "usd_volume": 0.5769694496952974,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960757,
+              "tx_count": 6,
+              "usd_volume": 0.34321182874040085,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960758,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960759,
+              "tx_count": 15,
+              "usd_volume": 0.11663481735305543,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960760,
+              "tx_count": 15,
+              "usd_volume": 14.63454970798728,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960761,
+              "tx_count": 51,
+              "usd_volume": 10.381420301249,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960762,
+              "tx_count": 15,
+              "usd_volume": 0.1564185500712713,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960763,
+              "tx_count": 27,
+              "usd_volume": 12.129069950847246,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960764,
+              "tx_count": 30,
+              "usd_volume": 0.17239592562237738,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960765,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960766,
+              "tx_count": 18,
+              "usd_volume": 0.03821938927921203,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960767,
+              "tx_count": 18,
+              "usd_volume": 1.360640486984424,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960768,
+              "tx_count": 27,
+              "usd_volume": 0.1302308061526572,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960769,
+              "tx_count": 21,
+              "usd_volume": 0.005707857146227285,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960770,
+              "tx_count": 3,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960771,
+              "tx_count": 27,
+              "usd_volume": 0.46721625629151153,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960772,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960773,
+              "tx_count": 18,
+              "usd_volume": 0.5800878627745202,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960774,
+              "tx_count": 39,
+              "usd_volume": 0.017555210867595282,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960775,
+              "tx_count": 27,
+              "usd_volume": 0.6697844082644742,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960776,
+              "tx_count": 24,
+              "usd_volume": 0.03818661436115574,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960777,
+              "tx_count": 15,
+              "usd_volume": 4.460090503781696,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960778,
+              "tx_count": 18,
+              "usd_volume": 0.9023032180769002,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960779,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960780,
+              "tx_count": 21,
+              "usd_volume": 4.156521999804732,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960781,
+              "tx_count": 12,
+              "usd_volume": 0.8479787890838761,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960782,
+              "tx_count": 15,
+              "usd_volume": 5.13915337112309,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960783,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960784,
+              "tx_count": 27,
+              "usd_volume": 1.8570305275595647,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960785,
+              "tx_count": 21,
+              "usd_volume": 0.028328527316372414,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960786,
+              "tx_count": 24,
+              "usd_volume": 0.4585297232524869,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960787,
+              "tx_count": 21,
+              "usd_volume": 6.445463464723137,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960788,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960789,
+              "tx_count": 15,
+              "usd_volume": 8.480742287170532,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960790,
+              "tx_count": 12,
+              "usd_volume": 0.07350666297000406,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960791,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960792,
+              "tx_count": 24,
+              "usd_volume": 10.123676596604744,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960793,
+              "tx_count": 21,
+              "usd_volume": 3.838041172308927,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960794,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960795,
+              "tx_count": 15,
+              "usd_volume": 1.5696136396608509,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960796,
+              "tx_count": 21,
+              "usd_volume": 0.00552066900911802,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960797,
+              "tx_count": 6,
+              "usd_volume": 0.06621396878311432,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960798,
+              "tx_count": 3,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960799,
+              "tx_count": 27,
+              "usd_volume": 0.945332414013243,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960800,
+              "tx_count": 18,
+              "usd_volume": 0.07310447976653005,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960801,
+              "tx_count": 12,
+              "usd_volume": 0.008174747670560725,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960802,
+              "tx_count": 15,
+              "usd_volume": 0.027500765992892313,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960803,
+              "tx_count": 18,
+              "usd_volume": 29.365298386763726,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960804,
+              "tx_count": 24,
+              "usd_volume": 11.491304984889453,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960805,
+              "tx_count": 21,
+              "usd_volume": 1.8578954436469133,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960806,
+              "tx_count": 33,
+              "usd_volume": 0.00894753940907645,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960807,
+              "tx_count": 27,
+              "usd_volume": 12.451806249564736,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960808,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960809,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960810,
+              "tx_count": 24,
+              "usd_volume": 0.008626322836558523,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960811,
+              "tx_count": 24,
+              "usd_volume": 0.0029001348551522,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960812,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960813,
+              "tx_count": 21,
+              "usd_volume": 0.14498914124551354,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960814,
+              "tx_count": 24,
+              "usd_volume": 0.16549980863175962,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960815,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960816,
+              "tx_count": 21,
+              "usd_volume": 0.013880722251576421,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960817,
+              "tx_count": 18,
+              "usd_volume": 2.0282498908539406,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960818,
+              "tx_count": 30,
+              "usd_volume": 0.04784043025366644,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960819,
+              "tx_count": 18,
+              "usd_volume": 0.07311331305640686,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960820,
+              "tx_count": 36,
+              "usd_volume": 0.07592181698285642,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960821,
+              "tx_count": 42,
+              "usd_volume": 13.998837326377451,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960822,
+              "tx_count": 30,
+              "usd_volume": 1.830971149471139,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960823,
+              "tx_count": 24,
+              "usd_volume": 0.009211901543599391,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960824,
+              "tx_count": 24,
+              "usd_volume": 0.012708813739383634,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960825,
+              "tx_count": 21,
+              "usd_volume": 0.03642555934602861,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960826,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960827,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960828,
+              "tx_count": 18,
+              "usd_volume": 0.7844369879345457,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960829,
+              "tx_count": 33,
+              "usd_volume": 0.20896966833127295,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960830,
+              "tx_count": 12,
+              "usd_volume": 0.052495173603840206,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960831,
+              "tx_count": 27,
+              "usd_volume": 0.17967475673538205,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960832,
+              "tx_count": 18,
+              "usd_volume": 0.008595504714938846,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960833,
+              "tx_count": 18,
+              "usd_volume": 1.0376469440499787,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960834,
+              "tx_count": 39,
+              "usd_volume": 0.3055284343919127,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960835,
+              "tx_count": 30,
+              "usd_volume": 10.900723490527906,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960836,
+              "tx_count": 21,
+              "usd_volume": 0.06708381331973218,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960837,
+              "tx_count": 27,
+              "usd_volume": 0.006151879942986712,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960838,
+              "tx_count": 24,
+              "usd_volume": 0.08749097006249684,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960839,
+              "tx_count": 30,
+              "usd_volume": 10.263065675812063,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960840,
+              "tx_count": 24,
+              "usd_volume": 0.11814133400912095,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960841,
+              "tx_count": 21,
+              "usd_volume": 0.018931695116439044,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960842,
+              "tx_count": 24,
+              "usd_volume": 0.11251957434426464,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960843,
+              "tx_count": 36,
+              "usd_volume": 0.089985702708663,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960844,
+              "tx_count": 39,
+              "usd_volume": 0.29987976678531364,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960845,
+              "tx_count": 36,
+              "usd_volume": 0.6657384939487676,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960846,
+              "tx_count": 30,
+              "usd_volume": 0.1511407809477598,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960847,
+              "tx_count": 21,
+              "usd_volume": 0.014742254811545223,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960848,
+              "tx_count": 18,
+              "usd_volume": 0.014560000445838248,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960849,
+              "tx_count": 33,
+              "usd_volume": 0.3561806840661434,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960850,
+              "tx_count": 21,
+              "usd_volume": 0.05568245180628054,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960851,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960852,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960853,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960854,
+              "tx_count": 9,
+              "usd_volume": 0.0188025388739625,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960855,
+              "tx_count": 15,
+              "usd_volume": 0.04164359939522169,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960856,
+              "tx_count": 24,
+              "usd_volume": 0.629082165573436,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960857,
+              "tx_count": 24,
+              "usd_volume": 0.012312865080318987,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960858,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960859,
+              "tx_count": 27,
+              "usd_volume": 0.18964660421362112,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960860,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960861,
+              "tx_count": 30,
+              "usd_volume": 0.5789147237803182,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960862,
+              "tx_count": 21,
+              "usd_volume": 0.02587408053580391,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960863,
+              "tx_count": 24,
+              "usd_volume": 0.030228955961102214,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960864,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960865,
+              "tx_count": 27,
+              "usd_volume": 4.376504420520142,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960866,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960867,
+              "tx_count": 30,
+              "usd_volume": 0.3277312302600151,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960868,
+              "tx_count": 36,
+              "usd_volume": 6.676335483522697,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960869,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960870,
+              "tx_count": 6,
+              "usd_volume": 0.001393808709711512,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960871,
+              "tx_count": 18,
+              "usd_volume": 3.6091275200857638,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960872,
+              "tx_count": 30,
+              "usd_volume": 0.00951001190375085,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960873,
+              "tx_count": 15,
+              "usd_volume": 0.057977185454746345,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960874,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960875,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960876,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960877,
+              "tx_count": 30,
+              "usd_volume": 18.358385533012225,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960878,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960879,
+              "tx_count": 21,
+              "usd_volume": 0.05637904648519482,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960880,
+              "tx_count": 21,
+              "usd_volume": 0.07246981227959133,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960881,
+              "tx_count": 15,
+              "usd_volume": 0.05159038824653078,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960882,
+              "tx_count": 21,
+              "usd_volume": 4.598907069414853,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960883,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960884,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960885,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960886,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960887,
+              "tx_count": 18,
+              "usd_volume": 0.0608451412667746,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960888,
+              "tx_count": 12,
+              "usd_volume": 0.010310313437757967,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960889,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960890,
+              "tx_count": 9,
+              "usd_volume": 0.812256567221211,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960891,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960892,
+              "tx_count": 21,
+              "usd_volume": 0.1121023911416706,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960893,
+              "tx_count": 18,
+              "usd_volume": 0.9808727361403283,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960894,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960895,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960896,
+              "tx_count": 21,
+              "usd_volume": 0.12105578550082463,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960897,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960898,
+              "tx_count": 27,
+              "usd_volume": 0.5224283935820435,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960899,
+              "tx_count": 24,
+              "usd_volume": 0.2155414593727616,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960900,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960901,
+              "tx_count": 21,
+              "usd_volume": 0.14090880450343218,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960902,
+              "tx_count": 21,
+              "usd_volume": 0.014619571094212452,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960903,
+              "tx_count": 27,
+              "usd_volume": 0.09660201744163488,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960904,
+              "tx_count": 18,
+              "usd_volume": 3.930647178656878,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960905,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960906,
+              "tx_count": 6,
+              "usd_volume": 10.69638014279214,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960907,
+              "tx_count": 3,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960908,
+              "tx_count": 12,
+              "usd_volume": 1.3712593907855941,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960909,
+              "tx_count": 6,
+              "usd_volume": 0.044745075728851294,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960910,
+              "tx_count": 15,
+              "usd_volume": 0.1791360328632094,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960911,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960912,
+              "tx_count": 24,
+              "usd_volume": 1.231393159017047,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960913,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960914,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960915,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960916,
+              "tx_count": 36,
+              "usd_volume": 0.08030303031395719,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960917,
+              "tx_count": 24,
+              "usd_volume": 0.2654633137235807,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960918,
+              "tx_count": 18,
+              "usd_volume": 0.11008081776264313,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960919,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960920,
+              "tx_count": 15,
+              "usd_volume": 0.007664960635013573,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960921,
+              "tx_count": 30,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960922,
+              "tx_count": 24,
+              "usd_volume": 0.13335243678502995,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960923,
+              "tx_count": 42,
+              "usd_volume": 1.5609830571001002,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960924,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960925,
+              "tx_count": 33,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960926,
+              "tx_count": 12,
+              "usd_volume": 0.10584871923877795,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960927,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960928,
+              "tx_count": 21,
+              "usd_volume": 0.3120283738616195,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960929,
+              "tx_count": 42,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960930,
+              "tx_count": 45,
+              "usd_volume": 0.28008413771410223,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960931,
+              "tx_count": 24,
+              "usd_volume": 0.40813300664262575,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960932,
+              "tx_count": 21,
+              "usd_volume": 28.19787451660464,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960933,
+              "tx_count": 24,
+              "usd_volume": 2.3517037063743804,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960934,
+              "tx_count": 27,
+              "usd_volume": 8.181651077793418,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960935,
+              "tx_count": 15,
+              "usd_volume": 2.763123876416915,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960936,
+              "tx_count": 9,
+              "usd_volume": 0.1555106825340305,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960937,
+              "tx_count": 30,
+              "usd_volume": 1.81060300622947e-5,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960938,
+              "tx_count": 21,
+              "usd_volume": 19.484667551744064,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960939,
+              "tx_count": 21,
+              "usd_volume": 13.097640359022567,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960940,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960941,
+              "tx_count": 21,
+              "usd_volume": 0.21516023197039832,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960942,
+              "tx_count": 21,
+              "usd_volume": 0.3652541613585901,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960943,
+              "tx_count": 36,
+              "usd_volume": 24.175325356567118,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960944,
+              "tx_count": 15,
+              "usd_volume": 0.5477978929549908,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960945,
+              "tx_count": 33,
+              "usd_volume": 0.06128479306853518,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960946,
+              "tx_count": 24,
+              "usd_volume": 0.19962760777609734,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960947,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960948,
+              "tx_count": 24,
+              "usd_volume": 0.5439429561977029,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960949,
+              "tx_count": 27,
+              "usd_volume": 24.34524274151123,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960950,
+              "tx_count": 24,
+              "usd_volume": 4.460346218844648,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960951,
+              "tx_count": 18,
+              "usd_volume": 28.330454091783132,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960952,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960953,
+              "tx_count": 42,
+              "usd_volume": 26.71693068727979,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960954,
+              "tx_count": 18,
+              "usd_volume": 0.42752613318746213,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960955,
+              "tx_count": 24,
+              "usd_volume": 0.6166890832134178,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960956,
+              "tx_count": 30,
+              "usd_volume": 0.007927815101131379,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960957,
+              "tx_count": 9,
+              "usd_volume": 10.02449679614366,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960958,
+              "tx_count": 30,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960959,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960960,
+              "tx_count": 30,
+              "usd_volume": 0.05998744422725055,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960961,
+              "tx_count": 39,
+              "usd_volume": 1.0625572703814634,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960962,
+              "tx_count": 18,
+              "usd_volume": 0.8075240473298761,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960963,
+              "tx_count": 33,
+              "usd_volume": 0.10807782299230963,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960964,
+              "tx_count": 27,
+              "usd_volume": 0.2463566849184355,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960965,
+              "tx_count": 27,
+              "usd_volume": 0.08567307676832897,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960966,
+              "tx_count": 24,
+              "usd_volume": 1.2668949847083124,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960967,
+              "tx_count": 45,
+              "usd_volume": 0.10846680321653919,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960968,
+              "tx_count": 60,
+              "usd_volume": 0.500785406693697,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960969,
+              "tx_count": 48,
+              "usd_volume": 0.11334575965587855,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960970,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960971,
+              "tx_count": 21,
+              "usd_volume": 0.13000670213745594,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960972,
+              "tx_count": 27,
+              "usd_volume": 0.2220854384970689,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960973,
+              "tx_count": 15,
+              "usd_volume": 7.48495758504829,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960974,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960975,
+              "tx_count": 3,
+              "usd_volume": 0.008338068482811056,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960976,
+              "tx_count": 27,
+              "usd_volume": 3.048606963736915,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960977,
+              "tx_count": 27,
+              "usd_volume": 3.018516006897857,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960978,
+              "tx_count": 27,
+              "usd_volume": 0.434304707591541,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960979,
+              "tx_count": 18,
+              "usd_volume": 0.03396726937493376,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960980,
+              "tx_count": 18,
+              "usd_volume": 0.03449333116957963,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960981,
+              "tx_count": 18,
+              "usd_volume": 2.3662041752294867,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960982,
+              "tx_count": 36,
+              "usd_volume": 1.2087652504687307,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960983,
+              "tx_count": 15,
+              "usd_volume": 0.019879761769303162,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960984,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960985,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960986,
+              "tx_count": 15,
+              "usd_volume": 1.642503342523315,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960987,
+              "tx_count": 42,
+              "usd_volume": 0.5068241428552002,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960988,
+              "tx_count": 30,
+              "usd_volume": 0.7489583056290016,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960989,
+              "tx_count": 30,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960990,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960991,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960992,
+              "tx_count": 12,
+              "usd_volume": 0.04702240994796698,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960993,
+              "tx_count": 27,
+              "usd_volume": 0.0293975198650462,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960994,
+              "tx_count": 12,
+              "usd_volume": 0.00947381174236568,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960995,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960996,
+              "tx_count": 27,
+              "usd_volume": 2.633663235307688,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960997,
+              "tx_count": 27,
+              "usd_volume": 5.632411590846305,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960998,
+              "tx_count": 21,
+              "usd_volume": 0.025738987158673295,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960999,
+              "tx_count": 30,
+              "usd_volume": 0.09087105878506753,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961000,
+              "tx_count": 18,
+              "usd_volume": 0.05259045279193021,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961001,
+              "tx_count": 24,
+              "usd_volume": 0.005820346429753109,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961002,
+              "tx_count": 42,
+              "usd_volume": 0.3247028392770181,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961003,
+              "tx_count": 6,
+              "usd_volume": 0.17932687125812347,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961004,
+              "tx_count": 45,
+              "usd_volume": 0.23360510661655787,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961005,
+              "tx_count": 48,
+              "usd_volume": 0.014215579026000888,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961006,
+              "tx_count": 18,
+              "usd_volume": 0.010919394998595027,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961007,
+              "tx_count": 21,
+              "usd_volume": 0.03586672409158409,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961008,
+              "tx_count": 24,
+              "usd_volume": 15.580587084465819,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961009,
+              "tx_count": 39,
+              "usd_volume": 0.5724211001471268,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961010,
+              "tx_count": 21,
+              "usd_volume": 0.01820548645515357,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961011,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961012,
+              "tx_count": 33,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961013,
+              "tx_count": 30,
+              "usd_volume": 0.015425936279469655,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961014,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961015,
+              "tx_count": 30,
+              "usd_volume": 0.04123980055471682,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961016,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961017,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961018,
+              "tx_count": 24,
+              "usd_volume": 0.9154932735219865,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961019,
+              "tx_count": 27,
+              "usd_volume": 1.383934691061833,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961020,
+              "tx_count": 12,
+              "usd_volume": 0.8395575860271848,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961021,
+              "tx_count": 18,
+              "usd_volume": 0.2940641478124113,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961022,
+              "tx_count": 39,
+              "usd_volume": 0.15057630493393914,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961023,
+              "tx_count": 30,
+              "usd_volume": 0.11127406490816122,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961024,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961025,
+              "tx_count": 24,
+              "usd_volume": 0.23741449927822245,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961026,
+              "tx_count": 18,
+              "usd_volume": 5.579505038145317,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961027,
+              "tx_count": 24,
+              "usd_volume": 0.8564758635974973,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961028,
+              "tx_count": 21,
+              "usd_volume": 1.0973376189147035,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961029,
+              "tx_count": 27,
+              "usd_volume": 0.8583285063635673,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961030,
+              "tx_count": 24,
+              "usd_volume": 4.543506877021047,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961031,
+              "tx_count": 45,
+              "usd_volume": 14.697939665529466,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961032,
+              "tx_count": 12,
+              "usd_volume": 4.501782289093359,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961033,
+              "tx_count": 39,
+              "usd_volume": 10.08933543492622,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961034,
+              "tx_count": 30,
+              "usd_volume": 0.017067655912599768,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961035,
+              "tx_count": 24,
+              "usd_volume": 0.9710914478572925,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961036,
+              "tx_count": 33,
+              "usd_volume": 0.03666685312940208,
+              "fees_usd": 0.0
+            }
+          ],
+          "pnl_mode": "value_minus_fees"
+        },
+        {
+          "symbol": "ARTX",
+          "chain": "bsc",
+          "profile_file": "",
+          "pump_start_ts": 1764924000,
+          "pump_end_ts": 1764925920,
+          "window_start_ts": 1764664800,
+          "window_end_ts": 1764933120,
+          "pnl_before_usd": 200.97746065300979,
+          "pnl_during_usd": 0.6512711608374002,
+          "pnl_after_usd": 11.905239576610986,
+          "pnl_total_usd": 213.5339713904582,
+          "roi_reason": "no_sells",
+          "has_sell_tx": false,
+          "price_missing": false,
+          "tx_count": 2200,
+          "covalent_used_chain_name": null,
+          "start_bucket": null,
+          "end_bucket": null,
+          "buckets_fetched": null,
+          "tx_items_count": null,
+          "errors_count": null,
+          "cache_hits": null,
+          "http_429_count": null,
+          "sleep_seconds_total": null,
+          "timeline_buckets": [
+            {
+              "bucket": 1960738,
+              "tx_count": 9,
+              "usd_volume": 0.006287632650606738,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960739,
+              "tx_count": 18,
+              "usd_volume": 0.3469041910128853,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960740,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960741,
+              "tx_count": 18,
+              "usd_volume": 0.003626306722528879,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960742,
+              "tx_count": 24,
+              "usd_volume": 0.1317240045154343,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960743,
+              "tx_count": 15,
+              "usd_volume": 0.20128472634060748,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960744,
+              "tx_count": 21,
+              "usd_volume": 13.257435400939308,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960745,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960746,
+              "tx_count": 24,
+              "usd_volume": 4.469681926717716,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960747,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960748,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960749,
+              "tx_count": 36,
+              "usd_volume": 7.679201984848698,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960750,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960751,
+              "tx_count": 15,
+              "usd_volume": 0.1252431241751025,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960752,
+              "tx_count": 18,
+              "usd_volume": 20.573713602328116,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960753,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960754,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960755,
+              "tx_count": 24,
+              "usd_volume": 46.256892337133735,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960756,
+              "tx_count": 21,
+              "usd_volume": 0.5769694496952974,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960757,
+              "tx_count": 6,
+              "usd_volume": 0.34321182874040085,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960758,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960759,
+              "tx_count": 15,
+              "usd_volume": 0.11663481735305543,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960760,
+              "tx_count": 15,
+              "usd_volume": 14.63454970798728,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960761,
+              "tx_count": 51,
+              "usd_volume": 10.381420301249,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960762,
+              "tx_count": 15,
+              "usd_volume": 0.1564185500712713,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960763,
+              "tx_count": 27,
+              "usd_volume": 12.129069950847246,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960764,
+              "tx_count": 30,
+              "usd_volume": 0.17239592562237738,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960765,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960766,
+              "tx_count": 18,
+              "usd_volume": 0.03821938927921203,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960767,
+              "tx_count": 18,
+              "usd_volume": 1.360640486984424,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960768,
+              "tx_count": 27,
+              "usd_volume": 0.1302308061526572,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960769,
+              "tx_count": 21,
+              "usd_volume": 0.005707857146227285,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960770,
+              "tx_count": 3,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960771,
+              "tx_count": 27,
+              "usd_volume": 0.46721625629151153,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960772,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960773,
+              "tx_count": 18,
+              "usd_volume": 0.5800878627745202,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960774,
+              "tx_count": 39,
+              "usd_volume": 0.017555210867595282,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960775,
+              "tx_count": 27,
+              "usd_volume": 0.6697844082644742,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960776,
+              "tx_count": 24,
+              "usd_volume": 0.03818661436115574,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960777,
+              "tx_count": 15,
+              "usd_volume": 4.460090503781696,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960778,
+              "tx_count": 18,
+              "usd_volume": 0.9023032180769002,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960779,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960780,
+              "tx_count": 21,
+              "usd_volume": 4.156521999804732,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960781,
+              "tx_count": 12,
+              "usd_volume": 0.8479787890838761,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960782,
+              "tx_count": 15,
+              "usd_volume": 5.13915337112309,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960783,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960784,
+              "tx_count": 27,
+              "usd_volume": 1.8570305275595647,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960785,
+              "tx_count": 21,
+              "usd_volume": 0.028328527316372414,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960786,
+              "tx_count": 24,
+              "usd_volume": 0.4585297232524869,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960787,
+              "tx_count": 21,
+              "usd_volume": 6.445463464723137,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960788,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960789,
+              "tx_count": 15,
+              "usd_volume": 8.480742287170532,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960790,
+              "tx_count": 12,
+              "usd_volume": 0.07350666297000406,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960791,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960792,
+              "tx_count": 24,
+              "usd_volume": 10.123676596604744,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960793,
+              "tx_count": 21,
+              "usd_volume": 3.838041172308927,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960794,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960795,
+              "tx_count": 15,
+              "usd_volume": 1.5696136396608509,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960796,
+              "tx_count": 21,
+              "usd_volume": 0.00552066900911802,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960797,
+              "tx_count": 6,
+              "usd_volume": 0.06621396878311432,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960798,
+              "tx_count": 3,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960799,
+              "tx_count": 27,
+              "usd_volume": 0.945332414013243,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960800,
+              "tx_count": 18,
+              "usd_volume": 0.07310447976653005,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960801,
+              "tx_count": 12,
+              "usd_volume": 0.008174747670560725,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960802,
+              "tx_count": 15,
+              "usd_volume": 0.027500765992892313,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960803,
+              "tx_count": 18,
+              "usd_volume": 29.365298386763726,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960804,
+              "tx_count": 24,
+              "usd_volume": 11.491304984889453,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960805,
+              "tx_count": 21,
+              "usd_volume": 1.8578954436469133,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960806,
+              "tx_count": 33,
+              "usd_volume": 0.00894753940907645,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960807,
+              "tx_count": 27,
+              "usd_volume": 12.451806249564736,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960808,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960809,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960810,
+              "tx_count": 24,
+              "usd_volume": 0.008626322836558523,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960811,
+              "tx_count": 24,
+              "usd_volume": 0.0029001348551522,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960812,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960813,
+              "tx_count": 21,
+              "usd_volume": 0.14498914124551354,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960814,
+              "tx_count": 24,
+              "usd_volume": 0.16549980863175962,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960815,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960816,
+              "tx_count": 21,
+              "usd_volume": 0.013880722251576421,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960817,
+              "tx_count": 18,
+              "usd_volume": 2.0282498908539406,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960818,
+              "tx_count": 30,
+              "usd_volume": 0.04784043025366644,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960819,
+              "tx_count": 18,
+              "usd_volume": 0.07311331305640686,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960820,
+              "tx_count": 36,
+              "usd_volume": 0.07592181698285642,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960821,
+              "tx_count": 42,
+              "usd_volume": 13.998837326377451,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960822,
+              "tx_count": 30,
+              "usd_volume": 1.830971149471139,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960823,
+              "tx_count": 24,
+              "usd_volume": 0.009211901543599391,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960824,
+              "tx_count": 24,
+              "usd_volume": 0.012708813739383634,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960825,
+              "tx_count": 21,
+              "usd_volume": 0.03642555934602861,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960826,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960827,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960828,
+              "tx_count": 18,
+              "usd_volume": 0.7844369879345457,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960829,
+              "tx_count": 33,
+              "usd_volume": 0.20896966833127295,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960830,
+              "tx_count": 12,
+              "usd_volume": 0.052495173603840206,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960831,
+              "tx_count": 27,
+              "usd_volume": 0.17967475673538205,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960832,
+              "tx_count": 18,
+              "usd_volume": 0.008595504714938846,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960833,
+              "tx_count": 18,
+              "usd_volume": 1.0376469440499787,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960834,
+              "tx_count": 39,
+              "usd_volume": 0.3055284343919127,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960835,
+              "tx_count": 30,
+              "usd_volume": 10.900723490527906,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960836,
+              "tx_count": 21,
+              "usd_volume": 0.06708381331973218,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960837,
+              "tx_count": 27,
+              "usd_volume": 0.006151879942986712,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960838,
+              "tx_count": 24,
+              "usd_volume": 0.08749097006249684,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960839,
+              "tx_count": 30,
+              "usd_volume": 10.263065675812063,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960840,
+              "tx_count": 24,
+              "usd_volume": 0.11814133400912095,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960841,
+              "tx_count": 21,
+              "usd_volume": 0.018931695116439044,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960842,
+              "tx_count": 24,
+              "usd_volume": 0.11251957434426464,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960843,
+              "tx_count": 36,
+              "usd_volume": 0.089985702708663,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960844,
+              "tx_count": 39,
+              "usd_volume": 0.29987976678531364,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960845,
+              "tx_count": 36,
+              "usd_volume": 0.6657384939487676,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960846,
+              "tx_count": 30,
+              "usd_volume": 0.1511407809477598,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960847,
+              "tx_count": 21,
+              "usd_volume": 0.014742254811545223,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960848,
+              "tx_count": 18,
+              "usd_volume": 0.014560000445838248,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960849,
+              "tx_count": 33,
+              "usd_volume": 0.3561806840661434,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960850,
+              "tx_count": 21,
+              "usd_volume": 0.05568245180628054,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960851,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960852,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960853,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960854,
+              "tx_count": 9,
+              "usd_volume": 0.0188025388739625,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960855,
+              "tx_count": 15,
+              "usd_volume": 0.04164359939522169,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960856,
+              "tx_count": 24,
+              "usd_volume": 0.629082165573436,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960857,
+              "tx_count": 24,
+              "usd_volume": 0.012312865080318987,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960858,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960859,
+              "tx_count": 27,
+              "usd_volume": 0.18964660421362112,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960860,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960861,
+              "tx_count": 30,
+              "usd_volume": 0.5789147237803182,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960862,
+              "tx_count": 21,
+              "usd_volume": 0.02587408053580391,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960863,
+              "tx_count": 24,
+              "usd_volume": 0.030228955961102214,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960864,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960865,
+              "tx_count": 27,
+              "usd_volume": 4.376504420520142,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960866,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960867,
+              "tx_count": 30,
+              "usd_volume": 0.3277312302600151,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960868,
+              "tx_count": 36,
+              "usd_volume": 6.676335483522697,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960869,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960870,
+              "tx_count": 6,
+              "usd_volume": 0.001393808709711512,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960871,
+              "tx_count": 18,
+              "usd_volume": 3.6091275200857638,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960872,
+              "tx_count": 30,
+              "usd_volume": 0.00951001190375085,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960873,
+              "tx_count": 15,
+              "usd_volume": 0.057977185454746345,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960874,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960875,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960876,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960877,
+              "tx_count": 30,
+              "usd_volume": 18.358385533012225,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960878,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960879,
+              "tx_count": 21,
+              "usd_volume": 0.05637904648519482,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960880,
+              "tx_count": 21,
+              "usd_volume": 0.07246981227959133,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960881,
+              "tx_count": 15,
+              "usd_volume": 0.05159038824653078,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960882,
+              "tx_count": 21,
+              "usd_volume": 4.598907069414853,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960883,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960884,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960885,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960886,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960887,
+              "tx_count": 18,
+              "usd_volume": 0.0608451412667746,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960888,
+              "tx_count": 12,
+              "usd_volume": 0.010310313437757967,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960889,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960890,
+              "tx_count": 9,
+              "usd_volume": 0.812256567221211,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960891,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960892,
+              "tx_count": 21,
+              "usd_volume": 0.1121023911416706,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960893,
+              "tx_count": 18,
+              "usd_volume": 0.9808727361403283,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960894,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960895,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960896,
+              "tx_count": 21,
+              "usd_volume": 0.12105578550082463,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960897,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960898,
+              "tx_count": 27,
+              "usd_volume": 0.5224283935820435,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960899,
+              "tx_count": 24,
+              "usd_volume": 0.2155414593727616,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960900,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960901,
+              "tx_count": 21,
+              "usd_volume": 0.14090880450343218,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960902,
+              "tx_count": 21,
+              "usd_volume": 0.014619571094212452,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960903,
+              "tx_count": 27,
+              "usd_volume": 0.09660201744163488,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960904,
+              "tx_count": 18,
+              "usd_volume": 3.930647178656878,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960905,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960906,
+              "tx_count": 6,
+              "usd_volume": 10.69638014279214,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960907,
+              "tx_count": 3,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960908,
+              "tx_count": 12,
+              "usd_volume": 1.3712593907855941,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960909,
+              "tx_count": 6,
+              "usd_volume": 0.044745075728851294,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960910,
+              "tx_count": 15,
+              "usd_volume": 0.1791360328632094,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960911,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960912,
+              "tx_count": 24,
+              "usd_volume": 1.231393159017047,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960913,
+              "tx_count": 9,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960914,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960915,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960916,
+              "tx_count": 36,
+              "usd_volume": 0.08030303031395719,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960917,
+              "tx_count": 24,
+              "usd_volume": 0.2654633137235807,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960918,
+              "tx_count": 18,
+              "usd_volume": 0.11008081776264313,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960919,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960920,
+              "tx_count": 15,
+              "usd_volume": 0.007664960635013573,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960921,
+              "tx_count": 30,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960922,
+              "tx_count": 24,
+              "usd_volume": 0.13335243678502995,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960923,
+              "tx_count": 42,
+              "usd_volume": 1.5609830571001002,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960924,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960925,
+              "tx_count": 33,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960926,
+              "tx_count": 12,
+              "usd_volume": 0.10584871923877795,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960927,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960928,
+              "tx_count": 21,
+              "usd_volume": 0.3120283738616195,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960929,
+              "tx_count": 42,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960930,
+              "tx_count": 45,
+              "usd_volume": 0.28008413771410223,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960931,
+              "tx_count": 24,
+              "usd_volume": 0.40813300664262575,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960932,
+              "tx_count": 21,
+              "usd_volume": 28.19787451660464,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960933,
+              "tx_count": 24,
+              "usd_volume": 2.3517037063743804,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960934,
+              "tx_count": 27,
+              "usd_volume": 8.181651077793418,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960935,
+              "tx_count": 15,
+              "usd_volume": 2.763123876416915,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960936,
+              "tx_count": 9,
+              "usd_volume": 0.1555106825340305,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960937,
+              "tx_count": 30,
+              "usd_volume": 1.81060300622947e-5,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960938,
+              "tx_count": 21,
+              "usd_volume": 19.484667551744064,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960939,
+              "tx_count": 21,
+              "usd_volume": 13.097640359022567,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960940,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960941,
+              "tx_count": 21,
+              "usd_volume": 0.21516023197039832,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960942,
+              "tx_count": 21,
+              "usd_volume": 0.3652541613585901,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960943,
+              "tx_count": 36,
+              "usd_volume": 24.175325356567118,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960944,
+              "tx_count": 15,
+              "usd_volume": 0.5477978929549908,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960945,
+              "tx_count": 33,
+              "usd_volume": 0.06128479306853518,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960946,
+              "tx_count": 24,
+              "usd_volume": 0.19962760777609734,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960947,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960948,
+              "tx_count": 24,
+              "usd_volume": 0.5439429561977029,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960949,
+              "tx_count": 27,
+              "usd_volume": 24.34524274151123,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960950,
+              "tx_count": 24,
+              "usd_volume": 4.460346218844648,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960951,
+              "tx_count": 18,
+              "usd_volume": 28.330454091783132,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960952,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960953,
+              "tx_count": 42,
+              "usd_volume": 26.71693068727979,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960954,
+              "tx_count": 18,
+              "usd_volume": 0.42752613318746213,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960955,
+              "tx_count": 24,
+              "usd_volume": 0.6166890832134178,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960956,
+              "tx_count": 30,
+              "usd_volume": 0.007927815101131379,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960957,
+              "tx_count": 9,
+              "usd_volume": 10.02449679614366,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960958,
+              "tx_count": 30,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960959,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960960,
+              "tx_count": 30,
+              "usd_volume": 0.05998744422725055,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960961,
+              "tx_count": 39,
+              "usd_volume": 1.0625572703814634,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960962,
+              "tx_count": 18,
+              "usd_volume": 0.8075240473298761,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960963,
+              "tx_count": 33,
+              "usd_volume": 0.10807782299230963,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960964,
+              "tx_count": 27,
+              "usd_volume": 0.2463566849184355,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960965,
+              "tx_count": 27,
+              "usd_volume": 0.08567307676832897,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960966,
+              "tx_count": 24,
+              "usd_volume": 1.2668949847083124,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960967,
+              "tx_count": 45,
+              "usd_volume": 0.10846680321653919,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960968,
+              "tx_count": 60,
+              "usd_volume": 0.500785406693697,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960969,
+              "tx_count": 48,
+              "usd_volume": 0.11334575965587855,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960970,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960971,
+              "tx_count": 21,
+              "usd_volume": 0.13000670213745594,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960972,
+              "tx_count": 27,
+              "usd_volume": 0.2220854384970689,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960973,
+              "tx_count": 15,
+              "usd_volume": 7.48495758504829,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960974,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960975,
+              "tx_count": 3,
+              "usd_volume": 0.008338068482811056,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960976,
+              "tx_count": 27,
+              "usd_volume": 3.048606963736915,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960977,
+              "tx_count": 27,
+              "usd_volume": 3.018516006897857,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960978,
+              "tx_count": 27,
+              "usd_volume": 0.434304707591541,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960979,
+              "tx_count": 18,
+              "usd_volume": 0.03396726937493376,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960980,
+              "tx_count": 18,
+              "usd_volume": 0.03449333116957963,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960981,
+              "tx_count": 18,
+              "usd_volume": 2.3662041752294867,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960982,
+              "tx_count": 36,
+              "usd_volume": 1.2087652504687307,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960983,
+              "tx_count": 15,
+              "usd_volume": 0.019879761769303162,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960984,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960985,
+              "tx_count": 12,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960986,
+              "tx_count": 15,
+              "usd_volume": 1.642503342523315,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960987,
+              "tx_count": 42,
+              "usd_volume": 0.5068241428552002,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960988,
+              "tx_count": 30,
+              "usd_volume": 0.7489583056290016,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960989,
+              "tx_count": 30,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960990,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960991,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960992,
+              "tx_count": 12,
+              "usd_volume": 0.04702240994796698,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960993,
+              "tx_count": 27,
+              "usd_volume": 0.0293975198650462,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960994,
+              "tx_count": 12,
+              "usd_volume": 0.00947381174236568,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960995,
+              "tx_count": 6,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960996,
+              "tx_count": 27,
+              "usd_volume": 2.633663235307688,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960997,
+              "tx_count": 27,
+              "usd_volume": 5.632411590846305,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960998,
+              "tx_count": 21,
+              "usd_volume": 0.025738987158673295,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1960999,
+              "tx_count": 30,
+              "usd_volume": 0.09087105878506753,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961000,
+              "tx_count": 18,
+              "usd_volume": 0.05259045279193021,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961001,
+              "tx_count": 24,
+              "usd_volume": 0.005820346429753109,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961002,
+              "tx_count": 42,
+              "usd_volume": 0.3247028392770181,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961003,
+              "tx_count": 6,
+              "usd_volume": 0.17932687125812347,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961004,
+              "tx_count": 45,
+              "usd_volume": 0.23360510661655787,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961005,
+              "tx_count": 48,
+              "usd_volume": 0.014215579026000888,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961006,
+              "tx_count": 18,
+              "usd_volume": 0.010919394998595027,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961007,
+              "tx_count": 21,
+              "usd_volume": 0.03586672409158409,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961008,
+              "tx_count": 24,
+              "usd_volume": 15.580587084465819,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961009,
+              "tx_count": 39,
+              "usd_volume": 0.5724211001471268,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961010,
+              "tx_count": 21,
+              "usd_volume": 0.01820548645515357,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961011,
+              "tx_count": 27,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961012,
+              "tx_count": 33,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961013,
+              "tx_count": 30,
+              "usd_volume": 0.015425936279469655,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961014,
+              "tx_count": 18,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961015,
+              "tx_count": 30,
+              "usd_volume": 0.04123980055471682,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961016,
+              "tx_count": 15,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961017,
+              "tx_count": 21,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961018,
+              "tx_count": 24,
+              "usd_volume": 0.9154932735219865,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961019,
+              "tx_count": 27,
+              "usd_volume": 1.383934691061833,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961020,
+              "tx_count": 12,
+              "usd_volume": 0.8395575860271848,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961021,
+              "tx_count": 18,
+              "usd_volume": 0.2940641478124113,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961022,
+              "tx_count": 39,
+              "usd_volume": 0.15057630493393914,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961023,
+              "tx_count": 30,
+              "usd_volume": 0.11127406490816122,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961024,
+              "tx_count": 24,
+              "usd_volume": 0.0,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961025,
+              "tx_count": 24,
+              "usd_volume": 0.23741449927822245,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961026,
+              "tx_count": 18,
+              "usd_volume": 5.579505038145317,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961027,
+              "tx_count": 24,
+              "usd_volume": 0.8564758635974973,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961028,
+              "tx_count": 21,
+              "usd_volume": 1.0973376189147035,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961029,
+              "tx_count": 27,
+              "usd_volume": 0.8583285063635673,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961030,
+              "tx_count": 24,
+              "usd_volume": 4.543506877021047,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961031,
+              "tx_count": 45,
+              "usd_volume": 14.697939665529466,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961032,
+              "tx_count": 12,
+              "usd_volume": 4.501782289093359,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961033,
+              "tx_count": 39,
+              "usd_volume": 10.08933543492622,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961034,
+              "tx_count": 30,
+              "usd_volume": 0.017067655912599768,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961035,
+              "tx_count": 24,
+              "usd_volume": 0.9710914478572925,
+              "fees_usd": 0.0
+            },
+            {
+              "bucket": 1961036,
+              "tx_count": 33,
+              "usd_volume": 0.03666685312940208,
+              "fees_usd": 0.0
+            }
+          ],
+          "pnl_mode": "value_minus_fees"
+        }
+      ],
+      "pnl_aggregate": {
+        "total_before_usd": null,
+        "total_during_usd": null,
+        "total_after_usd": null,
+        "total_pnl_usd": null
+      },
+      "current_holdings": [
+        {
+          "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "symbol": "BNB",
+          "balance": 0.09334881709454769,
+          "usd_value": 83.16166
+        },
+        {
+          "contract_address": "0x8b9ee39195ea99d6ddd68030f44131116bc218f6",
+          "symbol": "PEAQ",
+          "balance": 1254.1799999999998,
+          "usd_value": 44.059345
+        },
+        {
+          "contract_address": "0xf970706063b7853877f39515c96932d49d5ac9cd",
+          "symbol": "YALA",
+          "balance": 390.62499999999994,
+          "usd_value": 10.083203
+        },
+        {
+          "contract_address": "0x7ec43cf65f1663f820427c62a5780b8f2e25593a",
+          "symbol": "LAB",
+          "balance": 5.0,
+          "usd_value": 0.58
+        },
+        {
+          "contract_address": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
+          "symbol": "USD1",
+          "balance": 0.2698916,
+          "usd_value": 0.26981065
+        },
+        {
+          "contract_address": "0xe85562c6ff86a8ff0268222aff0205a26d37d68e",
+          "symbol": "Top",
+          "balance": 0.05,
+          "usd_value": 0.00079063
+        },
+        {
+          "contract_address": "0x3fefe29da25bea166fb5f6ade7b5976d2b0e586b",
+          "symbol": "ROAM",
+          "balance": 0.01,
+          "usd_value": 0.000689623
+        },
+        {
+          "contract_address": "0xe2b16f618eb6016bc2625e98335f1844ee90236a",
+          "symbol": "GMT",
+          "balance": 3.0,
+          "usd_value": 0.00021624721
+        },
+        {
+          "contract_address": "0xe846d164b88ed2e1209609fea3cf7a3d89d70d2d",
+          "symbol": null,
+          "balance": 1e20,
+          "usd_value": 3.88278e-5
+        },
+        {
+          "contract_address": "0xda52b818c1348bfee27989e2a0df39224a3e52fa",
+          "symbol": "BLEND",
+          "balance": 1.0,
+          "usd_value": 2.11674e-5
+        },
+        {
+          "contract_address": "0x9cc484ded7a7851a03f05a03e8d19eb5f5a73f20",
+          "symbol": "BKOK",
+          "balance": 0.0001089,
+          "usd_value": 7.621726e-6
+        },
+        {
+          "contract_address": "0x3b4de3c7855c03bb9f50ea252cd2c9fa1125ab07",
+          "symbol": "IDOL",
+          "balance": 1e-18,
+          "usd_value": 3.13949e-20
+        },
+        {
+          "contract_address": "0x00bcc3b50d03539d1b6348145aed9515255c9250",
+          "symbol": "FATJDVance",
+          "balance": 1000.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x01a5768d6e908c4dd50255613273708195390ec4",
+          "symbol": "PI",
+          "balance": 1.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x0385684e709e5e83df604fe3d6f0734d0c12e994",
+          "symbol": "PEPE",
+          "balance": 1.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x03da28bb56457d013e6b3357ca28c68a0bee07ba",
+          "symbol": "CYBERWISH",
+          "balance": 1000.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x0550d58794d94de810257a6356eb65ee51450a27",
+          "symbol": "AIX",
+          "balance": 0.013708,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x0721504b7a593ad8a92e2ac4617e1f5533f8bfb9",
+          "symbol": "HKTT",
+          "balance": 0.064729,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x09359742224b881caf45722df395e2ba824131ef",
+          "symbol": "LONCHER",
+          "balance": 14321.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x09b79fd57bd42f747eceb76beb723c827815f389",
+          "symbol": "NC-Eligible (Verify: https://nodecoin.dev/verify)",
+          "balance": 12826.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x09f4ebb8567ea0e969f10799ca678f9a172dc2bb",
+          "symbol": "Broccoli",
+          "balance": 1.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x0a1053e4ba074d9951e148cbf74a7d522324d572",
+          "symbol": "Mubarakah",
+          "balance": 1000.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x0bb1900846a994d93617327af4f4ddc1062e2d72",
+          "symbol": "TABIBI",
+          "balance": 1000.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x0cc7f893a1e38c110a2dedeaefd22543d51d7f06",
+          "symbol": "HabibiCZ",
+          "balance": 1000.0,
+          "usd_value": null
+        },
+        {
+          "contract_address": "0x0d7e083984ecd3e5e86852e315810c617058c084",
+          "symbol": "YC",
+          "balance": 0.002,
+          "usd_value": null
+        }
+      ],
+      "portfolio_value_usd": null,
+      "covalent_success": false,
+      "fail_reason": "reuse_previous",
+      "buckets_fetched": 0,
+      "cache_hits": 0,
+      "cache_misses": 0,
+      "api_calls": 0,
+      "buckets_needed": 0,
+      "buckets_missing": 0,
+      "http_429_count": 0,
+      "sleep_seconds_total": 0.0,
+      "tx_items_count": 0,
+      "errors_count": 0,
+      "linked_addresses": [],
+      "timeline_buckets": [],
+      "pnl_mode": "value_minus_fees"
+    }
+  ]
+}

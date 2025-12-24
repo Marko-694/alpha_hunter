@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "name": "SSS_2025_12_12",
+    "symbol": "SSS",
+    "chain": "bsc",
+    "contract": "0xcc442a4c0b9c35578aa285f0d39f2bcc0e152acd",
+    "pump_start": "2025-12-14T06:00:00+00:00",
+    "pump_end": "2025-12-14T11:00:00+00:00",
+    "pre_window_minutes": 100,
+    "dump_window_minutes": 60,
+    "min_whale_net_usd": 2500.0,
+    "start_ts": 1765692000,
+    "end_ts": 1765710000,
+    "price_usd": 0.003962,
+    "generated_at": "2025-12-21T23:09:50.057415+00:00",
+    "profile_id": "SSS_2025_12_12:SSS:bsc:0xcc442a4c0b9c35578aa285f0d39f2bcc0e152acd:1765692000:1765710000:100:60:2500.0",
+    "cache_mode": "recompute",
+    "birdeye_status": "incomplete",
+    "birdeye_reason": "no_keys",
+    "status": "incomplete",
+    "empty_reason": "no_keys",
+    "counters": {
+      "tx_total": 0,
+      "log_events_total": 0,
+      "transfer_events_total": 0,
+      "unique_wallets_seen": 0,
+      "wallets_passing_threshold": 0,
+      "pricing_missing_count": 0,
+      "birdeye_items_total": 0,
+      "birdeye_http_errors": 0,
+      "birdeye_cu_exceeded_count": 0,
+      "birdeye_status": "incomplete",
+      "birdeye_reason": "no_keys",
+      "covalent_http_errors": 0,
+      "nansen_status_code": 0
+    }
+  },
+  "wallets": []
+}

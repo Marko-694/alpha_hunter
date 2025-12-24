@@ -4,10 +4,11 @@ import time
 import logging
 import math
 import statistics
+import re
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from .logger import get_logger
 from .explorer_client import ExplorerClient
@@ -16,10 +17,13 @@ from .nansen_client import NansenClient
 from .birdeye_client import fetch_for_window
 
 DUMP_WINDOW_DEFAULT_MINUTES = 60
+PROFILE_FRESH_SECONDS = 12 * 3600
+PROFILE_SCHEMA_VERSION = 2
 
 
 @dataclass
 class PumpWindowConfig:
+    name: str
     symbol: str
     chain: str
     contract: str
@@ -51,6 +55,61 @@ def load_json(path: str) -> Any:
             return json.load(f)
     except Exception:
         return None
+
+
+def _parse_iso_dt(value: Optional[str]) -> Optional[datetime]:
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(str(value).replace("Z", "+00:00")).astimezone(timezone.utc)
+    except Exception:
+        return None
+
+
+def _safe_name(value: str) -> str:
+    base = re.sub(r"[^a-zA-Z0-9._-]", "_", value or "")
+    base = base.strip("_.") or "pump"
+    return base.lower()
+
+
+def _profile_file_path(cfg: PumpWindowConfig, base_dir: str) -> str:
+    safe_name = _safe_name(cfg.name or f"{cfg.symbol}_{cfg.chain}")
+    filename = f"{safe_name}_{cfg.chain}_profile.json"
+    return os.path.join(base_dir, filename)
+
+
+def _build_profile_id(cfg: PumpWindowConfig, dump_window_minutes: int, min_whale: float) -> str:
+    return (
+        f"{cfg.name}:{cfg.symbol}:{cfg.chain}:{cfg.contract}:"
+        f"{cfg.start_ts}:{cfg.end_ts}:{cfg.pre_window_minutes}:{dump_window_minutes}:{min_whale}"
+    )
+
+
+def is_profile_valid(profile: Any, expected_id: str) -> Tuple[bool, str]:
+    if not isinstance(profile, dict):
+        return False, "missing"
+    meta = profile.get("meta") or {}
+    profile_id = meta.get("profile_id")
+    if profile_id != expected_id:
+        return False, "profile_id_mismatch"
+    schema_version = int(meta.get("schema_version") or 0)
+    if schema_version < PROFILE_SCHEMA_VERSION:
+        return False, "schema_upgrade"
+    status = str(meta.get("status") or "").lower()
+    wallets = profile.get("wallets") or []
+    empty_reason = str(meta.get("empty_reason") or "")
+    birdeye_status = str(meta.get("birdeye_status") or "").lower()
+    if birdeye_status in {"incomplete", "error"}:
+        return False, birdeye_status or "birdeye_status"
+    if status == "complete":
+        if not wallets:
+            return False, "no_wallets_complete"
+        return True, "complete"
+    if status == "empty_complete":
+        if empty_reason != "no_transfers":
+            return False, "invalid_empty_reason"
+        return True, "empty_complete"
+    return False, status or "invalid_status"
 
 
 def _calculate_pamper_score(stats: Dict[str, Any]) -> Dict[str, Any]:
@@ -116,11 +175,64 @@ def analyze_single_pump(
     logger=None,
     output_dir: str = "data/alpha_profiler",
     retention_days: int = 30,
+    force_refresh: bool = False,
 ) -> str:
     logger = logger or get_logger("alpha_profiler")
 
     pump_start_dt = cfg.pump_start or datetime.fromtimestamp(cfg.start_ts, tz=timezone.utc)
     pump_end_dt = cfg.pump_end or datetime.fromtimestamp(cfg.end_ts, tz=timezone.utc)
+
+    dump_window_minutes = DUMP_WINDOW_DEFAULT_MINUTES
+    pump_start_ts = int(cfg.start_ts or 0)
+    pump_end_ts = int(cfg.end_ts or 0)
+    pre_start_ts = pump_start_ts - cfg.pre_window_minutes * 60
+    dump_end_ts = pump_end_ts + dump_window_minutes * 60
+    min_whale = getattr(cfg, "min_whale_net_usd", None)
+    if min_whale is None:
+        min_whale = getattr(cfg, "min_whale_buy_usd", 0)
+    profile_id = _build_profile_id(cfg, dump_window_minutes, float(min_whale or 0.0))
+    ensure_alpha_profiler_dir(output_dir)
+    path = _profile_file_path(cfg, output_dir)
+    cache_mode = "force" if force_refresh else "recompute"
+    profile_action = "FORCE" if force_refresh else "RUN"
+    existing_profile = load_json(path)
+    if not force_refresh:
+        valid_profile, valid_reason = is_profile_valid(existing_profile, profile_id)
+        if valid_profile:
+            logger.info(
+                "PROFILE SKIP name=%s symbol=%s chain=%s reason=%s path=%s",
+                cfg.name,
+                cfg.symbol,
+                cfg.chain,
+                valid_reason,
+                path,
+            )
+            return path
+        if valid_reason == "schema_upgrade" and isinstance(existing_profile, dict):
+            meta = existing_profile.setdefault("meta", {})
+            meta["schema_version"] = PROFILE_SCHEMA_VERSION
+            meta["profile_id"] = profile_id
+            meta["cache_mode"] = "update_local"
+            save_json(existing_profile, path)
+            logger.info(
+                "PROFILE UPDATE_LOCAL name=%s symbol=%s chain=%s reason=schema_upgrade path=%s",
+                cfg.name,
+                cfg.symbol,
+                cfg.chain,
+                path,
+            )
+            return path
+    if isinstance(existing_profile, dict):
+        prev_meta = existing_profile.get("meta") or {}
+        prev_id = prev_meta.get("profile_id")
+        if prev_id and prev_id != profile_id:
+            bak_path = path + ".bak"
+            try:
+                os.replace(path, bak_path)
+            except FileNotFoundError:
+                pass
+            except OSError as exc:
+                logger.debug("Failed to rotate profile backup %s: %s", bak_path, exc)
 
     price_usd = price_client.get_price_usd(
         symbol=cfg.symbol,
@@ -129,18 +241,12 @@ def analyze_single_pump(
     )
     if price_usd is None:
         logger.warning(
-            "Price for %s (chain=%s, contract=%s) not found, aborting analysis",
+            "Price for %s (chain=%s, contract=%s) not found, continuing with price=None",
             cfg.symbol,
             cfg.chain,
             cfg.contract,
         )
-        return ""
-
-    dump_window_minutes = DUMP_WINDOW_DEFAULT_MINUTES
-    pre_start_ts = cfg.start_ts - cfg.pre_window_minutes * 60
-    pump_start_ts = cfg.start_ts
-    pump_end_ts = cfg.end_ts
-    dump_end_ts = pump_end_ts + dump_window_minutes * 60
+        price_usd = None
     # гарантируем корректный порядок времён для BirdEye
     if pre_start_ts > dump_end_ts:
         logger.warning(
@@ -156,15 +262,36 @@ def analyze_single_pump(
     dump_end_dt = datetime.fromtimestamp(dump_end_ts, tz=timezone.utc)
 
     transfers: List[Dict[str, Any]] = []
+    birdeye_meta: Dict[str, Any] = {"status": "not_used", "reason": None}
+    explorer_error_reason: Optional[str] = None
     if cfg.chain == "bsc":
-        label = f"{cfg.symbol}_BIRDEYE"
-        transfers = fetch_for_window(
-            token_address=cfg.contract,
-            start_ts=pre_start_ts,
-            end_ts=dump_end_ts,
-            label=label,
-            logger=logger,
-        )
+        label = f"{cfg.name}_BIRDEYE"
+        try:
+            transfers_result = fetch_for_window(
+                token_address=cfg.contract,
+                start_ts=pre_start_ts,
+                end_ts=dump_end_ts,
+                label=label,
+                logger=logger,
+                chain=cfg.chain,
+                force_refresh=force_refresh,
+                return_meta=True,
+            )
+            transfers, birdeye_meta = transfers_result
+            if not isinstance(birdeye_meta, dict):
+                birdeye_meta = {"status": "unknown", "reason": None}
+        except TypeError as exc:
+            logger.error(
+                "[%s] FATAL BirdEye signature mismatch: %s",
+                cfg.name,
+                exc,
+                exc_info=True,
+            )
+            raise
+        except Exception as exc:
+            logger.error("[%s] BirdEye fetch failed: %s", cfg.name, exc, exc_info=True)
+            transfers = []
+            birdeye_meta = {"status": "error", "reason": "birdeye_exception"}
         unique_wallets = len({str(t.get("owner") or t.get("from") or "").lower() for t in transfers})
         logger.info(
             "BirdEye returned %d txs for %s (unique wallets: %d)",
@@ -173,13 +300,39 @@ def analyze_single_pump(
             unique_wallets,
         )
     elif explorer_client is not None:
-        transfers = explorer_client.get_recent_token_transfers(
-            chain=cfg.chain, address=cfg.contract, start_block=None, sort="asc"
-        )
+        try:
+            transfers = explorer_client.get_recent_token_transfers(
+                chain=cfg.chain, address=cfg.contract, start_block=None, sort="asc"
+            )
+        except Exception as exc:
+            logger.error("[%s] Explorer fetch failed: %s", cfg.name, exc)
+            explorer_error_reason = "explorer_error"
+            transfers = []
 
     if not transfers:
         logger.warning("No transfers fetched for %s on %s", cfg.contract, cfg.chain)
         transfers = []
+
+    profile_status = "complete"
+    empty_reason: Optional[str] = None
+    birdeye_status_value = "not_used"
+    birdeye_reason_value: Optional[str] = None
+    if cfg.chain == "bsc":
+        birdeye_status_value = str(birdeye_meta.get("status") or "success").lower()
+        birdeye_reason_value = birdeye_meta.get("reason")
+        if birdeye_status_value in {"error", "incomplete"}:
+            profile_status = "incomplete"
+            empty_reason = birdeye_reason_value or "birdeye_exception"
+        elif not transfers:
+            profile_status = "empty_complete"
+            empty_reason = "no_transfers"
+    else:
+        if explorer_error_reason:
+            profile_status = "error"
+            empty_reason = explorer_error_reason
+        elif not transfers:
+            profile_status = "empty_complete"
+            empty_reason = "no_transfers"
 
     wallet_stats: Dict[str, Dict[str, Any]] = {}
 
@@ -206,7 +359,7 @@ def analyze_single_pump(
                 wallet = str(tx.get("owner") or tx.get("from") or tx.get("from_address") or "").lower()
                 token_amount = float(tx.get("volume") or 0.0)
                 usd_amount = float(tx.get("volume_usd") or 0.0)
-                if usd_amount == 0 and token_amount != 0:
+                if usd_amount == 0 and token_amount != 0 and price_usd is not None:
                     usd_amount = token_amount * price_usd
 
                 if side == "sell":
@@ -346,7 +499,10 @@ def analyze_single_pump(
             )
             stats["exit_speed_seconds"] = exit_speed_seconds
             stats["net_amount"] = stats.get("net_tokens", 0.0)
-            stats["net_usd"] = stats.get("net_usd", stats["net_amount"] * price_usd)
+            if price_usd is not None:
+                stats["net_usd"] = stats.get("net_usd", stats["net_amount"] * price_usd)
+            else:
+                stats["net_usd"] = stats.get("net_usd", 0.0)
 
             invested_usd = stats.get("pre_buy_usd", 0.0) + stats.get("pump_buy_usd", 0.0)
             cashed_out_usd = (
@@ -395,7 +551,7 @@ def analyze_single_pump(
                 )
         else:
             net_amount = stats["net_amount"]
-            net_usd = net_amount * price_usd
+            net_usd = net_amount * price_usd if price_usd is not None else 0.0
             first_ts = stats["first_ts"]
             last_ts = stats["last_ts"]
             tx_count = stats["tx_count"]
@@ -469,8 +625,32 @@ def analyze_single_pump(
         except Exception:
             nansen_summary = {}
 
+    transfer_events_total = len(transfers)
+    wallets_seen = len(wallet_stats)
+    wallets_passing = len(whales)
+    counters = {
+        "tx_total": transfer_events_total,
+        "log_events_total": transfer_events_total,  # BirdEye already token transfers
+        "transfer_events_total": transfer_events_total,
+        "unique_wallets_seen": wallets_seen,
+        "wallets_passing_threshold": wallets_passing,
+        "pricing_missing_count": 0,
+        "birdeye_items_total": transfer_events_total if cfg.chain == "bsc" else 0,
+        "birdeye_http_errors": int(birdeye_meta.get("http_errors", 0) if isinstance(birdeye_meta, dict) else 0),
+        "birdeye_cu_exceeded_count": int(
+            birdeye_meta.get("cu_exceeded", 0) if isinstance(birdeye_meta, dict) else 0
+        ),
+        "birdeye_status": birdeye_status_value,
+        "birdeye_reason": birdeye_reason_value,
+        "covalent_http_errors": 0,
+        "nansen_status_code": 0,
+    }
+
+    generated_at_iso = datetime.now(timezone.utc).isoformat()
     result = {
         "meta": {
+            "schema_version": PROFILE_SCHEMA_VERSION,
+            "name": cfg.name,
             "symbol": cfg.symbol,
             "chain": cfg.chain,
             "contract": cfg.contract,
@@ -478,22 +658,53 @@ def analyze_single_pump(
             "pump_end": pump_end_dt.isoformat(),
             "pre_window_minutes": cfg.pre_window_minutes,
             "dump_window_minutes": dump_window_minutes,
-            "min_whale_net_usd": getattr(cfg, "min_whale_net_usd", None) or getattr(cfg, "min_whale_buy_usd", 0),
+            "min_whale_net_usd": min_whale,
             "start_ts": cfg.start_ts,
             "end_ts": cfg.end_ts,
             "price_usd": price_usd,
-            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "generated_at": generated_at_iso,
+            "profile_id": profile_id,
+            "cache_mode": cache_mode,
+            "birdeye_status": birdeye_status_value,
+            "birdeye_reason": birdeye_reason_value,
+            "status": profile_status,
+            "empty_reason": empty_reason,
+            "counters": counters,
         },
         "wallets": whales,
     }
+    if not whales:
+        reason = empty_reason or (
+            "no_transfers"
+            if transfer_events_total == 0
+            else ("threshold_not_met" if wallets_seen else "no_wallets_seen")
+        )
+        result["meta"]["empty_reason"] = reason
+        logger.warning(
+            "PROFILE EMPTY: name=%s symbol=%s chain=%s status=%s reason=%s transfers=%d wallets_seen=%d passing=%d",
+            cfg.name,
+            cfg.symbol,
+            cfg.chain,
+            profile_status,
+            reason,
+            transfer_events_total,
+            wallets_seen,
+            wallets_passing,
+        )
     if nansen_summary:
         result["nansen"] = nansen_summary
 
-    ensure_alpha_profiler_dir(output_dir)
-    filename = f"{cfg.symbol}_{cfg.chain}_{int(time.time())}_profile.json"
-    path = os.path.join(output_dir, filename)
     save_json(result, path)
-    logger.info("Saved pump profile to %s", path)
+    logger.info(
+        "PROFILE %s name=%s symbol=%s chain=%s status=%s reason=%s path=%s",
+        profile_action,
+        cfg.name,
+        cfg.symbol,
+        cfg.chain,
+        profile_status,
+        empty_reason or "ok",
+        path,
+    )
 
     try:
         profile_dir = Path(output_dir)
@@ -635,8 +846,10 @@ def build_actors_and_watchlist(
     """
     log = logger or get_logger("actors_builder")
     profiles_dir = base_dir
-    actors_path = os.path.join(base_dir, "actors.json")
-    watchlist_path = os.path.join(base_dir, "watchlist.json")
+    system_dir = os.path.join(base_dir, "system")
+    os.makedirs(system_dir, exist_ok=True)
+    actors_path = os.path.join(system_dir, "actors.json")
+    watchlist_path = os.path.join(system_dir, "watchlist.json")
 
     level_priority = {"core_operator": 3, "inner_circle": 2, "outer_circle": 1, "retail": 0}
 

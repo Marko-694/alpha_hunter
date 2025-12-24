@@ -1,0 +1,1131 @@
+import logging
+import os
+import time
+from typing import Any, Dict, List, Optional, Set
+
+from .binance_client import BinanceClient
+from .binance_futures_client import BinanceFuturesClient
+from .birdeye_client import BirdEyeClient
+from .hunter_state import (
+    remember_alert,
+    remember_event,
+    seen_event,
+    seen_message,
+    too_soon,
+    too_soon_alarm,
+    too_soon_cluster_spree,
+    too_soon_ping,
+    record_cluster_spree,
+)
+from .logger import get_logger
+from .nansen_client import NansenClient
+from .telegram_alerts import TelegramNotifier
+
+
+class AlphaScanner:
+    def __init__(
+        self,
+        binance_client: BinanceClient,
+        notifier: TelegramNotifier,
+        config: Dict[str, Any],
+        logger: Optional[logging.Logger] = None,
+        futures_client: Optional[BinanceFuturesClient] = None,
+        nansen_client: Optional[NansenClient] = None,
+        actor_features: Optional[Dict[str, Any]] = None,
+        watchlist_addrs: Optional[List[str]] = None,
+        state: Optional[Dict[str, Any]] = None,
+        birdeye_client: Optional[BirdEyeClient] = None,
+        initiator_index: Optional[Dict[str, Any]] = None,
+        initiator_cfg: Optional[Dict[str, Any]] = None,
+    ) -> None:
+        self.binance_client = binance_client
+        self.notifier = notifier
+        self.config = config
+        self.logger = logger or get_logger(self.__class__.__name__)
+        self.futures_client = futures_client
+        self.nansen_client = nansen_client
+        self.actor_features = actor_features or {}
+        self.watchlist_addrs = {str(addr).lower() for addr in (watchlist_addrs or [])}
+        self.state = state
+        self.birdeye_client = birdeye_client
+        self.initiator_data = initiator_index or {}
+        self.initiator_cfg = initiator_cfg or {}
+        self.reasons_line_enabled = bool(self.initiator_cfg.get("reasons_line"))
+
+        scanner_cfg = config.get("scanner", {}) or {}
+        signals_cfg = config.get("signals", {}) or {}
+        self.interval_seconds = int(scanner_cfg.get("interval_seconds", 60))
+        self.min_24h_volume_usdt = float(scanner_cfg.get("min_24h_volume_usdt", 1_000_000))
+        self.max_24h_volume_usdt = float(scanner_cfg.get("max_24h_volume_usdt", 300_000_000))
+        self.min_price_usdt = float(scanner_cfg.get("min_price_usdt", 0.02))
+        self.max_price_usdt = float(scanner_cfg.get("max_price_usdt", 30))
+        self.max_symbols_per_scan = int(scanner_cfg.get("max_symbols_per_scan", 80))
+        self.cooldown_seconds = int(scanner_cfg.get("cooldown_seconds", 120))
+
+        self.volume_multiplier_threshold = float(signals_cfg.get("volume_multiplier_threshold", 1.1))
+        self.min_volume_1m_usdt = float(signals_cfg.get("min_volume_1m_usdt", 10_000))
+        self.price_delta_percent_threshold = float(signals_cfg.get("price_delta_percent_threshold", 0.2))
+
+        alerts_cfg = config.get("alerts", {}) or {}
+        self.alerts_enabled = bool(alerts_cfg.get("enabled", True))
+        self.ping_prefix = str(alerts_cfg.get("ping_prefix", "👀"))
+        self.alarm_prefix = str(alerts_cfg.get("alarm_prefix", "🚨"))
+        self.min_ping_cooldown = int(alerts_cfg.get("min_seconds_between_pings_per_symbol", 900))
+        self.min_alarm_cooldown = int(alerts_cfg.get("min_seconds_between_alarms_per_symbol", 1800))
+        self.cluster_spree_window = 3600
+        self.cluster_spree_cooldown = 1800
+
+        self.threshold_ping = float(self.initiator_cfg.get("threshold_ping", 0.4))
+        self.threshold_alarm = float(self.initiator_cfg.get("threshold_alarm", 0.75))
+        self.lookback_seconds = int(self.initiator_cfg.get("lookback_seconds", 600))
+        self.max_initiator_checks = int(self.initiator_cfg.get("max_tokens_per_cycle", 10))
+
+        self.fusion_cfg = config.get("fusion", {}) or {}
+        self.fusion_enabled = bool(self.fusion_cfg.get("enabled", True))
+        self.hot_tokens: Dict[str, Dict[str, Any]] = {}
+        self.hot_tokens_ttl = int(self.fusion_cfg.get("hot_tokens_ttl_seconds", 3600))
+        self.max_hot_tokens = int(self.fusion_cfg.get("max_hot_tokens", 200))
+        self.prefer_hot_tokens = bool(self.fusion_cfg.get("prefer_hot_tokens_in_scan", True))
+        self.relax_hot_thresholds = bool(self.fusion_cfg.get("relax_thresholds_for_hot_tokens", True))
+        self.relax_volume_delta = float(self.fusion_cfg.get("relax_volume_multiplier_delta", 0.0))
+        self.relax_price_delta = float(self.fusion_cfg.get("relax_price_delta_percent_delta", 0.0))
+        self.symbol_contract_map = self._build_symbol_contract_map(config.get("alpha_tokens") or [])
+
+        self.last_alert_times: Dict[str, float] = {}
+        self._initiator_tokens_seen: Set[str] = set()
+        self._initiator_cycle_checks = 0
+        self._cluster_spree_sent_cycle = False
+        self.last_cycle_stats: Dict[str, Any] = {}
+
+    def update_artifacts(self, snapshot: Dict[str, Any]) -> None:
+        if not snapshot:
+            return
+        if "features" in snapshot:
+            self.actor_features = snapshot.get("features") or {}
+        addrs = snapshot.get("watchlist_addrs")
+        if addrs is not None:
+            self.watchlist_addrs = {str(addr).lower() for addr in addrs}
+        if snapshot.get("initiators") is not None:
+            self.initiator_data = snapshot.get("initiators") or {}
+
+    def scan_once(self) -> None:
+        self._initiator_tokens_seen = set()
+        self._initiator_cycle_checks = 0
+        self._cluster_spree_sent_cycle = False
+
+        self.logger.info("Fetching 24h tickers from Binance")
+        tickers = self.binance_client.get_24h_tickers()
+        self.last_cycle_stats = {
+            "total_tickers": len(tickers or []),
+            "candidates": 0,
+            "klines_requested": 0,
+            "alerts_sent": 0,
+            "pings_sent": 0,
+            "alarms_sent": 0,
+        }
+        if not tickers:
+            self.logger.warning("No tickers received from Binance")
+            return
+
+        scanner_symbols: List[Dict[str, Any]] = []
+        for t in tickers:
+            symbol = t.get("symbol")
+            if not isinstance(symbol, str) or not self._is_valid_symbol(symbol):
+                continue
+            try:
+                last_price = float(t.get("lastPrice", 0.0))
+                quote_volume = float(t.get("quoteVolume", 0.0))
+            except (TypeError, ValueError):
+                continue
+            if quote_volume < self.min_24h_volume_usdt or quote_volume > self.max_24h_volume_usdt:
+                continue
+            if last_price < self.min_price_usdt or last_price > self.max_price_usdt:
+                continue
+            scanner_symbols.append(
+                {
+                    "symbol": symbol,
+                    "last_price": last_price,
+                    "quote_volume_24h": quote_volume,
+                }
+            )
+
+        if not scanner_symbols:
+            self.logger.info("No symbols passed 24h filters")
+            return
+
+        scanner_symbols.sort(key=lambda item: item.get("quote_volume_24h", 0.0), reverse=True)
+        scanner_symbols = scanner_symbols[: self.max_symbols_per_scan]
+        self.last_cycle_stats["candidates"] = len(scanner_symbols)
+
+        now_ts = time.time()
+        self._prune_hot_tokens(now_ts)
+        if self.hot_tokens:
+            self.logger.info("Active hot tokens: %d", len(self.hot_tokens))
+        if self.fusion_enabled and self.prefer_hot_tokens and self.hot_tokens:
+            hot_list: List[Dict[str, Any]] = []
+            rest: List[Dict[str, Any]] = []
+            for item in scanner_symbols:
+                token_key_hint = self._token_key_from_symbol(item["symbol"])
+                if token_key_hint and self._is_hot_token(token_key_hint, now_ts):
+                    item["token_key_hint"] = token_key_hint
+                    hot_list.append(item)
+                else:
+                    rest.append(item)
+            scanner_symbols = hot_list + rest
+        klines_requested = 0
+        alerts_sent = 0
+        pings_sent = 0
+        alarms_sent = 0
+
+        for item in scanner_symbols:
+            symbol = item["symbol"]
+            token_key_hint = item.get("token_key_hint") or self._token_key_from_symbol(symbol)
+            hot_meta_hint = self._get_hot_meta(token_key_hint, now_ts)
+            volume_threshold = self.volume_multiplier_threshold
+            price_threshold = self.price_delta_percent_threshold
+            if self.fusion_enabled and self.relax_hot_thresholds and hot_meta_hint:
+                volume_threshold = max(0.1, volume_threshold + self.relax_volume_delta)
+                price_threshold = max(0.0, price_threshold + self.relax_price_delta)
+            klines = self.binance_client.get_recent_klines(symbol, interval="1m", limit=11)
+            if len(klines) < 3:
+                continue
+            klines_requested += 1
+
+            try:
+                last_kline = klines[-1]
+                prev_kline = klines[-2]
+                last_quote_volume = float(last_kline[7])
+                price_last = float(last_kline[4])
+                price_prev = float(prev_kline[4])
+                prev_volumes = [float(k[7]) for k in klines[:-1]]
+                avg_quote_volume = sum(prev_volumes) / max(len(prev_volumes), 1)
+            except (TypeError, ValueError, IndexError):
+                continue
+
+            if price_prev <= 0 or avg_quote_volume <= 0:
+                continue
+
+            volume_ratio = last_quote_volume / avg_quote_volume
+            price_delta_percent = (price_last - price_prev) / price_prev * 100.0
+            if last_quote_volume < self.min_volume_1m_usdt:
+                continue
+            if volume_ratio < volume_threshold:
+                continue
+            if price_delta_percent < price_threshold:
+                continue
+
+            last_alert_ts = self.last_alert_times.get(symbol)
+            if last_alert_ts is not None and (now_ts - last_alert_ts) < self.cooldown_seconds:
+                continue
+
+            trade_url = f"https://www.binance.com/en/trade/{symbol.replace('USDT','')}_USDT"
+            futures_block = self._compose_futures_block(symbol)
+            nansen_summary = self._maybe_fetch_nansen_summary(symbol)
+
+            token_key = self._derive_token_key(symbol, nansen_summary) or token_key_hint
+            hot_meta = self._get_hot_meta(token_key, now_ts)
+
+            activation = None
+            if (
+                self.initiator_cfg.get("enabled")
+                and nansen_summary.get("chain")
+                and nansen_summary.get("contract")
+            ):
+                activation = self._maybe_check_initiators(
+                    symbol=symbol,
+                    chain=str(nansen_summary.get("chain")),
+                    contract=str(nansen_summary.get("contract")),
+                    now_ts=now_ts,
+                )
+
+            confidence = self._compute_confidence(
+                activation=activation,
+                volume_ratio=volume_ratio,
+                price_delta_percent=price_delta_percent,
+                symbol=symbol,
+                now_ts=now_ts,
+            )
+            mode = self._select_alert_mode(confidence["value"])
+            if not mode:
+                continue
+
+            if self.state:
+                if mode == "ping" and too_soon_ping(
+                    self.state, symbol=symbol, cooldown_sec=self.min_ping_cooldown, now_ts=now_ts
+                ):
+                    self.logger.debug("Ping cooldown active for %s", symbol)
+                    continue
+                if mode == "alarm" and too_soon_alarm(
+                    self.state, symbol=symbol, cooldown_sec=self.min_alarm_cooldown, now_ts=now_ts
+                ):
+                    self.logger.debug("Alarm cooldown active for %s", symbol)
+                    continue
+                if too_soon(self.state, symbol=symbol, cooldown_sec=self.cooldown_seconds, now_ts=now_ts):
+                    continue
+
+            message = self._compose_message(
+                symbol=symbol,
+                price_last=price_last,
+                last_quote_volume=last_quote_volume,
+                avg_quote_volume=avg_quote_volume,
+                volume_ratio=volume_ratio,
+                price_delta_percent=price_delta_percent,
+                trade_url=trade_url,
+                futures_block=futures_block,
+                activation=activation,
+                confidence=confidence,
+                hot_meta=hot_meta,
+                now_ts=now_ts,
+                mode=mode,
+            )
+
+            if self.state and seen_message(self.state, message):
+                self.logger.debug("Duplicate alert skipped for %s", symbol)
+                continue
+
+            if not self.alerts_enabled:
+                self.logger.info("Alerts disabled; skipping send for %s", symbol)
+                continue
+
+            try:
+                self.notifier.send_message(message)
+            except Exception as exc:  # pragma: no cover
+                self.logger.error("Failed to send alert for %s: %s", symbol, exc)
+                continue
+
+            self.last_alert_times[symbol] = now_ts
+            alerts_sent += 1
+            if mode == "ping":
+                pings_sent += 1
+            else:
+                alarms_sent += 1
+
+            actor_addrs = activation.get("hit_addresses", []) if activation else []
+            cluster_ids = activation.get("hit_clusters", []) if activation else []
+            if self.state is not None:
+                dedupe_cfg = (
+                    self.config.get("hunter_enrichment", {}).get("dedupe", {})
+                    if isinstance(self.config, dict)
+                    else {}
+                )
+                remember_alert(
+                    self.state,
+                    symbol=symbol,
+                    actor_addrs=actor_addrs,
+                    message_text=message,
+                    now_ts=int(now_ts),
+                    max_hashes=int(dedupe_cfg.get("last_hashes", 300)),
+                    alert_kind=mode,
+                    cluster_ids=cluster_ids,
+                )
+                self._maybe_emit_cluster_spree(cluster_ids, now_ts)
+
+            if os.environ.get("HUNTER_ONCE") == "1":
+                break
+
+        self.last_cycle_stats.update(
+            {
+                "klines_requested": klines_requested,
+                "alerts_sent": alerts_sent,
+                "pings_sent": pings_sent,
+                "alarms_sent": alarms_sent,
+            }
+        )
+
+        self.logger.info(
+            "Scan stats: symbols=%d klines=%d alerts=%d (pings=%d alarms=%d)",
+            len(scanner_symbols),
+            klines_requested,
+            alerts_sent,
+            pings_sent,
+            alarms_sent,
+        )
+
+    def _compose_futures_block(self, symbol: str) -> str:
+        if not self.futures_client:
+            return ""
+        snapshot = self.futures_client.get_futures_snapshot(symbol)
+        if not snapshot:
+            return ""
+        lines = [
+            "*Futures info:*",
+            f"Open interest: `{snapshot.get('open_interest', 0.0):,.0f}`",
+            f"Funding rate: `{snapshot.get('funding_rate', 0.0):.4f}`",
+            f"Mark price: `{snapshot.get('mark_price', 0.0):.6f}` USDT",
+        ]
+        return "\n".join(lines)
+
+    def _maybe_fetch_nansen_summary(self, symbol: str) -> Dict[str, Any]:
+        result: Dict[str, Any] = {}
+        nansen_cfg = self.config.get("nansen", {}) or {}
+        alpha_tokens = self.config.get("alpha_tokens") or []
+        base = symbol.replace("USDT", "")
+        token_meta = next((t for t in alpha_tokens if str(t.get("symbol", "")).upper() == base), None)
+        if not token_meta:
+            return result
+        chain = str(token_meta.get("chain") or "").lower()
+        contract = token_meta.get("contract") or ""
+        if not chain or not contract:
+            return result
+        result["chain"] = chain
+        result["contract"] = contract
+        if not self.nansen_client or not nansen_cfg.get("enrich_binance_signals"):
+            return result
+        payload = {"chain": chain, "token_address": contract, "window": "24h"}
+        try:
+            netflow_resp = self.nansen_client.smart_money_netflows(payload)
+            dex_resp = self.nansen_client.smart_money_dex_trades(payload)
+        except Exception as exc:  # pragma: no cover
+            self.logger.debug("Nansen enrichment failed for %s: %s", symbol, exc)
+            return result
+        if isinstance(netflow_resp, dict):
+            result["netflow_usd"] = netflow_resp.get("netflow_usd")
+            result["wallets_count"] = netflow_resp.get("smart_wallets")
+            result["wallets"] = netflow_resp.get("wallets") or netflow_resp.get("addresses") or []
+        if isinstance(dex_resp, dict):
+            result["largest_buy"] = dex_resp.get("largest_buy_usd")
+        return result
+
+    def _maybe_check_initiators(
+        self,
+        *,
+        symbol: str,
+        chain: str,
+        contract: str,
+        now_ts: float,
+    ) -> Optional[Dict[str, Any]]:
+        if not self.initiator_cfg.get("enabled") or not self.birdeye_client:
+            return None
+        initiator_addrs = self.initiator_data.get("initiator_addrs") or set()
+        if isinstance(initiator_addrs, list):
+            initiator_addrs = {str(addr).lower() for addr in initiator_addrs}
+        else:
+            initiator_addrs = {str(addr).lower() for addr in initiator_addrs}
+        if not initiator_addrs:
+            return None
+
+        token_key = f"{chain}:{contract.lower()}"
+        if self._initiator_cycle_checks >= self.max_initiator_checks or token_key in self._initiator_tokens_seen:
+            return None
+        self._initiator_tokens_seen.add(token_key)
+        self._initiator_cycle_checks += 1
+
+        start_ts = max(0, int(now_ts - self.lookback_seconds))
+        try:
+            items = self.birdeye_client.fetch_for_window(
+                token_address=contract,
+                start_ts=start_ts,
+                end_ts=int(now_ts),
+                label=f"initiator_{symbol}",
+                chain=chain,
+            )
+        except Exception as exc:  # pragma: no cover
+            self.logger.debug("BirdEye fetch failed for %s: %s", symbol, exc)
+            return None
+        if not items:
+            return None
+
+        addr_cluster = self.initiator_data.get("addr_cluster_id") or self.initiator_data.get("addr_cluster") or {}
+        addr_score = self.initiator_data.get("addr_score") or {}
+        addr_campaigns = self.initiator_data.get("addr_campaigns") or {}
+        addr_tokens = self.initiator_data.get("addr_tokens") or {}
+        addr_details = self.initiator_data.get("addr_details") or {}
+        hit_addrs: Dict[str, int] = {}
+        hit_clusters: Set[str] = set()
+        for tx in items:
+            if not isinstance(tx, dict):
+                continue
+            wallet = str(
+                tx.get("owner")
+                or tx.get("from")
+                or tx.get("from_address")
+                or tx.get("maker")
+                or ""
+            ).lower()
+            if not wallet or wallet not in initiator_addrs:
+                continue
+            hit_addrs[wallet] = hit_addrs.get(wallet, 0) + 1
+            cluster_id = addr_cluster.get(wallet)
+            if cluster_id:
+                hit_clusters.add(str(cluster_id))
+        if not hit_addrs:
+            return None
+        required_clusters = int(self.initiator_cfg.get("require_cluster_hits", 0))
+        if required_clusters > 0 and len(hit_clusters) < required_clusters:
+            return None
+
+        top_hits = sorted(hit_addrs, key=lambda addr: addr_score.get(addr, 0.0), reverse=True)
+        top_addr = top_hits[0]
+        top_entry = addr_details.get(top_addr) or {
+            "address": top_addr,
+            "initiator_score": addr_score.get(top_addr, 0.0),
+            "campaigns_count": addr_campaigns.get(top_addr, 0),
+            "tokens": addr_tokens.get(top_addr, []),
+        }
+        top_entry.setdefault("tokens", addr_tokens.get(top_addr, []))
+        recent_notes = self._recent_activity_notes(top_hits[:3], symbol, now_ts)
+        return {
+            "hit_addresses": list(hit_addrs.keys()),
+            "hit_clusters": list(hit_clusters),
+            "top_hits": top_hits[:3],
+            "top_entry": top_entry,
+            "top_score": float(top_entry.get("initiator_score") or addr_score.get(top_addr, 0.0) or 0.0),
+            "recent_notes": recent_notes,
+            "tokens": addr_tokens.get(top_addr, []),
+            "token_key": token_key,
+        }
+
+    def _compose_message(
+        self,
+        *,
+        symbol: str,
+        price_last: float,
+        last_quote_volume: float,
+        avg_quote_volume: float,
+        volume_ratio: float,
+        price_delta_percent: float,
+        trade_url: str,
+        futures_block: str,
+        activation: Optional[Dict[str, Any]],
+        confidence: Dict[str, Any],
+        hot_meta: Optional[Dict[str, Any]],
+        now_ts: float,
+        mode: str,
+    ) -> str:
+        prefix = self.alarm_prefix if mode == "alarm" else self.ping_prefix
+        title = "Alpha 1m сигнал" if mode == "alarm" else "Alpha 1m наблюдение"
+        parts = [
+            f"{prefix} {title}: `{symbol}`",
+            f"Цена: `{price_last:.6f}` USDT",
+            f"1m объём: `{last_quote_volume:,.0f}` USDT",
+            f"Средний 1m объём: `{avg_quote_volume:,.0f}` USDT",
+            f"Усиление объёма: `{volume_ratio:.2f}x`",
+            f"Δ цены к предыдущей свече: `{price_delta_percent:.2f}%`",
+            f"[Открыть Binance]({trade_url})",
+        ]
+        if futures_block:
+            parts.append(futures_block)
+        context_block = self._build_initiator_context_block(activation, confidence, hot_meta, now_ts)
+        if context_block:
+            parts.append(context_block)
+        parts.append(f"Режим: {mode.upper()}")
+        return "\n\n".join(parts)
+
+    def _build_initiator_context_block(
+        self,
+        activation: Optional[Dict[str, Any]],
+        confidence: Dict[str, Any],
+        hot_meta: Optional[Dict[str, Any]],
+        now_ts: float,
+    ) -> str:
+        lines = ["🧠 Initiator context:"]
+        lookback_minutes = max(1, self.lookback_seconds // 60)
+        if not activation:
+            lines.append(f"• Совпадений с initiators нет (окно {lookback_minutes} мин)")
+        else:
+            hits = activation.get("hit_addresses") or []
+            clusters = activation.get("hit_clusters") or []
+            lines.append(f"• Совпадения: {len(hits)} кошельков (кластеры: {len(clusters)})")
+            top_entry = activation.get("top_entry") or {}
+            addr = str(top_entry.get("address") or "")
+            addr_disp = f"{addr[:6]}..{addr[-4:]}" if addr else "n/a"
+            score = float(top_entry.get("initiator_score") or 0.0)
+            campaigns = int(top_entry.get("campaigns_count") or 0)
+            pre_buy = top_entry.get("avg_pre_buy_usd")
+            exit_sec = top_entry.get("median_exit_speed_seconds")
+            exit_minutes = f"{exit_sec / 60:.1f}m" if exit_sec else "n/a"
+            line = f"• Топ: {addr_disp} | score={score:.2f} | кампаний={campaigns}"
+            if pre_buy:
+                line += f" | pre_buy≈${pre_buy:,.0f}"
+            if exit_sec:
+                line += f" | exit≈{exit_minutes}"
+            lines.append(line)
+            tokens = top_entry.get("tokens") or activation.get("tokens") or []
+            if tokens:
+                lines.append("• Tokens: " + ", ".join(tokens[:3]))
+            recent_notes = activation.get("recent_notes") or []
+            if recent_notes:
+                lines.append("• Последние активности: " + "; ".join(recent_notes))
+        if hot_meta:
+            ttl = max(0, int(hot_meta.get("expires_ts", now_ts) - now_ts))
+            ttl_minutes = ttl // 60
+            lines.append(
+                f"• Hot token: YES (ttl {ttl_minutes}m, w={hot_meta.get('weight', 0.0):.2f})"
+            )
+        lines.append(f"• Оценка вероятности пампа: {confidence['percent']}% ({confidence['label']})")
+        reasons = confidence.get("reasons_line")
+        if reasons:
+            lines.append(reasons)
+        return "\n".join(lines)
+
+    def _compute_confidence(
+        self,
+        *,
+        activation: Optional[Dict[str, Any]],
+        volume_ratio: float,
+        price_delta_percent: float,
+        symbol: str,
+        now_ts: float,
+    ) -> Dict[str, Any]:
+        hit_addrs = len((activation or {}).get("hit_addresses") or [])
+        hit_clusters = len((activation or {}).get("hit_clusters") or [])
+        top_score = float((activation or {}).get("top_score") or 0.0)
+        market_strength = self._market_strength(volume_ratio, price_delta_percent)
+        initiator_strength = self._initiator_strength(hit_addrs, hit_clusters, top_score)
+        seen_minutes = self._symbol_seen_minutes(symbol, activation, now_ts)
+        novelty = self._novelty_penalty(seen_minutes)
+        value = self._clamp(0.45 * market_strength + 0.45 * initiator_strength + 0.10 * novelty)
+        percent = int(round(value * 100))
+        label = "HIGH" if value >= 0.75 else "MED" if value >= 0.4 else "LOW"
+        reasons_line = None
+        if self.reasons_line_enabled:
+            seen_text = "∞" if seen_minutes is None else f"{int(seen_minutes)}m"
+            reasons_line = (
+                f"Причины: clusters={hit_clusters} addrs={hit_addrs} top={top_score:.2f} "
+                f"vol={volume_ratio:.2f}x Δ={price_delta_percent:.2f}% seen={seen_text}"
+            )
+        return {
+            "value": value,
+            "percent": percent,
+            "label": label,
+            "reasons_line": reasons_line,
+        }
+
+    def _select_alert_mode(self, confidence_value: float) -> Optional[str]:
+        if confidence_value >= self.threshold_alarm:
+            return "alarm"
+        if confidence_value >= self.threshold_ping:
+            return "ping"
+        return None
+
+    def _symbol_seen_minutes(
+        self,
+        symbol: str,
+        activation: Optional[Dict[str, Any]],
+        now_ts: float,
+    ) -> Optional[float]:
+        if not self.state or not activation:
+            return None
+        symbol_upper = symbol.upper()
+        actor_map = (self.state.get("symbol_recent_actors") or {}).get(symbol_upper) or {}
+        cluster_map = (self.state.get("symbol_recent_clusters") or {}).get(symbol_upper) or {}
+        deltas: List[float] = []
+        for addr in activation.get("hit_addresses", []):
+            ts = actor_map.get(addr.lower())
+            if ts:
+                deltas.append(max(0.0, (now_ts - ts) / 60.0))
+        for cluster_id in activation.get("hit_clusters", []):
+            ts = cluster_map.get(cluster_id)
+            if ts:
+                deltas.append(max(0.0, (now_ts - ts) / 60.0))
+        if not deltas:
+            return None
+        return min(deltas)
+
+    def _recent_activity_notes(self, addrs: List[str], symbol: str, now_ts: float) -> List[str]:
+        notes: List[str] = []
+        if not self.state:
+            return notes
+        actor_map = self.state.get("actor_recent_symbols") or {}
+        for addr in addrs:
+            sym_map = actor_map.get(addr.lower()) or {}
+            ts = sym_map.get(symbol.upper())
+            if not ts:
+                continue
+            minutes = max(1, int((now_ts - ts) / 60))
+            notes.append(f"{addr[:6]}..{addr[-4:]} видел {symbol} {minutes}м назад")
+        return notes
+
+    def update_hot_tokens(self, hot_entries: List[Dict[str, Any]], now_ts: float) -> None:
+        if not self.fusion_enabled or not hot_entries:
+            return
+        for entry in hot_entries:
+            token_key = entry.get("token_key")
+            if not token_key:
+                continue
+            weight = max(0.0, min(1.0, float(entry.get("weight") or 0.0)))
+            meta = {
+                "expires_ts": now_ts + self.hot_tokens_ttl,
+                "weight": weight,
+                "last_seen_ts": now_ts,
+                "addr": entry.get("addr"),
+                "initiator_score": entry.get("initiator_score"),
+                "new_token": bool(entry.get("new_token")),
+            }
+            self.hot_tokens[token_key] = meta
+        self._prune_hot_tokens(now_ts)
+
+    def _build_symbol_contract_map(self, entries: List[Dict[str, Any]]) -> Dict[str, str]:
+        mapping: Dict[str, str] = {}
+        for entry in entries or []:
+            if not isinstance(entry, dict):
+                continue
+            symbol = str(entry.get("symbol") or "").upper()
+            contract = entry.get("contract")
+            if not symbol or not contract:
+                continue
+            chain = str(entry.get("chain") or "bsc").lower()
+            mapping[symbol] = f"{chain}:{str(contract).lower()}"
+        return mapping
+
+    def _token_key_from_symbol(self, symbol: str) -> Optional[str]:
+        if not symbol:
+            return None
+        base = symbol.replace("USDT", "").upper()
+        if base in self.symbol_contract_map:
+            return self.symbol_contract_map[base]
+        if base:
+            return f"bsc_symbol:{base}"
+        return None
+
+    def _derive_token_key(self, symbol: str, nansen_summary: Optional[Dict[str, Any]]) -> Optional[str]:
+        if nansen_summary and nansen_summary.get("contract"):
+            chain = str(nansen_summary.get("chain") or "bsc").lower()
+            contract = str(nansen_summary.get("contract")).lower()
+            return f"{chain}:{contract}"
+        return self._token_key_from_symbol(symbol)
+
+    def _get_hot_meta(self, token_key: Optional[str], now_ts: float) -> Optional[Dict[str, Any]]:
+        if not token_key:
+            return None
+        meta = self.hot_tokens.get(token_key)
+        if not meta:
+            return None
+        if meta.get("expires_ts", 0) < now_ts:
+            self.hot_tokens.pop(token_key, None)
+            return None
+        return meta
+
+    def _is_hot_token(self, token_key: str, now_ts: float) -> bool:
+        return self._get_hot_meta(token_key, now_ts) is not None
+
+    def _prune_hot_tokens(self, now_ts: float) -> None:
+        expired = [token for token, meta in self.hot_tokens.items() if meta.get("expires_ts", 0) < now_ts]
+        for token in expired:
+            self.hot_tokens.pop(token, None)
+        if len(self.hot_tokens) <= self.max_hot_tokens:
+            return
+        for token, _ in sorted(self.hot_tokens.items(), key=lambda kv: kv[1].get("last_seen_ts", 0))[
+            : len(self.hot_tokens) - self.max_hot_tokens
+        ]:
+            self.hot_tokens.pop(token, None)
+
+    @staticmethod
+    def _market_strength(volume_ratio: float, price_delta_percent: float) -> float:
+        vol_norm = AlphaScanner._norm01(volume_ratio, 1.5, 6.0)
+        price_norm = AlphaScanner._norm01(price_delta_percent, 0.2, 5.0)
+        return AlphaScanner._clamp(0.6 * vol_norm + 0.4 * price_norm)
+
+    @staticmethod
+    def _initiator_strength(hit_addrs: int, hit_clusters: int, top_score: float) -> float:
+        cluster_norm = AlphaScanner._norm01(hit_clusters, 0, 3)
+        addr_norm = AlphaScanner._norm01(hit_addrs, 0, 5)
+        score_norm = AlphaScanner._norm01(top_score, 0.3, 1.0)
+        return AlphaScanner._clamp(0.3 * cluster_norm + 0.2 * addr_norm + 0.5 * score_norm)
+
+    @staticmethod
+    def _novelty_penalty(seen_minutes: Optional[float]) -> float:
+        if seen_minutes is None:
+            return 0.1
+        if seen_minutes < 15:
+            return -0.3
+        if seen_minutes < 30:
+            return -0.15
+        if seen_minutes > 180:
+            return 0.2
+        if seen_minutes > 90:
+            return 0.1
+        return 0.0
+
+    @staticmethod
+    def _norm01(value: float, lo: float, hi: float) -> float:
+        if hi <= lo:
+            return 0.0
+        return max(0.0, min(1.0, (value - lo) / (hi - lo)))
+
+    @staticmethod
+    def _clamp(value: float, lo: float = 0.0, hi: float = 1.0) -> float:
+        return max(lo, min(hi, value))
+
+    def _maybe_emit_cluster_spree(self, cluster_ids: List[str], now_ts: float) -> None:
+        if not self.state or not cluster_ids or self._cluster_spree_sent_cycle:
+            return
+        cluster_map = self.state.get("cluster_recent_symbols") or {}
+        for cluster_id in cluster_ids:
+            bucket = cluster_map.get(cluster_id) or {}
+            recent_symbols = [
+                sym for sym, ts in bucket.items() if now_ts - ts <= self.cluster_spree_window
+            ]
+            unique_symbols = sorted(set(recent_symbols))
+            if len(unique_symbols) < 3:
+                continue
+            event_key = f"spree:{cluster_id}:{int(now_ts) // 1800}"
+            if (
+                too_soon_cluster_spree(
+                    self.state, cluster_id=cluster_id, cooldown_sec=self.cluster_spree_cooldown, now_ts=now_ts
+                )
+                or seen_event(self.state, event_key)
+            ):
+                continue
+            msg = (
+                f"{self.ping_prefix} Cluster spree: cluster={cluster_id} symbols="
+                f"{', '.join(unique_symbols[-5:])} (last {self.cluster_spree_window // 60}m)"
+            )
+            try:
+                self.notifier.send_message(msg)
+                record_cluster_spree(self.state, cluster_id, int(now_ts))
+                remember_event(self.state, event_key, int(now_ts))
+                self._cluster_spree_sent_cycle = True
+                break
+            except Exception as exc:  # pragma: no cover
+                self.logger.error("Failed to send cluster spree alert: %s", exc)
+
+    def _is_valid_symbol(self, symbol: str) -> bool:
+        if not symbol.endswith("USDT"):
+            return False
+        suffixes = ("UPUSDT", "DOWNUSDT", "BULLUSDT", "BEARUSDT")
+        return not symbol.endswith(suffixes)
+import json
+import logging
+import time
+from pathlib import Path
+from typing import Dict, Any, List, Optional
+
+from .binance_client import BinanceClient
+from .binance_futures_client import BinanceFuturesClient
+from .nansen_client import NansenClient
+from .telegram_alerts import TelegramNotifier
+from .logger import get_logger
+
+
+class AlphaScanner:
+    def __init__(
+        self,
+        binance_client: BinanceClient,
+        notifier: TelegramNotifier,
+        config: Dict[str, Any],
+        logger: logging.Logger | None = None,
+        futures_client: Optional[BinanceFuturesClient] = None,
+        nansen_client: Optional[NansenClient] = None,
+    ) -> None:
+        self.binance_client = binance_client
+        self.notifier = notifier
+        self.config = config
+        self.logger = logger or get_logger(self.__class__.__name__)
+        self.futures_client = futures_client
+        self.nansen_client = nansen_client
+
+        scanner_cfg = config.get("scanner", {})
+        signals_cfg = config.get("signals", {})
+
+        self.interval_seconds = int(scanner_cfg.get("interval_seconds", 60))
+        self.min_24h_volume_usdt = float(scanner_cfg.get("min_24h_volume_usdt", 1_000_000))
+        self.max_24h_volume_usdt = float(scanner_cfg.get("max_24h_volume_usdt", 50_000_000))
+        self.min_price_usdt = float(scanner_cfg.get("min_price_usdt", 0.01))
+        self.max_price_usdt = float(scanner_cfg.get("max_price_usdt", 50))
+        self.max_symbols_per_scan = int(scanner_cfg.get("max_symbols_per_scan", 80))
+        self.cooldown_seconds = int(scanner_cfg.get("cooldown_seconds", 600))
+
+        self.volume_multiplier_threshold = float(signals_cfg.get("volume_multiplier_threshold", 4.0))
+        self.min_volume_1m_usdt = float(signals_cfg.get("min_volume_1m_usdt", 50_000))
+        self.price_delta_percent_threshold = float(signals_cfg.get("price_delta_percent_threshold", 2.0))
+
+        self.last_alert_times: Dict[str, float] = {}
+        self._mm_clusters: Optional[Dict[str, Dict[str, Any]]] = None
+        self._mm_clusters_loaded = False
+
+    def _is_valid_symbol(self, symbol: str) -> bool:
+        if not symbol.endswith("USDT"):
+            return False
+        bad_suffixes = ("UPUSDT", "DOWNUSDT", "BULLUSDT", "BEARUSDT")
+        if symbol.endswith(bad_suffixes):
+            return False
+        return True
+
+    def _load_clusters(self) -> None:
+        if self._mm_clusters_loaded:
+            return
+        self._mm_clusters_loaded = True
+        path = Path("data/alpha_profiler/clusters.json")
+        if not path.exists():
+            self.logger.warning("clusters.json not found at %s", path)
+            self._mm_clusters = None
+            return
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(data, list):
+                clusters: Dict[str, Dict[str, Any]] = {}
+                for entry in data:
+                    addr = str(entry.get("address") or "").lower()
+                    if addr:
+                        clusters[addr] = entry
+                self._mm_clusters = clusters
+            else:
+                self.logger.warning("clusters.json has unexpected format")
+                self._mm_clusters = None
+        except Exception as exc:
+            self.logger.warning("Failed to load clusters.json: %s", exc)
+            self._mm_clusters = None
+
+    def _build_mm_context_block(
+        self,
+        symbol: str,
+        chain: Optional[str],
+        contract: Optional[str],
+        nansen_summary: Optional[Dict[str, Any]],
+        volume_ratio: float,
+        price_delta_percent: float,
+    ) -> str:
+        self._load_clusters()
+
+        netflow_usd = None
+        wallets_count = None
+        wallets: List[str] = []
+        if nansen_summary:
+            netflow_usd = nansen_summary.get("netflow_usd")
+            wallets_count = nansen_summary.get("wallets_count")
+            wallets = [w.lower() for w in nansen_summary.get("wallets") or [] if isinstance(w, str)]
+
+        cluster_matches_count = 0
+        top_matches: List[Dict[str, Any]] = []
+        if self._mm_clusters and wallets:
+            for addr in wallets:
+                if addr in self._mm_clusters:
+                    cluster_matches_count += 1
+                    top_matches.append(self._mm_clusters[addr])
+            top_matches.sort(key=lambda x: float(x.get("total_net_usd") or 0.0), reverse=True)
+            top_matches = top_matches[:3]
+
+        score = 0.0
+        score += max(0.0, min(40.0, (volume_ratio - 1.0) * 10.0))
+        score += max(0.0, min(25.0, price_delta_percent * 2.0))
+        if netflow_usd is not None:
+            if netflow_usd > 0:
+                score += max(0.0, min(20.0, netflow_usd / 50_000.0 * 20.0))
+            else:
+                score += max(-10.0, min(0.0, netflow_usd / 50_000.0 * 10.0))
+        if cluster_matches_count > 0:
+            score += max(5.0, min(15.0, cluster_matches_count * 5.0))
+        score = max(0.0, min(100.0, score))
+        score_int = int(round(score))
+
+        lines = ["", "*MM / Smart Money контекст:*"]
+        if netflow_usd is not None:
+            lines.append(f"• Smart-money netflow (Nansen): `{netflow_usd:,.0f} USD`")
+        else:
+            lines.append("• Smart-money netflow (Nansen): `нет данных`")
+
+        if wallets_count is not None:
+            lines.append(f"• Активных smart-кошельков: `{wallets_count}`")
+
+        if self._mm_clusters is None:
+            lines.append("• Кластеры: `нет данных`")
+        else:
+            if cluster_matches_count > 0:
+                lines.append(f"• Совпадений с нашими кластерами: `{cluster_matches_count}`")
+                if top_matches:
+                    short = ", ".join(
+                        f"`{m.get('address')}` (pumps={m.get('pumps_participated')}, usd={m.get('total_net_usd')})"
+                        for m in top_matches
+                    )
+                    lines.append(f"  Топ адреса: {short}")
+            else:
+                lines.append("• Совпадений с нашими кластерами: `нет`")
+
+        lines.append(f"• Оценка вероятности пампа: `{score_int}%`")
+        return "\n".join(lines)
+
+    def scan_once(self) -> None:
+        self.logger.info("Fetching 24h tickers from Binance")
+        tickers = self.binance_client.get_24h_tickers()
+        if not tickers:
+            self.logger.warning("No tickers received from Binance")
+            return
+
+        total_tickers = len(tickers)
+        passed_basic_filters = 0
+        klines_requested = 0
+        signals_triggered = 0
+
+        scanner_symbols: List[Dict[str, Any]] = []
+
+        for t in tickers:
+            symbol = t.get("symbol")
+            if not isinstance(symbol, str):
+                continue
+            if not self._is_valid_symbol(symbol):
+                continue
+
+            try:
+                last_price = float(t.get("lastPrice", 0.0))
+                quote_volume = float(t.get("quoteVolume", 0.0))
+            except (TypeError, ValueError):
+                continue
+
+            if quote_volume < self.min_24h_volume_usdt or quote_volume > self.max_24h_volume_usdt:
+                continue
+            if last_price < self.min_price_usdt or last_price > self.max_price_usdt:
+                continue
+
+            scanner_symbols.append(
+                {
+                    "symbol": symbol,
+                    "last_price": last_price,
+                    "quote_volume_24h": quote_volume,
+                }
+            )
+            passed_basic_filters += 1
+
+        if not scanner_symbols:
+            self.logger.info("No symbols passed basic 24h filters")
+            return
+
+        scanner_symbols.sort(key=lambda x: x.get("quote_volume_24h", 0.0), reverse=True)
+        scanner_symbols = scanner_symbols[: self.max_symbols_per_scan]
+
+        now_ts = time.time()
+
+        for item in scanner_symbols:
+            symbol = item["symbol"]
+            klines = self.binance_client.get_recent_klines(symbol, interval="1m", limit=11)
+            if len(klines) < 3:
+                continue
+
+            klines_requested += 1
+
+            try:
+                last_kline = klines[-1]
+                prev_kline = klines[-2]
+
+                last_quote_volume = float(last_kline[7])
+                price_last = float(last_kline[4])
+                price_prev = float(prev_kline[4])
+
+                if price_prev <= 0:
+                    continue
+
+                prev_volumes = [float(k[7]) for k in klines[:-1]]
+                avg_quote_volume = sum(prev_volumes) / max(len(prev_volumes), 1)
+            except (TypeError, ValueError, IndexError) as exc:
+                self.logger.debug("Error parsing klines for %s: %s", symbol, exc)
+                continue
+
+            if avg_quote_volume <= 0:
+                continue
+
+            volume_ratio = last_quote_volume / avg_quote_volume
+            price_delta_percent = (price_last - price_prev) / price_prev * 100.0
+
+            if last_quote_volume < self.min_volume_1m_usdt:
+                continue
+            if volume_ratio < self.volume_multiplier_threshold:
+                continue
+
+            if price_delta_percent < self.price_delta_percent_threshold:
+                diff = self.price_delta_percent_threshold - price_delta_percent
+                if diff <= 0.5:
+                    self.logger.debug(
+                        "Near-miss signal for %s: volume_ratio=%.2f, price_delta=%.2f%% (%.2f%% below threshold)",
+                        symbol,
+                        volume_ratio,
+                        price_delta_percent,
+                        diff,
+                    )
+                continue
+
+            last_alert_ts = self.last_alert_times.get(symbol)
+            if last_alert_ts is not None and (now_ts - last_alert_ts) < self.cooldown_seconds:
+                continue
+
+            base = symbol.replace("USDT", "")
+            trade_url = f"https://www.binance.com/en/trade/{base}_USDT"
+
+            futures_info_text = ""
+            if self.futures_client is not None:
+                fut_snapshot = self.futures_client.get_futures_snapshot(symbol)
+                if fut_snapshot:
+                    oi = fut_snapshot.get("open_interest", 0.0)
+                    funding = fut_snapshot.get("funding_rate", 0.0)
+                    mark_price = fut_snapshot.get("mark_price", 0.0)
+                    futures_info_text = (
+                        f"\n\n*Futures info:*\n"
+                        f"Open interest: `{oi:,.0f}` контрактов\n"
+                        f"Funding rate: `{funding:.4f}`\n"
+                        f"Mark price: `{mark_price:.6f}` USDT"
+                    )
+
+            nansen_summary: Dict[str, Any] = {}
+            nansen_cfg = self.config.get("nansen", {}) or {}
+            if self.nansen_client is not None and nansen_cfg.get("enrich_binance_signals"):
+                alpha_tokens = self.config.get("alpha_tokens") or []
+                token_meta = next((t for t in alpha_tokens if str(t.get("symbol", "")).upper() == base), None)
+                if token_meta:
+                    chain = str(token_meta.get("chain") or "").lower()
+                    contract = token_meta.get("contract") or ""
+                    try:
+                        payload = {"chain": chain, "token_address": contract, "window": "24h"}
+                        netflow_resp = self.nansen_client.smart_money_netflows(payload)
+                        dex_resp = self.nansen_client.smart_money_dex_trades(payload)
+                        netflow_usd = None
+                        wallets_count = None
+                        largest_buy = None
+                        wallets = []
+                        if netflow_resp and isinstance(netflow_resp, dict):
+                            netflow_usd = float(netflow_resp.get("netflow_usd", 0) or 0.0)
+                            wallets_count = int(netflow_resp.get("smart_wallets", 0) or 0)
+                            wlist = netflow_resp.get("wallets") or netflow_resp.get("addresses") or []
+                            if isinstance(wlist, list):
+                                wallets = [str(w) for w in wlist if isinstance(w, str)]
+                        if dex_resp and isinstance(dex_resp, dict):
+                            largest_buy = float(dex_resp.get("largest_buy_usd", 0) or 0.0)
+
+                        nansen_summary = {
+                            "netflow_usd": netflow_usd,
+                            "wallets_count": wallets_count,
+                            "largest_buy": largest_buy,
+                            "wallets": wallets,
+                            "chain": chain,
+                            "contract": contract,
+                        }
+                    except Exception as exc:
+                        self.logger.debug("Nansen enrichment failed for %s: %s", symbol, exc)
+
+            mm_block = self._build_mm_context_block(
+                symbol=symbol,
+                chain=nansen_summary.get("chain") if nansen_summary else None,
+                contract=nansen_summary.get("contract") if nansen_summary else None,
+                nansen_summary=nansen_summary if nansen_summary else None,
+                volume_ratio=volume_ratio,
+                price_delta_percent=price_delta_percent,
+            )
+
+            msg = (
+                f"🚨 *Alpha 1m сигнал*: `{symbol}`\n"
+                f"Цена: `{price_last:.6f}` USDT\n"
+                f"1m объём (quote): `{last_quote_volume:,.0f}` USDT\n"
+                f"Средний 1m объём (предыдущие свечи): `{avg_quote_volume:,.0f}` USDT\n"
+                f"Множитель объёма: `{volume_ratio:.2f}x`\n"
+                f"Рост цены vs предыдущая 1m свеча: `{price_delta_percent:.2f}%`\n"
+                f"[Открыть график на Binance]({trade_url})"
+                f"{futures_info_text}"
+                f"{mm_block}"
+            )
+
+            self.logger.info(
+                "Alpha signal for %s: volume_ratio=%.2f price_delta=%.2f%%",
+                symbol,
+                volume_ratio,
+                price_delta_percent,
+            )
+
+            self.notifier.send_message(msg)
+            self.last_alert_times[symbol] = now_ts
+            signals_triggered += 1
+
+        self.logger.info(
+            "Scan stats: total_tickers=%d, passed_basic_filters=%d, klines_requested=%d, signals_triggered=%d",
+            total_tickers,
+            passed_basic_filters,
+            klines_requested,
+            signals_triggered,
+        )

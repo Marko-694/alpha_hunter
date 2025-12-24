@@ -12,6 +12,7 @@ class NansenSmartMoneyMonitor:
         nansen_client: NansenClient,
         notifier: TelegramNotifier,
         config: Dict[str, Any],
+        nansen_cfg: Optional[Dict[str, Any]] = None,
         logger=None,
     ) -> None:
         self.nansen_client = nansen_client
@@ -19,7 +20,7 @@ class NansenSmartMoneyMonitor:
         self.config = config
         self.logger = logger or get_logger("nansen_monitor")
 
-        cfg = config.get("nansen", {}) or {}
+        cfg = (nansen_cfg or config.get("nansen") or {}) or {}
         self.enabled = bool(cfg.get("enabled", False))
         self.interval_sec = int(cfg.get("token_screener_interval_sec", 300))
         self.smart_window_min = int(cfg.get("smart_money_window_minutes", 60))
@@ -100,6 +101,10 @@ class NansenSmartMoneyMonitor:
                 f"Активных смарт-кошельков: `{wallet_count}`\n"
                 f"[Открыть график на Binance](https://www.binance.com/ru/trade/{symbol})"
             )
-            self.notifier.send_message(msg)
+            self.notifier.send_message(
+                msg,
+                alert_kind="nansen_screener",
+                address=symbol,
+            )
 
         self.last_run_ts = now_ts

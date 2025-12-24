@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "name": "SOON_2025_12_12",
+    "symbol": "SOON",
+    "chain": "bsc",
+    "contract": "0xb9e1fd5a02d3a33b25a14d661414e6ed6954a721",
+    "pump_start": "2025-11-14T18:00:00+00:00",
+    "pump_end": "2025-11-14T21:00:00+00:00",
+    "pre_window_minutes": 100,
+    "dump_window_minutes": 60,
+    "min_whale_net_usd": 2500.0,
+    "start_ts": 1763143200,
+    "end_ts": 1763154000,
+    "price_usd": 0.4058,
+    "generated_at": "2025-12-21T23:09:44.937103+00:00",
+    "profile_id": "SOON_2025_12_12:SOON:bsc:0xb9e1fd5a02d3a33b25a14d661414e6ed6954a721:1763143200:1763154000:100:60:2500.0",
+    "cache_mode": "recompute",
+    "birdeye_status": "incomplete",
+    "birdeye_reason": "no_keys",
+    "status": "incomplete",
+    "empty_reason": "no_keys",
+    "counters": {
+      "tx_total": 0,
+      "log_events_total": 0,
+      "transfer_events_total": 0,
+      "unique_wallets_seen": 0,
+      "wallets_passing_threshold": 0,
+      "pricing_missing_count": 0,
+      "birdeye_items_total": 0,
+      "birdeye_http_errors": 0,
+      "birdeye_cu_exceeded_count": 0,
+      "birdeye_status": "incomplete",
+      "birdeye_reason": "no_keys",
+      "covalent_http_errors": 0,
+      "nansen_status_code": 0
+    }
+  },
+  "wallets": []
+}

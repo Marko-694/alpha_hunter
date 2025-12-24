@@ -1,4 +1,6 @@
+import inspect
 import os
+import sys
 from datetime import datetime, timezone, timedelta
 from typing import Any, Dict, List
 
@@ -15,9 +17,27 @@ from alpha_hunter.profiler_core import (
     build_clusters,
     build_actors_and_watchlist,
 )
+from alpha_hunter.birdeye_client import fetch_for_window as fetch_for_window_birdeye
 from alpha_hunter.watchlist_ui import run_watchlist_ui
-from alpha_hunter.pnl_tracer import recompute_watchlist_pnl
+from alpha_hunter.pnl_tracer import recompute_watchlist_pnl, recompute_actors_pnl
 from alpha_hunter.actors_builder import build_actors_watchlist
+from alpha_hunter.initiators_builder import build_initiators_index
+from alpha_hunter.exit_signatures_builder import build_exit_signatures
+from alpha_hunter.config_utils import resolve_nansen_config
+
+
+def _ensure_utf8_std_streams() -> None:
+    try:
+        for stream in (sys.stdout, sys.stderr):
+            if hasattr(stream, "reconfigure"):
+                stream.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:  # pragma: no cover
+        pass
+
+
+_ensure_utf8_std_streams()
+
+FORCE_REFRESH_ENV = os.getenv("ALPHA_PROFILER_FORCE_REFRESH", "0") == "1"
 
 
 def load_config(path: str = "config.yaml") -> Dict[str, Any]:
@@ -108,8 +128,9 @@ def _build_pump_config(pump_cfg: Dict[str, Any]) -> PumpWindowConfig:
     pre_minutes = int(pump_cfg.get("pre_pump_minutes", 180))
     min_whale_net_usd = float(pump_cfg.get("min_whale_net_usd", 30000))
     use_nansen = bool(pump_cfg.get("use_nansen", True))
-
+    cfg_name = pump_cfg.get("name") or f"{pump_cfg.get('symbol','')}_{pump_cfg.get('chain','')}_{start_ts}"
     return PumpWindowConfig(
+        name=str(cfg_name),
         symbol=pump_cfg["symbol"],
         chain=pump_cfg["chain"],
         contract=pump_cfg["contract"],
@@ -132,6 +153,7 @@ def _run_pump(
     name = pump_cfg.get("name", f"{pump_cfg.get('symbol','')}_{pump_cfg.get('chain','')}")
     logger.info("Starting pump profile: %s", name)
     cfg = _build_pump_config(pump_cfg)
+    force_refresh = FORCE_REFRESH_ENV or bool(pump_cfg.get("force_refresh"))
     path = analyze_single_pump(
         cfg=cfg,
         explorer_client=explorer,
@@ -139,6 +161,7 @@ def _run_pump(
         nansen_client=nansen_client if cfg.use_nansen else None,
         logger=logger,
         retention_days=retention_days,
+        force_refresh=force_refresh,
     )
     if path:
         print(f"[OK] Профиль {name} сохранён: {path}")
@@ -148,13 +171,24 @@ def _run_pump(
 
 def run_profiler_menu() -> None:
     logger = get_logger("alpha_profiler_menu")
+    logger.info(
+        "BirdEye fetch_for_window resolved to %s.%s sig=%s",
+        fetch_for_window_birdeye.__module__,
+        fetch_for_window_birdeye.__name__,
+        inspect.signature(fetch_for_window_birdeye),
+    )
+    logger.info(
+        "BirdEye fetch_for_window implementation: %s.%s",
+        fetch_for_window_birdeye.__module__,
+        fetch_for_window_birdeye.__name__,
+    )
     config = load_config()
 
     explorer = ExplorerClient(config=config, logger=logger)
     binance = BinanceClient(logger=logger)
     price_client = PriceClient(binance_client=binance, config=config, logger=logger)
 
-    nansen_cfg = config.get("nansen", {}) or {}
+    nansen_cfg, _ = resolve_nansen_config(config, logger)
     nansen_client = None
     if nansen_cfg.get("enabled") and nansen_cfg.get("api_key"):
         nansen_client = NansenClient(
@@ -172,14 +206,17 @@ def run_profiler_menu() -> None:
 
     while True:
         print("\n=== Alpha Offline Profiler ===")
-        print("1) Прогнать один памп из config.yaml")
-        print("2) Прогнать все пампы из config.yaml")
-        print("3) Собрать кластеры по существующим профилям (clusters.json)")
-        print("4) Пересобрать actors/watchlist")
-        print("5) Запустити UI для перегляду watchlist (браузер)")
-        print("6) Пересчитать PnL для акторов из watchlist")
-        print("7) Выход в главное меню")
-        choice = input("Выберите пункт (1-7): ").strip()
+        print("1) Запустить профайлер для выбранного pump из config.yaml")
+        print("2) Запустить профайлер для всех pumps из config.yaml")
+        print("3) Собрать кластеры (clusters.json)")
+        print("4) Собрать actors/watchlist")
+        print("5) Запустить Watchlist UI (dashboard)")
+        print("6) Пересчитать PnL для адресов watchlist")
+        print("7) Построить initiators (warehouse/initiators.json)")
+        print("8) Выйти из меню")
+        print("9) Построить exit signatures (warehouse/exit_signatures.json)")
+        print("10) Пересчитать PnL для всех акторов (system/actors.json)")
+        choice = input("Выберите пункт (1-10): ").strip()
 
         if choice == "1":
             if not pumps_cfg:
@@ -202,14 +239,28 @@ def run_profiler_menu() -> None:
             if sel_idx < 0 or sel_idx >= len(pumps_cfg):
                 print("Неверный номер.")
                 continue
-            _run_pump(pumps_cfg[sel_idx], explorer, price_client, nansen_client, retention_days, logger)
+            _run_pump(
+                pumps_cfg[sel_idx],
+                explorer,
+                price_client,
+                None,  # временно отключаем Nansen для ручного запуска
+                retention_days,
+                logger,
+            )
 
         elif choice == "2":
             if not pumps_cfg:
                 print("В config.yaml не найдено alpha_profiler.pumps, добавь хотя бы один памп.")
                 continue
             for pump in pumps_cfg:
-                _run_pump(pump, explorer, price_client, nansen_client, retention_days, logger)
+                _run_pump(
+                    pump,
+                    explorer,
+                    price_client,
+                    None,  # временно отключаем Nansen для массового запуска
+                    retention_days,
+                    logger,
+                )
 
         elif choice == "3":
             path = build_clusters(logger=logger)
@@ -230,6 +281,23 @@ def run_profiler_menu() -> None:
             logger.info("PnL for watchlist recomputed via Covalent and saved to %s", output_path)
             print(f"Pnl для watchlist пересчитан и сохранён в: {output_path}")
         elif choice == "7":
+            logger.info("Building initiators artifact...")
+            out_path = build_initiators_index(logger=logger)
+            print(f"Initiators ????????? ?: {out_path}")
+        elif choice == "9":
+            logger.info("Building exit signatures artifact...")
+            out_path = build_exit_signatures(logger=logger)
+            print(f"Exit signatures saved to: {out_path}")
+        elif choice == "10":
+            logger.info("Recomputing PnL for all actors (system/actors.json)...")
+            output_path = recompute_actors_pnl(
+                config=config,
+                logger=logger,
+                profiles_dir="data/alpha_profiler",
+            )
+            logger.info("Actors PnL saved to %s", output_path)
+            print(f"Pnl для system/actors.json пересчитан и сохранён в: {output_path}")
+        elif choice == "8":
             logger.info("Exiting profiler menu")
             break
         else:

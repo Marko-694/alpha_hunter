@@ -1,0 +1,1274 @@
+{
+  "bsc:0x01d71e5443e8f6d02f2387837e010e0712830658:1764664800:1764933120": {
+    "last_bucket": 1961036,
+    "updated_at": "2025-12-15T07:09:47.177939+00:00",
+    "buckets_done": 299,
+    "committed_bucket": 1961036,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T07:06:12.842114+00:00"
+  },
+  "bsc:0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0:1764664800:1764933120": {
+    "last_bucket": 1961036,
+    "updated_at": "2025-12-15T07:15:49.411028+00:00",
+    "buckets_done": 299,
+    "committed_bucket": 1961036,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T07:09:48.088066+00:00"
+  },
+  "bsc:0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0:1763812800:1764097200": {
+    "last_bucket": 1960108,
+    "updated_at": "2025-12-20T21:27:18.243861+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1960108,
+    "started_bucket": 1959792,
+    "started_at": "2025-12-15T07:15:49.467405+00:00"
+  },
+  "bsc:0x9a98c8b4e29989e05fb374ba9370e9143828f6a0:1764664800:1764933120": {
+    "last_bucket": 1961036,
+    "updated_at": "2025-12-15T07:28:28.550052+00:00",
+    "buckets_done": 299,
+    "committed_bucket": 1961036,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T07:22:28.951566+00:00"
+  },
+  "bsc:0xba31691d4ee292de9949a75eeb806df3da7f5484:1764664800:1764933120": {
+    "last_bucket": 1961036,
+    "updated_at": "2025-12-15T07:34:29.763709+00:00",
+    "buckets_done": 299,
+    "committed_bucket": 1961036,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T07:28:29.390781+00:00"
+  },
+  "bsc:0x27872ee8f6cf0f4da4a6eae61924afaa86d48482:1764664800:1764933120": {
+    "last_bucket": 1961036,
+    "updated_at": "2025-12-15T07:40:31.287103+00:00",
+    "buckets_done": 299,
+    "committed_bucket": 1961036,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T07:34:30.682349+00:00"
+  },
+  "bsc:0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb:1764664800:1764933120": {
+    "last_bucket": 1961036,
+    "updated_at": "2025-12-15T07:46:32.600179+00:00",
+    "buckets_done": 299,
+    "committed_bucket": 1961036,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T07:40:32.607652+00:00"
+  },
+  "bsc:0x7fb9d6760fafd3e7998172887e6f9dfe6917fafa:1764664200:1764934200": {
+    "last_bucket": 1961038,
+    "updated_at": "2025-12-15T17:48:00.490129+00:00",
+    "buckets_done": 301,
+    "committed_bucket": 1961038,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T17:41:58.216897+00:00"
+  },
+  "bsc:0x01d71e5443e8f6d02f2387837e010e0712830658:1764664200:1764934200": {
+    "last_bucket": 1961038,
+    "updated_at": "2025-12-20T21:27:17.446600+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961038,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T18:28:25.830678+00:00"
+  },
+  "bsc:0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0:1764664200:1764934200": {
+    "last_bucket": 1961038,
+    "updated_at": "2025-12-20T21:27:18.239978+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961038,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T18:28:37.826368+00:00"
+  },
+  "bsc:0x9a98c8b4e29989e05fb374ba9370e9143828f6a0:1764664200:1764934200": {
+    "last_bucket": 1961038,
+    "updated_at": "2025-12-20T21:27:20.739088+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961038,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T18:28:48.512321+00:00"
+  },
+  "bsc:0xba31691d4ee292de9949a75eeb806df3da7f5484:1764664200:1764934200": {
+    "last_bucket": 1961038,
+    "updated_at": "2025-12-20T21:27:19.055162+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961038,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T18:28:57.114106+00:00"
+  },
+  "bsc:0x27872ee8f6cf0f4da4a6eae61924afaa86d48482:1764664200:1764934200": {
+    "last_bucket": 1961038,
+    "updated_at": "2025-12-20T21:27:21.564459+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961038,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T18:29:07.032364+00:00"
+  },
+  "bsc:0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb:1764664200:1764934200": {
+    "last_bucket": 1961038,
+    "updated_at": "2025-12-20T21:27:22.364887+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961038,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-15T18:29:17.376443+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1764664200:1764934200": {
+    "last_bucket": 1961038,
+    "updated_at": "2025-12-20T21:27:16.309947+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961038,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-19T17:47:49.530394+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1765281600:1765612800": {
+    "last_bucket": 1961792,
+    "updated_at": "2025-12-23T09:05:01.073165+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961792,
+    "started_bucket": 1961424,
+    "started_at": "2025-12-19T17:59:05.254873+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1759752000:1760032800": {
+    "last_bucket": 1955592,
+    "updated_at": "2025-12-23T09:05:01.161125+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1955592,
+    "started_bucket": 1955280,
+    "started_at": "2025-12-19T18:04:56.003229+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1764817200:1765098000": {
+    "last_bucket": 1961220,
+    "updated_at": "2025-12-23T09:11:16.780291+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961220,
+    "started_bucket": 1960908,
+    "started_at": "2025-12-19T18:11:20.413106+00:00"
+  },
+  "bsc:0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0:1764741600:1765029600": {
+    "last_bucket": 1961144,
+    "updated_at": "2025-12-20T21:27:18.246475+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961144,
+    "started_bucket": 1960824,
+    "started_at": "2025-12-19T18:15:00.101532+00:00"
+  },
+  "bsc:0xba31691d4ee292de9949a75eeb806df3da7f5484:1753455600:1753772400": {
+    "last_bucket": 1948636,
+    "updated_at": "2025-12-20T21:27:19.079266+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1948636,
+    "started_bucket": 1948284,
+    "started_at": "2025-12-19T18:17:13.930602+00:00"
+  },
+  "bsc:0xfe6b440a8a8eef748e381b624d656bcdc886100d:1764464400:1764756000": {
+    "last_bucket": 1960840,
+    "updated_at": "2025-12-20T21:27:23.236704+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1960840,
+    "started_bucket": 1960516,
+    "started_at": "2025-12-19T18:24:28.478204+00:00"
+  },
+  "bsc:0xfe6b440a8a8eef748e381b624d656bcdc886100d:1759752000:1760032800": {
+    "last_bucket": 1955592,
+    "updated_at": "2025-12-20T21:27:23.316339+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1955592,
+    "started_bucket": 1955280,
+    "started_at": "2025-12-19T18:25:30.747056+00:00"
+  },
+  "bsc:0x9221ed8021a815f3e48e5ce304fd5bb2720e42b2:1765281600:1765612800": {
+    "last_bucket": 1961792,
+    "updated_at": "2025-12-20T21:27:24.150366+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961792,
+    "started_bucket": 1961424,
+    "started_at": "2025-12-19T23:47:14.317357+00:00"
+  },
+  "bsc:0x9221ed8021a815f3e48e5ce304fd5bb2720e42b2:1764817200:1765098000": {
+    "last_bucket": 1961220,
+    "updated_at": "2025-12-20T21:27:24.211537+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961220,
+    "started_bucket": 1960908,
+    "started_at": "2025-12-19T23:48:15.445218+00:00"
+  },
+  "bsc:0x050563495057213b2d7d6cb20a9bf4b4c3085b0d:1765432800:1765717200": {
+    "last_bucket": 1961908,
+    "updated_at": "2025-12-20T21:27:25.011283+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961908,
+    "started_bucket": 1961592,
+    "started_at": "2025-12-19T23:54:27.187551+00:00"
+  },
+  "bsc:0x050563495057213b2d7d6cb20a9bf4b4c3085b0d:1764817200:1765098000": {
+    "last_bucket": 1961220,
+    "updated_at": "2025-12-20T21:27:25.054427+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961220,
+    "started_bucket": 1960908,
+    "started_at": "2025-12-20T00:00:44.639747+00:00"
+  },
+  "bsc:0xdcc4be1de8da99eefdf64875ad3a65cfce704fcd:1762678800:1762977600": {
+    "last_bucket": 1958864,
+    "updated_at": "2025-12-20T23:17:40.279437+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1958864,
+    "started_bucket": 1958532,
+    "started_at": "2025-12-20T16:15:47.506910+00:00"
+  },
+  "bsc:0x460588368f3ca8027242f37fddc5b9bef514d56a:1764464400:1764756000": {
+    "last_bucket": 1960840,
+    "updated_at": "2025-12-20T23:17:40.955064+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1960840,
+    "started_bucket": 1960516,
+    "started_at": "2025-12-20T17:01:02.758285+00:00"
+  },
+  "bsc:0x24bded3c1970739f8389071aa7037c0299292db9:1764741600:1765029600": {
+    "last_bucket": 1961144,
+    "updated_at": "2025-12-20T23:17:41.684985+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961144,
+    "started_bucket": 1960824,
+    "started_at": "2025-12-20T21:48:04.763108+00:00"
+  },
+  "bsc:0x24bded3c1970739f8389071aa7037c0299292db9:1765281600:1765612800": {
+    "last_bucket": 1961792,
+    "updated_at": "2025-12-20T23:17:41.765228+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961792,
+    "started_bucket": 1961424,
+    "started_at": "2025-12-20T21:54:21.573914+00:00"
+  },
+  "bsc:0x24bded3c1970739f8389071aa7037c0299292db9:1765432800:1765717200": {
+    "last_bucket": 1961908,
+    "updated_at": "2025-12-20T23:17:41.792960+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961908,
+    "started_bucket": 1961592,
+    "started_at": "2025-12-20T22:01:53.085769+00:00"
+  },
+  "bsc:0x24bded3c1970739f8389071aa7037c0299292db9:1759395600:1759698000": {
+    "last_bucket": 1955220,
+    "updated_at": "2025-12-20T23:17:41.909361+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1955220,
+    "started_bucket": 1954884,
+    "started_at": "2025-12-20T22:08:18.844005+00:00"
+  },
+  "bsc:0x24bded3c1970739f8389071aa7037c0299292db9:1763643600:1763982000": {
+    "last_bucket": 1959980,
+    "updated_at": "2025-12-20T23:17:42.135815+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1959980,
+    "started_bucket": 1959604,
+    "started_at": "2025-12-20T22:15:01.749351+00:00"
+  },
+  "bsc:0x25380fe480cabfaa19e304876e856d37706a3f0b:1764664200:1764934200": {
+    "last_bucket": 1961038,
+    "updated_at": "2025-12-20T23:17:43.072258+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1961038,
+    "started_bucket": 1960738,
+    "started_at": "2025-12-20T22:22:40.822588+00:00"
+  },
+  "bsc:0x25380fe480cabfaa19e304876e856d37706a3f0b:1764464400:1764756000": {
+    "last_bucket": 1960840,
+    "updated_at": "2025-12-20T23:17:43.086537+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1960840,
+    "started_bucket": 1960516,
+    "started_at": "2025-12-20T22:28:44.137421+00:00"
+  },
+  "bsc:0x25380fe480cabfaa19e304876e856d37706a3f0b:1759395600:1759698000": {
+    "last_bucket": 1955220,
+    "updated_at": "2025-12-20T23:17:43.178577+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1955220,
+    "started_bucket": 1954884,
+    "started_at": "2025-12-20T22:35:14.427424+00:00"
+  },
+  "bsc:0xe51295e115907b2171d7ecc1a9e681899f81752d:1762678800:1762977600": {
+    "last_bucket": 1958864,
+    "updated_at": "2025-12-20T23:17:43.819213+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1958864,
+    "started_bucket": 1958532,
+    "started_at": "2025-12-20T22:42:04.089544+00:00"
+  },
+  "bsc:0x5a2c4c08bc769572ae273cf603ff8c655471e19c:1763884800:1764172800": {
+    "last_bucket": 1960192,
+    "updated_at": "2025-12-20T23:24:08.489451+00:00",
+    "buckets_done": 0,
+    "committed_bucket": 1960192,
+    "started_bucket": 1959872,
+    "started_at": "2025-12-20T23:17:44.589293+00:00"
+  },
+  "bsc:0x5a2c4c08bc769572ae273cf603ff8c655471e19c:1764464400:1764756000": {
+    "last_bucket": 1960840,
+    "updated_at": "2025-12-20T23:31:00.604603+00:00",
+    "buckets_done": 325,
+    "committed_bucket": 1960840,
+    "started_bucket": 1960516,
+    "started_at": "2025-12-20T23:24:08.489451+00:00"
+  },
+  "bsc:0x32b5bb1786b1a812a632f325a4d8b1fefe5d2876:1762678800:1762977600": {
+    "last_bucket": 1958864,
+    "updated_at": "2025-12-20T23:37:59.703749+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1958864,
+    "started_bucket": 1958532,
+    "started_at": "2025-12-20T23:31:02.104880+00:00"
+  },
+  "bsc:0xd959fb8da72d3966c8ba84a91166b778f3b1e077:1762678800:1762977600": {
+    "last_bucket": 1958864,
+    "updated_at": "2025-12-20T23:45:07.324381+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1958864,
+    "started_bucket": 1958532,
+    "started_at": "2025-12-20T23:38:00.924050+00:00"
+  },
+  "bsc:0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb:1764671400:1764941400": {
+    "last_bucket": 1961046,
+    "updated_at": "2025-12-22T21:56:33.989490+00:00",
+    "buckets_done": 301,
+    "committed_bucket": 1961046,
+    "started_bucket": 1960746,
+    "started_at": "2025-12-22T21:50:30.905663+00:00"
+  },
+  "bsc:0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb:1764979200:1765292400": {
+    "last_bucket": 1961436,
+    "updated_at": "2025-12-22T22:03:33.757750+00:00",
+    "buckets_done": 349,
+    "committed_bucket": 1961436,
+    "started_bucket": 1961088,
+    "started_at": "2025-12-22T21:56:33.989490+00:00"
+  },
+  "bsc:0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb:1765400400:1765692000": {
+    "last_bucket": 1961880,
+    "updated_at": "2025-12-22T22:10:00.575058+00:00",
+    "buckets_done": 325,
+    "committed_bucket": 1961880,
+    "started_bucket": 1961556,
+    "started_at": "2025-12-22T22:03:33.759755+00:00"
+  },
+  "bsc:0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb:1764356400:1764730800": {
+    "last_bucket": 1960812,
+    "updated_at": "2025-12-22T22:18:18.967990+00:00",
+    "buckets_done": 417,
+    "committed_bucket": 1960812,
+    "started_bucket": 1960396,
+    "started_at": "2025-12-22T22:10:00.576362+00:00"
+  },
+  "bsc:0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb:1757293200:1757669400": {
+    "last_bucket": 1952966,
+    "updated_at": "2025-12-22T22:26:54.594621+00:00",
+    "buckets_done": 419,
+    "committed_bucket": 1952966,
+    "started_bucket": 1952548,
+    "started_at": "2025-12-22T22:18:18.970280+00:00"
+  },
+  "bsc:0x80831bb0586901933ac1f0437b5146fc2c447398:1763107200:1763420400": {
+    "last_bucket": 1959356,
+    "updated_at": "2025-12-22T22:33:56.644695+00:00",
+    "buckets_done": 349,
+    "committed_bucket": 1959356,
+    "started_bucket": 1959008,
+    "started_at": "2025-12-22T22:26:55.508066+00:00"
+  },
+  "bsc:0x80831bb0586901933ac1f0437b5146fc2c447398:1761584400:1761872400": {
+    "last_bucket": 1957636,
+    "updated_at": "2025-12-22T22:40:18.380272+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1957636,
+    "started_bucket": 1957316,
+    "started_at": "2025-12-22T22:33:56.674694+00:00"
+  },
+  "bsc:0x80831bb0586901933ac1f0437b5146fc2c447398:1763521200:1763820000": {
+    "last_bucket": 1959800,
+    "updated_at": "2025-12-22T22:47:05.514056+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1959800,
+    "started_bucket": 1959468,
+    "started_at": "2025-12-22T22:40:18.395576+00:00"
+  },
+  "bsc:0x80831bb0586901933ac1f0437b5146fc2c447398:1762912800:1763258400": {
+    "last_bucket": 1959176,
+    "updated_at": "2025-12-22T22:54:46.860562+00:00",
+    "buckets_done": 385,
+    "committed_bucket": 1959176,
+    "started_bucket": 1958792,
+    "started_at": "2025-12-22T22:47:05.574216+00:00"
+  },
+  "bsc:0x80831bb0586901933ac1f0437b5146fc2c447398:1764748800:1765036800": {
+    "last_bucket": 1961152,
+    "updated_at": "2025-12-22T23:01:13.975549+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1961152,
+    "started_bucket": 1960832,
+    "started_at": "2025-12-22T22:54:46.897396+00:00"
+  },
+  "bsc:0x80831bb0586901933ac1f0437b5146fc2c447398:1762261200:1762542000": {
+    "last_bucket": 1958380,
+    "updated_at": "2025-12-22T23:07:28.648891+00:00",
+    "buckets_done": 313,
+    "committed_bucket": 1958380,
+    "started_bucket": 1958068,
+    "started_at": "2025-12-22T23:01:13.990639+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1751922000:1752220800": {
+    "last_bucket": 1946912,
+    "updated_at": "2025-12-22T23:14:18.420017+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1946912,
+    "started_bucket": 1946580,
+    "started_at": "2025-12-22T23:07:29.571162+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1752454800:1752825600": {
+    "last_bucket": 1947584,
+    "updated_at": "2025-12-22T23:22:30.948775+00:00",
+    "buckets_done": 413,
+    "committed_bucket": 1947584,
+    "started_bucket": 1947172,
+    "started_at": "2025-12-22T23:14:18.422017+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1751817600:1752120000": {
+    "last_bucket": 1946800,
+    "updated_at": "2025-12-22T23:29:23.805670+00:00",
+    "buckets_done": 337,
+    "committed_bucket": 1946800,
+    "started_bucket": 1946464,
+    "started_at": "2025-12-22T23:22:30.951788+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1762318800:1762617600": {
+    "last_bucket": 1958464,
+    "updated_at": "2025-12-22T23:35:59.887412+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1958464,
+    "started_bucket": 1958132,
+    "started_at": "2025-12-22T23:29:23.809179+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1763341200:1763694000": {
+    "last_bucket": 1959660,
+    "updated_at": "2025-12-22T23:43:51.832573+00:00",
+    "buckets_done": 393,
+    "committed_bucket": 1959660,
+    "started_bucket": 1959268,
+    "started_at": "2025-12-22T23:35:59.890413+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1764270000:1764630000": {
+    "last_bucket": 1960700,
+    "updated_at": "2025-12-22T23:51:54.919376+00:00",
+    "buckets_done": 401,
+    "committed_bucket": 1960700,
+    "started_bucket": 1960300,
+    "started_at": "2025-12-22T23:43:51.835568+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1764831600:1765141200": {
+    "last_bucket": 1961268,
+    "updated_at": "2025-12-22T23:58:52.532450+00:00",
+    "buckets_done": 345,
+    "committed_bucket": 1961268,
+    "started_bucket": 1960924,
+    "started_at": "2025-12-22T23:51:54.921905+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1764979200:1765292400": {
+    "last_bucket": 1961436,
+    "updated_at": "2025-12-23T00:05:54.117498+00:00",
+    "buckets_done": 349,
+    "committed_bucket": 1961436,
+    "started_bucket": 1961088,
+    "started_at": "2025-12-22T23:58:52.535457+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1765314000:1765652400": {
+    "last_bucket": 1961836,
+    "updated_at": "2025-12-23T00:13:32.417569+00:00",
+    "buckets_done": 377,
+    "committed_bucket": 1961836,
+    "started_bucket": 1961460,
+    "started_at": "2025-12-23T00:05:54.118497+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1765400400:1765692000": {
+    "last_bucket": 1961880,
+    "updated_at": "2025-12-23T00:20:00.253562+00:00",
+    "buckets_done": 325,
+    "committed_bucket": 1961880,
+    "started_bucket": 1961556,
+    "started_at": "2025-12-23T00:13:32.420179+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1763107200:1763420400": {
+    "last_bucket": 1959356,
+    "updated_at": "2025-12-23T00:27:02.839507+00:00",
+    "buckets_done": 349,
+    "committed_bucket": 1959356,
+    "started_bucket": 1959008,
+    "started_at": "2025-12-23T00:20:00.255038+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1761811200:1762113600": {
+    "last_bucket": 1957904,
+    "updated_at": "2025-12-23T00:33:52.868792+00:00",
+    "buckets_done": 337,
+    "committed_bucket": 1957904,
+    "started_bucket": 1957568,
+    "started_at": "2025-12-23T00:27:02.842610+00:00"
+  },
+  "bsc:0x531a87a869d9dfc4c79216bbf393e28722fce021:1763607600:1763895600": {
+    "last_bucket": 1959884,
+    "updated_at": "2025-12-23T00:40:12.505661+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1959884,
+    "started_bucket": 1959564,
+    "started_at": "2025-12-23T00:33:52.870812+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1763892000:1764180000": {
+    "last_bucket": 1960200,
+    "updated_at": "2025-12-23T00:46:46.120215+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1960200,
+    "started_bucket": 1959880,
+    "started_at": "2025-12-23T00:40:13.296523+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1764529200:1764828000": {
+    "last_bucket": 1960920,
+    "updated_at": "2025-12-23T00:53:25.179974+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1960920,
+    "started_bucket": 1960588,
+    "started_at": "2025-12-23T00:46:46.122221+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1760716800:1761048000": {
+    "last_bucket": 1956720,
+    "updated_at": "2025-12-23T01:00:53.260760+00:00",
+    "buckets_done": 369,
+    "committed_bucket": 1956720,
+    "started_bucket": 1956352,
+    "started_at": "2025-12-23T00:53:25.181141+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1760839200:1761120000": {
+    "last_bucket": 1956800,
+    "updated_at": "2025-12-23T01:07:11.410423+00:00",
+    "buckets_done": 313,
+    "committed_bucket": 1956800,
+    "started_bucket": 1956488,
+    "started_at": "2025-12-23T01:00:53.263198+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1765440000:1765720800": {
+    "last_bucket": 1961912,
+    "updated_at": "2025-12-23T01:13:27.506140+00:00",
+    "buckets_done": 313,
+    "committed_bucket": 1961912,
+    "started_bucket": 1961600,
+    "started_at": "2025-12-23T01:07:11.413448+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1762617600:1762927200": {
+    "last_bucket": 1958808,
+    "updated_at": "2025-12-23T01:20:23.724832+00:00",
+    "buckets_done": 345,
+    "committed_bucket": 1958808,
+    "started_bucket": 1958464,
+    "started_at": "2025-12-23T01:13:27.509139+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1765314000:1765652400": {
+    "last_bucket": 1961836,
+    "updated_at": "2025-12-23T01:28:00.310622+00:00",
+    "buckets_done": 377,
+    "committed_bucket": 1961836,
+    "started_bucket": 1961460,
+    "started_at": "2025-12-23T01:20:23.726830+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1765447200:1765724400": {
+    "last_bucket": 1961916,
+    "updated_at": "2025-12-23T01:34:13.301964+00:00",
+    "buckets_done": 309,
+    "committed_bucket": 1961916,
+    "started_bucket": 1961608,
+    "started_at": "2025-12-23T01:28:00.311601+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1763521200:1763820000": {
+    "last_bucket": 1959800,
+    "updated_at": "2025-12-23T01:40:58.202662+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1959800,
+    "started_bucket": 1959468,
+    "started_at": "2025-12-23T01:34:13.302982+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1764748800:1765036800": {
+    "last_bucket": 1961152,
+    "updated_at": "2025-12-23T01:47:21.432324+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1961152,
+    "started_bucket": 1960832,
+    "started_at": "2025-12-23T01:40:58.204887+00:00"
+  },
+  "bsc:0x93e0b7f0abf88cdad07a8cb14a11c0a8622a125d:1756749600:1757044800": {
+    "last_bucket": 1952272,
+    "updated_at": "2025-12-23T01:54:02.812061+00:00",
+    "buckets_done": 329,
+    "committed_bucket": 1952272,
+    "started_bucket": 1951944,
+    "started_at": "2025-12-23T01:47:21.434331+00:00"
+  },
+  "bsc:0xdef222beea38efc8b5d114d3da0e78934149d6a4:1763362800:1763658000": {
+    "last_bucket": 1959620,
+    "updated_at": "2025-12-23T02:00:19.864178+00:00",
+    "buckets_done": 311,
+    "committed_bucket": 1959620,
+    "started_bucket": 1959292,
+    "started_at": "2025-12-23T01:54:03.411382+00:00"
+  },
+  "bsc:0xdef222beea38efc8b5d114d3da0e78934149d6a4:1763341200:1763694000": {
+    "last_bucket": 1959660,
+    "updated_at": "2025-12-23T02:07:29.791229+00:00",
+    "buckets_done": 360,
+    "committed_bucket": 1959660,
+    "started_bucket": 1959268,
+    "started_at": "2025-12-23T02:00:19.867178+00:00"
+  },
+  "bsc:0xdef222beea38efc8b5d114d3da0e78934149d6a4:1764270000:1764630000": {
+    "last_bucket": 1960700,
+    "updated_at": "2025-12-23T02:15:32.896106+00:00",
+    "buckets_done": 401,
+    "committed_bucket": 1960700,
+    "started_bucket": 1960300,
+    "started_at": "2025-12-23T02:07:29.793230+00:00"
+  },
+  "bsc:0xdef222beea38efc8b5d114d3da0e78934149d6a4:1764831600:1765141200": {
+    "last_bucket": 1961268,
+    "updated_at": "2025-12-23T02:22:30.232049+00:00",
+    "buckets_done": 345,
+    "committed_bucket": 1961268,
+    "started_bucket": 1960924,
+    "started_at": "2025-12-23T02:15:32.898113+00:00"
+  },
+  "bsc:0xdef222beea38efc8b5d114d3da0e78934149d6a4:1764979200:1765292400": {
+    "last_bucket": 1961436,
+    "updated_at": "2025-12-23T02:29:31.463691+00:00",
+    "buckets_done": 349,
+    "committed_bucket": 1961436,
+    "started_bucket": 1961088,
+    "started_at": "2025-12-23T02:22:30.233285+00:00"
+  },
+  "bsc:0xdef222beea38efc8b5d114d3da0e78934149d6a4:1765314000:1765652400": {
+    "last_bucket": 1961836,
+    "updated_at": "2025-12-23T02:37:02.180384+00:00",
+    "buckets_done": 377,
+    "committed_bucket": 1961836,
+    "started_bucket": 1961460,
+    "started_at": "2025-12-23T02:29:31.464690+00:00"
+  },
+  "bsc:0xdef222beea38efc8b5d114d3da0e78934149d6a4:1765400400:1765692000": {
+    "last_bucket": 1961880,
+    "updated_at": "2025-12-23T02:43:36.380092+00:00",
+    "buckets_done": 325,
+    "committed_bucket": 1961880,
+    "started_bucket": 1961556,
+    "started_at": "2025-12-23T02:37:02.182380+00:00"
+  },
+  "bsc:0xdef222beea38efc8b5d114d3da0e78934149d6a4:1763107200:1763420400": {
+    "last_bucket": 1959356,
+    "updated_at": "2025-12-23T02:44:48.458430+00:00",
+    "buckets_done": 61,
+    "committed_bucket": 1959356,
+    "started_bucket": 1959008,
+    "started_at": "2025-12-23T02:43:36.386327+00:00"
+  },
+  "bsc:0xdef222beea38efc8b5d114d3da0e78934149d6a4:1763607600:1763895600": {
+    "last_bucket": 1959884,
+    "updated_at": "2025-12-23T02:51:19.765189+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1959884,
+    "started_bucket": 1959564,
+    "started_at": "2025-12-23T02:44:48.461770+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1763362800:1763658000": {
+    "last_bucket": 1959620,
+    "updated_at": "2025-12-23T02:57:57.387215+00:00",
+    "buckets_done": 329,
+    "committed_bucket": 1959620,
+    "started_bucket": 1959292,
+    "started_at": "2025-12-23T02:51:20.910587+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1762686000:1762984800": {
+    "last_bucket": 1958872,
+    "updated_at": "2025-12-23T03:04:39.757700+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1958872,
+    "started_bucket": 1958540,
+    "started_at": "2025-12-23T02:57:57.389153+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1751922000:1752220800": {
+    "last_bucket": 1946912,
+    "updated_at": "2025-12-23T03:11:19.887297+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1946912,
+    "started_bucket": 1946580,
+    "started_at": "2025-12-23T03:04:39.759701+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1760666400:1760968800": {
+    "last_bucket": 1956632,
+    "updated_at": "2025-12-23T03:18:06.459148+00:00",
+    "buckets_done": 337,
+    "committed_bucket": 1956632,
+    "started_bucket": 1956296,
+    "started_at": "2025-12-23T03:11:19.890298+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1762318800:1762617600": {
+    "last_bucket": 1958464,
+    "updated_at": "2025-12-23T03:24:51.270204+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1958464,
+    "started_bucket": 1958132,
+    "started_at": "2025-12-23T03:18:06.461196+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1764831600:1765141200": {
+    "last_bucket": 1961268,
+    "updated_at": "2025-12-23T03:31:46.486307+00:00",
+    "buckets_done": 345,
+    "committed_bucket": 1961268,
+    "started_bucket": 1960924,
+    "started_at": "2025-12-23T03:24:51.274002+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1764979200:1765292400": {
+    "last_bucket": 1961436,
+    "updated_at": "2025-12-23T03:38:46.509515+00:00",
+    "buckets_done": 349,
+    "committed_bucket": 1961436,
+    "started_bucket": 1961088,
+    "started_at": "2025-12-23T03:31:46.490197+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1763107200:1763420400": {
+    "last_bucket": 1959356,
+    "updated_at": "2025-12-23T03:45:48.498105+00:00",
+    "buckets_done": 349,
+    "committed_bucket": 1959356,
+    "started_bucket": 1959008,
+    "started_at": "2025-12-23T03:38:46.511407+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1762509600:1762786800": {
+    "last_bucket": 1958652,
+    "updated_at": "2025-12-23T03:52:01.150245+00:00",
+    "buckets_done": 309,
+    "committed_bucket": 1958652,
+    "started_bucket": 1958344,
+    "started_at": "2025-12-23T03:45:48.500430+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1762246800:1762533000": {
+    "last_bucket": 1958370,
+    "updated_at": "2025-12-23T03:58:23.461931+00:00",
+    "buckets_done": 319,
+    "committed_bucket": 1958370,
+    "started_bucket": 1958052,
+    "started_at": "2025-12-23T03:52:01.152739+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1761584400:1761872400": {
+    "last_bucket": 1957636,
+    "updated_at": "2025-12-23T04:04:52.747583+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1957636,
+    "started_bucket": 1957316,
+    "started_at": "2025-12-23T03:58:23.463920+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1764356400:1764730800": {
+    "last_bucket": 1960812,
+    "updated_at": "2025-12-23T04:13:16.196889+00:00",
+    "buckets_done": 417,
+    "committed_bucket": 1960812,
+    "started_bucket": 1960396,
+    "started_at": "2025-12-23T04:04:52.748661+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1764727200:1765141200": {
+    "last_bucket": 1961268,
+    "updated_at": "2025-12-23T04:22:29.408765+00:00",
+    "buckets_done": 461,
+    "committed_bucket": 1961268,
+    "started_bucket": 1960808,
+    "started_at": "2025-12-23T04:13:16.199337+00:00"
+  },
+  "bsc:0x344788dfc3beb41fd510a560166ee2beb8769cc2:1763668800:1763967600": {
+    "last_bucket": 1959964,
+    "updated_at": "2025-12-23T04:29:13.338626+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1959964,
+    "started_bucket": 1959632,
+    "started_at": "2025-12-23T04:22:29.411019+00:00"
+  },
+  "bsc:0x85deddbd55c30a807cb3e5755744907f82c93386:1763362800:1763658000": {
+    "last_bucket": 1959620,
+    "updated_at": "2025-12-23T04:35:49.497219+00:00",
+    "buckets_done": 329,
+    "committed_bucket": 1959620,
+    "started_bucket": 1959292,
+    "started_at": "2025-12-23T04:29:14.198251+00:00"
+  },
+  "bsc:0x85deddbd55c30a807cb3e5755744907f82c93386:1762686000:1762984800": {
+    "last_bucket": 1958872,
+    "updated_at": "2025-12-23T04:42:31.402812+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1958872,
+    "started_bucket": 1958540,
+    "started_at": "2025-12-23T04:35:49.499347+00:00"
+  },
+  "bsc:0x85deddbd55c30a807cb3e5755744907f82c93386:1751922000:1752220800": {
+    "last_bucket": 1946912,
+    "updated_at": "2025-12-23T04:49:13.360803+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1946912,
+    "started_bucket": 1946580,
+    "started_at": "2025-12-23T04:42:31.404676+00:00"
+  },
+  "bsc:0x85deddbd55c30a807cb3e5755744907f82c93386:1762268400:1762542000": {
+    "last_bucket": 1958380,
+    "updated_at": "2025-12-23T04:55:20.432908+00:00",
+    "buckets_done": 305,
+    "committed_bucket": 1958380,
+    "started_bucket": 1958076,
+    "started_at": "2025-12-23T04:49:13.362680+00:00"
+  },
+  "bsc:0x85deddbd55c30a807cb3e5755744907f82c93386:1762318800:1762617600": {
+    "last_bucket": 1958464,
+    "updated_at": "2025-12-23T05:02:01.129135+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1958464,
+    "started_bucket": 1958132,
+    "started_at": "2025-12-23T04:55:20.434454+00:00"
+  },
+  "bsc:0x85deddbd55c30a807cb3e5755744907f82c93386:1764270000:1764630000": {
+    "last_bucket": 1960700,
+    "updated_at": "2025-12-23T05:10:03.365160+00:00",
+    "buckets_done": 401,
+    "committed_bucket": 1960700,
+    "started_bucket": 1960300,
+    "started_at": "2025-12-23T05:02:01.130135+00:00"
+  },
+  "bsc:0x85deddbd55c30a807cb3e5755744907f82c93386:1762246800:1762533000": {
+    "last_bucket": 1958370,
+    "updated_at": "2025-12-23T05:16:30.553132+00:00",
+    "buckets_done": 319,
+    "committed_bucket": 1958370,
+    "started_bucket": 1958052,
+    "started_at": "2025-12-23T05:10:03.367225+00:00"
+  },
+  "bsc:0x85deddbd55c30a807cb3e5755744907f82c93386:1761584400:1761872400": {
+    "last_bucket": 1957636,
+    "updated_at": "2025-12-23T05:22:57.819735+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1957636,
+    "started_bucket": 1957316,
+    "started_at": "2025-12-23T05:16:30.556473+00:00"
+  },
+  "bsc:0x85deddbd55c30a807cb3e5755744907f82c93386:1764356400:1764730800": {
+    "last_bucket": 1960812,
+    "updated_at": "2025-12-23T05:31:21.267901+00:00",
+    "buckets_done": 417,
+    "committed_bucket": 1960812,
+    "started_bucket": 1960396,
+    "started_at": "2025-12-23T05:22:57.822745+00:00"
+  },
+  "bsc:0xda9442b6871f74d1af4af85ee940602f547453f3:1765285200:1765645200": {
+    "last_bucket": 1961828,
+    "updated_at": "2025-12-23T05:39:28.046126+00:00",
+    "buckets_done": 401,
+    "committed_bucket": 1961828,
+    "started_bucket": 1961428,
+    "started_at": "2025-12-23T05:31:21.906258+00:00"
+  },
+  "bsc:0xda9442b6871f74d1af4af85ee940602f547453f3:1765461600:1765886400": {
+    "last_bucket": 1962096,
+    "updated_at": "2025-12-23T05:48:58.842022+00:00",
+    "buckets_done": 473,
+    "committed_bucket": 1962096,
+    "started_bucket": 1961624,
+    "started_at": "2025-12-23T05:39:28.050573+00:00"
+  },
+  "bsc:0x9bedd8a781c780dffdf3172e90e41d7e3ce0fc89:1751922000:1752220800": {
+    "last_bucket": 1946912,
+    "updated_at": "2025-12-23T05:56:10.039639+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1946912,
+    "started_bucket": 1946580,
+    "started_at": "2025-12-23T05:49:01.540629+00:00"
+  },
+  "bsc:0x9bedd8a781c780dffdf3172e90e41d7e3ce0fc89:1752454800:1752825600": {
+    "last_bucket": 1947584,
+    "updated_at": "2025-12-23T06:05:23.601449+00:00",
+    "buckets_done": 413,
+    "committed_bucket": 1947584,
+    "started_bucket": 1947172,
+    "started_at": "2025-12-23T05:56:10.385085+00:00"
+  },
+  "bsc:0x9bedd8a781c780dffdf3172e90e41d7e3ce0fc89:1751817600:1752120000": {
+    "last_bucket": 1946800,
+    "updated_at": "2025-12-23T06:12:11.239928+00:00",
+    "buckets_done": 337,
+    "committed_bucket": 1946800,
+    "started_bucket": 1946464,
+    "started_at": "2025-12-23T06:05:24.167373+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1763820000:1764104400": {
+    "last_bucket": 1960116,
+    "updated_at": "2025-12-23T06:18:33.664731+00:00",
+    "buckets_done": 317,
+    "committed_bucket": 1960116,
+    "started_bucket": 1959800,
+    "started_at": "2025-12-23T06:12:12.419950+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1763892000:1764180000": {
+    "last_bucket": 1960200,
+    "updated_at": "2025-12-23T06:25:01.273032+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1960200,
+    "started_bucket": 1959880,
+    "started_at": "2025-12-23T06:18:33.667625+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1762686000:1762984800": {
+    "last_bucket": 1958872,
+    "updated_at": "2025-12-23T06:31:41.974796+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1958872,
+    "started_bucket": 1958540,
+    "started_at": "2025-12-23T06:25:01.275796+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1760331600:1760619600": {
+    "last_bucket": 1956244,
+    "updated_at": "2025-12-23T06:38:11.365872+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1956244,
+    "started_bucket": 1955924,
+    "started_at": "2025-12-23T06:31:41.976171+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1762506000:1762891200": {
+    "last_bucket": 1958768,
+    "updated_at": "2025-12-23T06:46:46.328493+00:00",
+    "buckets_done": 429,
+    "committed_bucket": 1958768,
+    "started_bucket": 1958340,
+    "started_at": "2025-12-23T06:38:11.368872+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1760115600:1760421600": {
+    "last_bucket": 1956024,
+    "updated_at": "2025-12-23T06:53:38.785998+00:00",
+    "buckets_done": 341,
+    "committed_bucket": 1956024,
+    "started_bucket": 1955684,
+    "started_at": "2025-12-23T06:46:46.330492+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1760839200:1761120000": {
+    "last_bucket": 1956800,
+    "updated_at": "2025-12-23T06:59:57.460764+00:00",
+    "buckets_done": 313,
+    "committed_bucket": 1956800,
+    "started_bucket": 1956488,
+    "started_at": "2025-12-23T06:53:38.788005+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1759154400:1759474800": {
+    "last_bucket": 1954972,
+    "updated_at": "2025-12-23T07:07:07.150466+00:00",
+    "buckets_done": 357,
+    "committed_bucket": 1954972,
+    "started_bucket": 1954616,
+    "started_at": "2025-12-23T06:59:57.462764+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1751922000:1752220800": {
+    "last_bucket": 1946912,
+    "updated_at": "2025-12-23T07:13:52.904204+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1946912,
+    "started_bucket": 1946580,
+    "started_at": "2025-12-23T07:07:07.152336+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1765440000:1765720800": {
+    "last_bucket": 1961912,
+    "updated_at": "2025-12-23T07:20:08.253219+00:00",
+    "buckets_done": 313,
+    "committed_bucket": 1961912,
+    "started_bucket": 1961600,
+    "started_at": "2025-12-23T07:13:52.906204+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1762617600:1762927200": {
+    "last_bucket": 1958808,
+    "updated_at": "2025-12-23T07:27:06.141654+00:00",
+    "buckets_done": 345,
+    "committed_bucket": 1958808,
+    "started_bucket": 1958464,
+    "started_at": "2025-12-23T07:20:08.256387+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1765314000:1765652400": {
+    "last_bucket": 1961836,
+    "updated_at": "2025-12-23T07:34:39.973247+00:00",
+    "buckets_done": 377,
+    "committed_bucket": 1961836,
+    "started_bucket": 1961460,
+    "started_at": "2025-12-23T07:27:06.143792+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1765400400:1765692000": {
+    "last_bucket": 1961880,
+    "updated_at": "2025-12-23T07:41:10.755457+00:00",
+    "buckets_done": 325,
+    "committed_bucket": 1961880,
+    "started_bucket": 1961556,
+    "started_at": "2025-12-23T07:34:39.975763+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1763614800:1763920800": {
+    "last_bucket": 1959912,
+    "updated_at": "2025-12-23T07:48:04.087186+00:00",
+    "buckets_done": 341,
+    "committed_bucket": 1959912,
+    "started_bucket": 1959572,
+    "started_at": "2025-12-23T07:41:10.758106+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1756749600:1757044800": {
+    "last_bucket": 1952272,
+    "updated_at": "2025-12-23T07:54:38.270016+00:00",
+    "buckets_done": 329,
+    "committed_bucket": 1952272,
+    "started_bucket": 1951944,
+    "started_at": "2025-12-23T07:48:04.089185+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1765281600:1765612800": {
+    "last_bucket": 1961792,
+    "updated_at": "2025-12-23T08:02:06.258155+00:00",
+    "buckets_done": 369,
+    "committed_bucket": 1961792,
+    "started_bucket": 1961424,
+    "started_at": "2025-12-23T07:54:38.272022+00:00"
+  },
+  "bsc:0xde483b66bf3ef9e98e692f4265fa11615954d975:1763650800:1763989200": {
+    "last_bucket": 1959988,
+    "updated_at": "2025-12-23T08:09:38.152476+00:00",
+    "buckets_done": 377,
+    "committed_bucket": 1959988,
+    "started_bucket": 1959612,
+    "started_at": "2025-12-23T08:02:06.259609+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1764671400:1764941400": {
+    "last_bucket": 1961046,
+    "updated_at": "2025-12-23T08:15:41.911868+00:00",
+    "buckets_done": 301,
+    "committed_bucket": 1961046,
+    "started_bucket": 1960746,
+    "started_at": "2025-12-23T08:09:38.935067+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1765285200:1765645200": {
+    "last_bucket": 1961828,
+    "updated_at": "2025-12-23T08:23:45.222001+00:00",
+    "buckets_done": 401,
+    "committed_bucket": 1961828,
+    "started_bucket": 1961428,
+    "started_at": "2025-12-23T08:15:41.914479+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1760331600:1760619600": {
+    "last_bucket": 1956244,
+    "updated_at": "2025-12-23T08:30:17.113776+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1956244,
+    "started_bucket": 1955924,
+    "started_at": "2025-12-23T08:23:45.225109+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1760839200:1761120000": {
+    "last_bucket": 1956800,
+    "updated_at": "2025-12-23T08:36:35.538813+00:00",
+    "buckets_done": 313,
+    "committed_bucket": 1956800,
+    "started_bucket": 1956488,
+    "started_at": "2025-12-23T08:30:17.116192+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1762617600:1762927200": {
+    "last_bucket": 1958808,
+    "updated_at": "2025-12-23T08:43:30.297035+00:00",
+    "buckets_done": 345,
+    "committed_bucket": 1958808,
+    "started_bucket": 1958464,
+    "started_at": "2025-12-23T08:36:35.541813+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1763614800:1763920800": {
+    "last_bucket": 1959912,
+    "updated_at": "2025-12-23T08:50:21.130567+00:00",
+    "buckets_done": 341,
+    "committed_bucket": 1959912,
+    "started_bucket": 1959572,
+    "started_at": "2025-12-23T08:43:30.300582+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1762509600:1762786800": {
+    "last_bucket": 1958652,
+    "updated_at": "2025-12-23T08:56:32.940807+00:00",
+    "buckets_done": 309,
+    "committed_bucket": 1958652,
+    "started_bucket": 1958344,
+    "started_at": "2025-12-23T08:50:21.134079+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1757293200:1757669400": {
+    "last_bucket": 1952966,
+    "updated_at": "2025-12-23T09:05:01.071169+00:00",
+    "buckets_done": 419,
+    "committed_bucket": 1952966,
+    "started_bucket": 1952548,
+    "started_at": "2025-12-23T08:56:32.943809+00:00"
+  },
+  "bsc:0xdba0bb42fd2a5b380a99b336363112b9cb17f528:1764824400:1765105200": {
+    "last_bucket": 1961228,
+    "updated_at": "2025-12-23T09:11:16.780291+00:00",
+    "buckets_done": 313,
+    "committed_bucket": 1961228,
+    "started_bucket": 1960916,
+    "started_at": "2025-12-23T09:05:01.213404+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1763892000:1764180000": {
+    "last_bucket": 1960200,
+    "updated_at": "2025-12-23T09:17:45.929154+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1960200,
+    "started_bucket": 1959880,
+    "started_at": "2025-12-23T09:11:17.553353+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1764671400:1764941400": {
+    "last_bucket": 1961046,
+    "updated_at": "2025-12-23T09:23:55.432136+00:00",
+    "buckets_done": 301,
+    "committed_bucket": 1961046,
+    "started_bucket": 1960746,
+    "started_at": "2025-12-23T09:17:45.934420+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1760698800:1760986800": {
+    "last_bucket": 1956652,
+    "updated_at": "2025-12-23T09:31:51.466990+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1956652,
+    "started_bucket": 1956332,
+    "started_at": "2025-12-23T09:23:55.439152+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1760115600:1760421600": {
+    "last_bucket": 1956024,
+    "updated_at": "2025-12-23T09:39:23.034111+00:00",
+    "buckets_done": 341,
+    "committed_bucket": 1956024,
+    "started_bucket": 1955684,
+    "started_at": "2025-12-23T09:31:51.466990+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1760716800:1761048000": {
+    "last_bucket": 1956720,
+    "updated_at": "2025-12-23T09:46:52.667657+00:00",
+    "buckets_done": 369,
+    "committed_bucket": 1956720,
+    "started_bucket": 1956352,
+    "started_at": "2025-12-23T09:39:23.040474+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1759154400:1759474800": {
+    "last_bucket": 1954972,
+    "updated_at": "2025-12-23T09:54:48.601916+00:00",
+    "buckets_done": 357,
+    "committed_bucket": 1954972,
+    "started_bucket": 1954616,
+    "started_at": "2025-12-23T09:46:52.672963+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1763258400:1763553600": {
+    "last_bucket": 1959504,
+    "updated_at": "2025-12-23T10:02:06.057432+00:00",
+    "buckets_done": 329,
+    "committed_bucket": 1959504,
+    "started_bucket": 1959176,
+    "started_at": "2025-12-23T09:54:48.607043+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1765134000:1765418400": {
+    "last_bucket": 1961576,
+    "updated_at": "2025-12-23T10:09:20.045810+00:00",
+    "buckets_done": 317,
+    "committed_bucket": 1961576,
+    "started_bucket": 1961260,
+    "started_at": "2025-12-23T10:02:06.065411+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1763924400:1764338400": {
+    "last_bucket": 1960376,
+    "updated_at": "2025-12-23T10:19:47.844098+00:00",
+    "buckets_done": 461,
+    "committed_bucket": 1960376,
+    "started_bucket": 1959916,
+    "started_at": "2025-12-23T10:09:20.053867+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1764748800:1765036800": {
+    "last_bucket": 1961152,
+    "updated_at": "2025-12-23T10:26:37.346703+00:00",
+    "buckets_done": 321,
+    "committed_bucket": 1961152,
+    "started_bucket": 1960832,
+    "started_at": "2025-12-23T10:19:47.851097+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1756749600:1757044800": {
+    "last_bucket": 1952272,
+    "updated_at": "2025-12-23T10:33:50.498577+00:00",
+    "buckets_done": 329,
+    "committed_bucket": 1952272,
+    "started_bucket": 1951944,
+    "started_at": "2025-12-23T10:26:37.349709+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1765281600:1765612800": {
+    "last_bucket": 1961792,
+    "updated_at": "2025-12-23T10:42:02.326058+00:00",
+    "buckets_done": 369,
+    "committed_bucket": 1961792,
+    "started_bucket": 1961424,
+    "started_at": "2025-12-23T10:33:50.508607+00:00"
+  },
+  "bsc:0x9f9df60f0e35a7978639bcf489210b31b0b9b29c:1762884000:1763161200": {
+    "last_bucket": 1959068,
+    "updated_at": "2025-12-23T10:48:45.347443+00:00",
+    "buckets_done": 309,
+    "committed_bucket": 1959068,
+    "started_bucket": 1958760,
+    "started_at": "2025-12-23T10:42:02.332585+00:00"
+  },
+  "bsc:0xfe741e808f7c85cba33ca772508f80db490fe2d2:1751922000:1752220800": {
+    "last_bucket": 1946912,
+    "updated_at": "2025-12-23T10:55:47.812296+00:00",
+    "buckets_done": 333,
+    "committed_bucket": 1946912,
+    "started_bucket": 1946580,
+    "started_at": "2025-12-23T10:48:46.770836+00:00"
+  },
+  "bsc:0xfe741e808f7c85cba33ca772508f80db490fe2d2:1756749600:1757044800": {
+    "last_bucket": 1952272,
+    "updated_at": "2025-12-23T11:02:35.123351+00:00",
+    "buckets_done": 329,
+    "committed_bucket": 1952272,
+    "started_bucket": 1951944,
+    "started_at": "2025-12-23T10:55:47.904173+00:00"
+  },
+  "bsc:0xe5d669e215e860956267e9ef6c038fc88d8a9b4f:1764671400:1764941400": {
+    "last_bucket": 1961046,
+    "updated_at": "2025-12-23T11:09:09.036039+00:00",
+    "buckets_done": 301,
+    "committed_bucket": 1961046,
+    "started_bucket": 1960746,
+    "started_at": "2025-12-23T11:02:36.504617+00:00"
+  },
+  "bsc:0xe5d669e215e860956267e9ef6c038fc88d8a9b4f:1763362800:1763658000": {
+    "last_bucket": 1959620,
+    "updated_at": "2025-12-23T11:16:13.175066+00:00",
+    "buckets_done": 329,
+    "committed_bucket": 1959620,
+    "started_bucket": 1959292,
+    "started_at": "2025-12-23T11:09:09.046920+00:00"
+  },
+  "bsc:0xe5d669e215e860956267e9ef6c038fc88d8a9b4f:1759942800:1760220000": {
+    "last_bucket": 1955800,
+    "updated_at": "2025-12-23T11:23:46.732076+00:00",
+    "buckets_done": 309,
+    "committed_bucket": 1955800,
+    "started_bucket": 1955492,
+    "started_at": "2025-12-23T11:16:13.189685+00:00"
+  },
+  "bsc:0xe5d669e215e860956267e9ef6c038fc88d8a9b4f:1762570800:1762855200": {
+    "last_bucket": 1958728,
+    "updated_at": "2025-12-23T11:31:08.495973+00:00",
+    "buckets_done": 317,
+    "committed_bucket": 1958728,
+    "started_bucket": 1958412,
+    "started_at": "2025-12-23T11:23:46.739030+00:00"
+  },
+  "bsc:0xe5d669e215e860956267e9ef6c038fc88d8a9b4f:1759154400:1759474800": {
+    "last_bucket": 1954972,
+    "updated_at": "2025-12-23T11:39:40.729574+00:00",
+    "buckets_done": 357,
+    "committed_bucket": 1954972,
+    "started_bucket": 1954616,
+    "started_at": "2025-12-23T11:31:08.509498+00:00"
+  }
+}

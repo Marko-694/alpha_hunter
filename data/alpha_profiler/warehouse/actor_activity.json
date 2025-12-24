@@ -1,0 +1,509 @@
+{
+  "generated_at": "2025-12-23T12:07:15Z",
+  "window_minutes": 15,
+  "items": [
+    {
+      "address": "0x2dd6ba7533e80e1f3aa88b43b4016ce7f5655a22",
+      "chain": "bsc",
+      "tx_count": 9,
+      "usd_volume": 1.9073804025015326,
+      "buy_usd": 0.0,
+      "sell_usd": 1.9073804025015326,
+      "sell_ratio": 1.0,
+      "top_tokens": [
+        {
+          "symbol": "BSC",
+          "usd_volume": 1.9073804025015326,
+          "tx_count": 9
+        }
+      ],
+      "window_minutes": 15,
+      "seen_at": 1766491635,
+      "source_tags": [
+        "watchlist",
+        "initiator"
+      ],
+      "actor_score": 22.377844008221953,
+      "initiator_score": 0.4985884026968288,
+      "campaigns_count": 2,
+      "status": "ACTIVE",
+      "kind": "ACTIVE",
+      "stage": "ACTIVE",
+      "meets_alert_threshold": false,
+      "hot_token_entries": [
+        {
+          "token_key": "bsc:bsc-mainnet:native",
+          "symbol": "BSC",
+          "contract": "bsc-mainnet:native",
+          "tx_count": 9,
+          "usd_volume": 1.9073804025015326,
+          "buy_usd": 0.0,
+          "sell_usd": 1.9073804025015326,
+          "new_token": false,
+          "weight": 1.0,
+          "sell_ratio": 1.0,
+          "prev_sell_ratio": 1.0,
+          "sell_ratio_delta": 0.0,
+          "exit_wave_score": 0.5502384225503127,
+          "top_symbols": [
+            "BSC"
+          ]
+        }
+      ],
+      "primary_token_key": "bsc:bsc-mainnet:native",
+      "new_tokens_count": 0,
+      "dump_candidate": null,
+      "trust": 0.0,
+      "base_score": 1.125,
+      "final_score": 1.125,
+      "trust_info": {
+        "trust": 0.0
+      }
+    },
+    {
+      "address": "0x2f15bd67225ac50a5651bbb2f68c5ab322832173",
+      "chain": "bsc",
+      "tx_count": 7,
+      "usd_volume": 0.9428477702295169,
+      "buy_usd": 0.0,
+      "sell_usd": 0.9428477702295169,
+      "sell_ratio": 0.9428477702295169,
+      "top_tokens": [
+        {
+          "symbol": "BSC",
+          "usd_volume": 0.9428477702295169,
+          "tx_count": 7
+        }
+      ],
+      "window_minutes": 15,
+      "seen_at": 1766491635,
+      "source_tags": [
+        "watchlist",
+        "initiator"
+      ],
+      "actor_score": 23.79491330531734,
+      "initiator_score": 0.5130884026968288,
+      "campaigns_count": 2,
+      "status": "ACTIVE",
+      "kind": "ACTIVE",
+      "stage": "ACTIVE",
+      "meets_alert_threshold": false,
+      "hot_token_entries": [
+        {
+          "token_key": "bsc:bsc-mainnet:native",
+          "symbol": "BSC",
+          "contract": "bsc-mainnet:native",
+          "tx_count": 7,
+          "usd_volume": 0.9428477702295169,
+          "buy_usd": 0.0,
+          "sell_usd": 0.9428477702295169,
+          "new_token": false,
+          "weight": 0.9657086621377101,
+          "sell_ratio": 0.9428477702295169,
+          "prev_sell_ratio": 0.6007853986180407,
+          "sell_ratio_delta": 0.34206237161147623,
+          "exit_wave_score": 0.6929656262007956,
+          "top_symbols": [
+            "BSC"
+          ]
+        }
+      ],
+      "primary_token_key": "bsc:bsc-mainnet:native",
+      "new_tokens_count": 0,
+      "dump_candidate": null,
+      "trust": 0.0,
+      "base_score": 0.875,
+      "final_score": 0.875,
+      "trust_info": {
+        "trust": 0.0
+      }
+    },
+    {
+      "address": "0x3159fc5ed978688b451c854895dc24d67e02bab8",
+      "chain": "bsc",
+      "tx_count": 15,
+      "usd_volume": 8.924512285463432,
+      "buy_usd": 0.0,
+      "sell_usd": 8.924512285463432,
+      "sell_ratio": 1.0,
+      "top_tokens": [
+        {
+          "symbol": "BSC",
+          "usd_volume": 8.924512285463432,
+          "tx_count": 5
+        },
+        {
+          "symbol": "FOLKS",
+          "usd_volume": 0.0,
+          "tx_count": 5
+        },
+        {
+          "symbol": "USDT",
+          "usd_volume": 0.0,
+          "tx_count": 5
+        }
+      ],
+      "window_minutes": 15,
+      "seen_at": 1766491635,
+      "source_tags": [
+        "initiator"
+      ],
+      "actor_score": null,
+      "initiator_score": 0.2946772652257784,
+      "campaigns_count": 2,
+      "status": "ACTIVE",
+      "kind": "ACTIVE",
+      "stage": "ACTIVE",
+      "meets_alert_threshold": true,
+      "hot_token_entries": [
+        {
+          "token_key": "bsc:bsc-mainnet:native",
+          "symbol": "BSC",
+          "contract": "bsc-mainnet:native",
+          "tx_count": 5,
+          "usd_volume": 8.924512285463432,
+          "buy_usd": 0.0,
+          "sell_usd": 8.924512285463432,
+          "new_token": false,
+          "weight": 0.7333333333333333,
+          "sell_ratio": 1.0,
+          "prev_sell_ratio": 1.0,
+          "sell_ratio_delta": 0.0,
+          "exit_wave_score": 0.5177822307023496,
+          "top_symbols": [
+            "BSC",
+            "FOLKS",
+            "USDT"
+          ]
+        },
+        {
+          "token_key": "bsc:0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b",
+          "symbol": "FOLKS",
+          "contract": "0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b",
+          "tx_count": 5,
+          "usd_volume": 0.0,
+          "buy_usd": 0.0,
+          "sell_usd": 0.0,
+          "new_token": false,
+          "weight": 0.13333333333333333,
+          "sell_ratio": 0.0,
+          "prev_sell_ratio": 0.0,
+          "sell_ratio_delta": 0.0,
+          "exit_wave_score": 0.16666666666666669,
+          "top_symbols": [
+            "BSC",
+            "FOLKS",
+            "USDT"
+          ]
+        },
+        {
+          "token_key": "bsc:0x55d398326f99059ff775485246999027b3197955",
+          "symbol": "USDT",
+          "contract": "0x55d398326f99059ff775485246999027b3197955",
+          "tx_count": 5,
+          "usd_volume": 0.0,
+          "buy_usd": 0.0,
+          "sell_usd": 0.0,
+          "new_token": false,
+          "weight": 0.13333333333333333,
+          "sell_ratio": 0.0,
+          "prev_sell_ratio": 0.0,
+          "sell_ratio_delta": 0.0,
+          "exit_wave_score": 0.16666666666666669,
+          "top_symbols": [
+            "BSC",
+            "FOLKS",
+            "USDT"
+          ]
+        }
+      ],
+      "primary_token_key": "bsc:bsc-mainnet:native",
+      "new_tokens_count": 0,
+      "dump_candidate": null,
+      "trust": 0.0,
+      "base_score": 1.875,
+      "final_score": 1.875,
+      "trust_info": {
+        "trust": 0.0
+      }
+    },
+    {
+      "address": "0x3dccf0cc9c6d8720ab1d9003cd6211f1f0a27147",
+      "chain": "bsc",
+      "tx_count": 1,
+      "usd_volume": 0.015523345382982414,
+      "buy_usd": 0.0,
+      "sell_usd": 0.015523345382982414,
+      "sell_ratio": 0.015523345382982414,
+      "top_tokens": [
+        {
+          "symbol": "BSC",
+          "usd_volume": 0.015523345382982414,
+          "tx_count": 1
+        }
+      ],
+      "window_minutes": 15,
+      "seen_at": 1766491635,
+      "source_tags": [
+        "initiator"
+      ],
+      "actor_score": null,
+      "initiator_score": 0.4087648697354406,
+      "campaigns_count": 4,
+      "status": "ACTIVE",
+      "kind": "ACTIVE",
+      "stage": "ACTIVE",
+      "meets_alert_threshold": false,
+      "hot_token_entries": [
+        {
+          "token_key": "bsc:bsc-mainnet:native",
+          "symbol": "BSC",
+          "contract": "bsc-mainnet:native",
+          "tx_count": 1,
+          "usd_volume": 0.015523345382982414,
+          "buy_usd": 0.0,
+          "sell_usd": 0.015523345382982414,
+          "new_token": true,
+          "weight": 0.40931400722978944,
+          "sell_ratio": 0.015523345382982414,
+          "prev_sell_ratio": null,
+          "sell_ratio_delta": 0.015523345382982414,
+          "exit_wave_score": 0.0,
+          "top_symbols": [
+            "BSC"
+          ]
+        }
+      ],
+      "primary_token_key": "bsc:bsc-mainnet:native",
+      "new_tokens_count": 1,
+      "dump_candidate": null,
+      "trust": 0.0,
+      "base_score": 0.125,
+      "final_score": 0.125,
+      "trust_info": {
+        "trust": 0.0
+      }
+    },
+    {
+      "address": "0x3e19a7b6f216daf2fdafe03335812cb400de9064",
+      "chain": "bsc",
+      "tx_count": 3,
+      "usd_volume": 0.0,
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "sell_ratio": 0.0,
+      "top_tokens": [
+        {
+          "symbol": "APR",
+          "usd_volume": 0.0,
+          "tx_count": 1
+        },
+        {
+          "symbol": "USDT",
+          "usd_volume": 0.0,
+          "tx_count": 2
+        }
+      ],
+      "window_minutes": 15,
+      "seen_at": 1766491635,
+      "source_tags": [
+        "initiator"
+      ],
+      "actor_score": null,
+      "initiator_score": 0.27455626577630976,
+      "campaigns_count": 3,
+      "status": "ACTIVE",
+      "kind": "ACTIVE",
+      "stage": "ACTIVE",
+      "meets_alert_threshold": false,
+      "hot_token_entries": [
+        {
+          "token_key": "bsc:0x299ad4299da5b2b93fba4c96967b040c7f611099",
+          "symbol": "APR",
+          "contract": "0x299ad4299da5b2b93fba4c96967b040c7f611099",
+          "tx_count": 1,
+          "usd_volume": 0.0,
+          "buy_usd": 0.0,
+          "sell_usd": 0.0,
+          "new_token": true,
+          "weight": 0.13333333333333333,
+          "sell_ratio": 0.0,
+          "prev_sell_ratio": null,
+          "sell_ratio_delta": 0.0,
+          "exit_wave_score": 0.0,
+          "top_symbols": [
+            "APR",
+            "USDT"
+          ]
+        },
+        {
+          "token_key": "bsc:0x55d398326f99059ff775485246999027b3197955",
+          "symbol": "USDT",
+          "contract": "0x55d398326f99059ff775485246999027b3197955",
+          "tx_count": 2,
+          "usd_volume": 0.0,
+          "buy_usd": 0.0,
+          "sell_usd": 0.0,
+          "new_token": true,
+          "weight": 0.26666666666666666,
+          "sell_ratio": 0.0,
+          "prev_sell_ratio": null,
+          "sell_ratio_delta": 0.0,
+          "exit_wave_score": 0.0,
+          "top_symbols": [
+            "APR",
+            "USDT"
+          ]
+        }
+      ],
+      "primary_token_key": "bsc:0x299ad4299da5b2b93fba4c96967b040c7f611099",
+      "new_tokens_count": 2,
+      "dump_candidate": null,
+      "trust": 0.0,
+      "base_score": 0.375,
+      "final_score": 0.375,
+      "trust_info": {
+        "trust": 0.0
+      }
+    },
+    {
+      "address": "0x3f3d47595e8f83e782daebc10d634db4829589f8",
+      "chain": "bsc",
+      "tx_count": 1,
+      "usd_volume": 0.02300986715576391,
+      "buy_usd": 0.0,
+      "sell_usd": 0.02300986715576391,
+      "sell_ratio": 0.02300986715576391,
+      "top_tokens": [
+        {
+          "symbol": "BSC",
+          "usd_volume": 0.02300986715576391,
+          "tx_count": 1
+        }
+      ],
+      "window_minutes": 15,
+      "seen_at": 1766491635,
+      "source_tags": [
+        "initiator"
+      ],
+      "actor_score": null,
+      "initiator_score": 0.25318373210625666,
+      "campaigns_count": 2,
+      "status": "ACTIVE",
+      "kind": "ACTIVE",
+      "stage": "ACTIVE",
+      "meets_alert_threshold": false,
+      "hot_token_entries": [
+        {
+          "token_key": "bsc:bsc-mainnet:native",
+          "symbol": "BSC",
+          "contract": "bsc-mainnet:native",
+          "tx_count": 1,
+          "usd_volume": 0.02300986715576391,
+          "buy_usd": 0.0,
+          "sell_usd": 0.02300986715576391,
+          "new_token": true,
+          "weight": 0.41380592029345836,
+          "sell_ratio": 0.02300986715576391,
+          "prev_sell_ratio": null,
+          "sell_ratio_delta": 0.02300986715576391,
+          "exit_wave_score": 0.0,
+          "top_symbols": [
+            "BSC"
+          ]
+        }
+      ],
+      "primary_token_key": "bsc:bsc-mainnet:native",
+      "new_tokens_count": 1,
+      "dump_candidate": null,
+      "trust": 0.0,
+      "base_score": 0.125,
+      "final_score": 0.125,
+      "trust_info": {
+        "trust": 0.0
+      }
+    },
+    {
+      "address": "0x40db7416157da261adfea1a4aed561fc5a3a9a7a",
+      "chain": "bsc",
+      "tx_count": 7,
+      "usd_volume": 0.0,
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "sell_ratio": 0.0,
+      "top_tokens": [
+        {
+          "symbol": "WBNB",
+          "usd_volume": 0.0,
+          "tx_count": 4
+        },
+        {
+          "symbol": "USDC",
+          "usd_volume": 0.0,
+          "tx_count": 3
+        }
+      ],
+      "window_minutes": 15,
+      "seen_at": 1766491635,
+      "source_tags": [
+        "initiator"
+      ],
+      "actor_score": null,
+      "initiator_score": 0.3258591570482721,
+      "campaigns_count": 2,
+      "status": "ACTIVE",
+      "kind": "ACTIVE",
+      "stage": "ACTIVE",
+      "meets_alert_threshold": false,
+      "hot_token_entries": [
+        {
+          "token_key": "bsc:0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+          "symbol": "WBNB",
+          "contract": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+          "tx_count": 4,
+          "usd_volume": 0.0,
+          "buy_usd": 0.0,
+          "sell_usd": 0.0,
+          "new_token": false,
+          "weight": 0.22857142857142856,
+          "sell_ratio": 0.0,
+          "prev_sell_ratio": 0.0,
+          "sell_ratio_delta": 0.0,
+          "exit_wave_score": 0.13333333333333333,
+          "top_symbols": [
+            "WBNB",
+            "USDC"
+          ]
+        },
+        {
+          "token_key": "bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+          "symbol": "USDC",
+          "contract": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+          "tx_count": 3,
+          "usd_volume": 0.0,
+          "buy_usd": 0.0,
+          "sell_usd": 0.0,
+          "new_token": true,
+          "weight": 0.17142857142857143,
+          "sell_ratio": 0.0,
+          "prev_sell_ratio": null,
+          "sell_ratio_delta": 0.0,
+          "exit_wave_score": 0.1,
+          "top_symbols": [
+            "WBNB",
+            "USDC"
+          ]
+        }
+      ],
+      "primary_token_key": "bsc:0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "new_tokens_count": 1,
+      "dump_candidate": null,
+      "trust": 0.0,
+      "base_score": 0.875,
+      "final_score": 0.875,
+      "trust_info": {
+        "trust": 0.0
+      }
+    }
+  ]
+}

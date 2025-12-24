@@ -185,7 +185,11 @@ class StablecoinInflowMonitor:
                     usd_value,
                     address,
                 )
-                self.notifier.send_message(msg)
+                self.notifier.send_message(
+                    msg,
+                    alert_kind="stablecoin_inflow",
+                    address=address,
+                )
                 total_alerts += 1
 
                 if max_block_for_pair is None or block_number > max_block_for_pair:

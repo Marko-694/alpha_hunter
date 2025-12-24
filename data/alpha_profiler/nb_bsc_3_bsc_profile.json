@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "name": "NB_bsc_3",
+    "symbol": "NB",
+    "chain": "bsc",
+    "contract": "0xc2bd425a63800731e3ae42b6596bdd783299fcb1",
+    "pump_start": "2025-12-16T10:00:00+00:00",
+    "pump_end": "2025-12-16T12:00:00+00:00",
+    "pre_window_minutes": 100,
+    "dump_window_minutes": 60,
+    "min_whale_net_usd": 2500.0,
+    "start_ts": 1765879200,
+    "end_ts": 1765886400,
+    "price_usd": 0.00447,
+    "generated_at": "2025-12-22T17:56:49.795338+00:00",
+    "profile_id": "NB_bsc_3:NB:bsc:0xc2bd425a63800731e3ae42b6596bdd783299fcb1:1765879200:1765886400:100:60:2500.0",
+    "cache_mode": "recompute",
+    "birdeye_status": "success",
+    "birdeye_reason": null,
+    "status": "complete",
+    "empty_reason": "threshold_not_met",
+    "counters": {
+      "tx_total": 794,
+      "log_events_total": 794,
+      "transfer_events_total": 794,
+      "unique_wallets_seen": 254,
+      "wallets_passing_threshold": 0,
+      "pricing_missing_count": 0,
+      "birdeye_items_total": 794,
+      "birdeye_http_errors": 0,
+      "birdeye_cu_exceeded_count": 0,
+      "birdeye_status": "success",
+      "birdeye_reason": null,
+      "covalent_http_errors": 0,
+      "nansen_status_code": 0
+    }
+  },
+  "wallets": []
+}

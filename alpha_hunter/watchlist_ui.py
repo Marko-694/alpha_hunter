@@ -1,3 +1,4 @@
+import base64
 import json
 import os
 import webbrowser
@@ -5,6 +6,7 @@ from typing import Any, Dict, List, Tuple
 
 from flask import Flask, jsonify, render_template_string, request
 
+SYSTEM_DIR = os.path.join("data", "alpha_profiler", "system")
 
 def normalize_addr(s: str) -> str:
     """
@@ -138,21 +140,42 @@ def _load_cache_meta(
     return out
 
 
+def _build_favicon_href(
+    image_path: str = "aitech_pad1702996269435.png",
+    fallback_base64: str = (
+        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
+    ),
+) -> str:
+    """
+    Prepare a data URL for the Watchlist UI favicon.
+    Tries to base64-encode the PNG from the project root; falls back to a transparent pixel.
+    """
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    candidate = os.path.join(base_dir, image_path)
+    try:
+        with open(candidate, "rb") as fh:
+            data = base64.b64encode(fh.read()).decode("ascii")
+    except Exception:
+        data = fallback_base64
+    return f"data:image/png;base64,{data}"
+
+
 def run_watchlist_ui(
-    actors_path: str = "data/alpha_profiler/actors.json",
-    watchlist_path: str = "data/alpha_profiler/watchlist.json",
-    pnl_path: str = "data/alpha_profiler/pnl_watchlist.json",
-    timeline_path: str = "data/alpha_profiler/timeline_watchlist.json",
-    overlap_path: str = "data/alpha_profiler/holdings_overlap.json",
-    network_path: str = "data/alpha_profiler/network_watchlist.json",
+    actors_path: str = os.path.join(SYSTEM_DIR, "actors.json"),
+    watchlist_path: str = os.path.join(SYSTEM_DIR, "watchlist.json"),
+    pnl_path: str = os.path.join(SYSTEM_DIR, "pnl_watchlist.json"),
+    timeline_path: str = os.path.join(SYSTEM_DIR, "timeline_watchlist.json"),
+    overlap_path: str = os.path.join(SYSTEM_DIR, "holdings_overlap.json"),
+    network_path: str = os.path.join(SYSTEM_DIR, "network_watchlist.json"),
     network_warehouse_path: str = "data/alpha_profiler/warehouse/network_watchlist.json",
     birdeye_cache_meta_path: str = "data/raw_cache/birdeye/cache_meta.json",
-    pnl_progress_path: str = "data/alpha_profiler/pnl_progress.json",
+    pnl_progress_path: str = os.path.join(SYSTEM_DIR, "pnl_progress.json"),
     cache_health_path: str = "data/alpha_profiler/warehouse/cache_health.json",
     host: str = "127.0.0.1",
     port: int = 8050,
 ) -> None:
     app = Flask(__name__)
+    favicon_href = _build_favicon_href()
 
     def load_network_artifact() -> Dict[str, Any]:
         for path in (network_warehouse_path, network_path):
@@ -375,6 +398,7 @@ def run_watchlist_ui(
     <head>
       <meta charset="UTF-8" />
       <title>Alpha Hunter — Watchlist</title>
+      <link rel="icon" type="image/png" href="{{ favicon_href }}" />
       <style>
         body { margin:0; padding:0; font-family: 'Inter', sans-serif; background:#050812; color:#E5ECFF; }
         .container { display:grid; grid-template-columns: 320px 1fr 520px; gap:16px; padding:20px; }
@@ -508,6 +532,8 @@ def run_watchlist_ui(
 
       <script>
         let actors = [];
+        let filteredActors = [];
+        let selectedActorKey = null;
         let watchlist = [];
         let timeline = {};
         let overlap = {};
@@ -543,6 +569,13 @@ def run_watchlist_ui(
             s = parts[parts.length-1];
           }
           return s;
+        }
+
+        function actorKey(a) {
+          if (!a) return '';
+          const chain = (a.chain || 'bsc').toLowerCase();
+          const addr = (a.address || '').toLowerCase();
+          return `${chain}:${addr}`;
         }
 
         function computeNetworkView(graph, actorAddr) {
@@ -701,7 +734,8 @@ def run_watchlist_ui(
               return !isNaN(t) && t >= activeSinceTs;
             });
           }
-          renderTable(filtered);
+          filteredActors = filtered;
+          renderTable(filteredActors);
         }
 
         function resetFilters() {
@@ -719,8 +753,14 @@ def run_watchlist_ui(
         function renderTable(rows) {
           const body = document.getElementById('actors-body');
           body.innerHTML = '';
+          const visibleKeys = new Set();
           rows.forEach(a => {
             const tr = document.createElement('tr');
+            const key = actorKey(a);
+            visibleKeys.add(key);
+            if (selectedActorKey && selectedActorKey === key) {
+              tr.classList.add('row-selected');
+            }
             const addrShort = `${(a.address||'').slice(0,6)}…${(a.address||'').slice(-4)}`;
             const badgesCnt = (a.badges||[]).length;
             const cached = (a.cache_misses||0)===0 && (a.cache_hits||0)>0;
@@ -743,6 +783,12 @@ def run_watchlist_ui(
             tr.onclick = () => selectActor(a);
             body.appendChild(tr);
           });
+          if (selectedActorKey && !visibleKeys.has(selectedActorKey)) {
+            selectedActorKey = null;
+            current = null;
+            const header = document.getElementById('detail-header');
+            if (header) header.innerText = 'Select actor…';
+          }
         }
 
         function showTab(id) {
@@ -754,6 +800,9 @@ def run_watchlist_ui(
 
         function selectActor(a) {
           current = a;
+          selectedActorKey = actorKey(a);
+          const activeRows = (filteredActors && filteredActors.length) ? filteredActors : actors;
+          renderTable(activeRows);
           document.getElementById('detail-header').innerText = `${a.address} (${a.chain||''})`;
           renderSummary(a);
           renderPnl(a);
@@ -1094,7 +1143,7 @@ def run_watchlist_ui(
 
     @app.route("/")
     def index():
-        return render_template_string(template)
+        return render_template_string(template, favicon_href=favicon_href)
 
     webbrowser.open(f"http://{host}:{port}/")
     app.run(host=host, port=port, debug=False)

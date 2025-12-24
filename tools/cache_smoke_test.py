@@ -123,6 +123,8 @@ def main() -> None:
     if not base_dir.exists():
         print("NO_PROFILE_FOUND")
         sys.exit(1)
+    system_dir = base_dir / "system"
+    system_dir.mkdir(parents=True, exist_ok=True)
 
     profile_info = None
     if args.profile:
@@ -169,14 +171,14 @@ def main() -> None:
     os.environ["PWL_DIAGNOSTIC"] = "1"
 
     # replace watchlist temporarily
-    wl_path = base_dir / "watchlist.json"
+    wl_path = system_dir / "watchlist.json"
     wl_backup = wl_path.read_text(encoding="utf-8") if wl_path.exists() else None
     wl_path.write_text(json.dumps([{"address": addr, "chain": chain}], ensure_ascii=False, indent=2), encoding="utf-8")
 
     reports = []
     for _ in range(max(1, args.runs)):
         recompute_watchlist_pnl(config=cfg, logger=logger)
-        rep = load_cache_report(Path("data/alpha_profiler/pnl_watchlist.json"))
+        rep = load_cache_report(Path("data/alpha_profiler/system/pnl_watchlist.json"))
         reports.append(rep)
 
     if wl_backup is not None:

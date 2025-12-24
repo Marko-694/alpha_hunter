@@ -1,0 +1,82 @@
+[
+  {
+    "address": "0xdba0bb42fd2a5b380a99b336363112b9cb17f528",
+    "chain": "bsc",
+    "cov_total_pnl_usd": 2911.354834131612,
+    "cov_realized_pnl_usd": 1960.0836609279343,
+    "cov_unrealized_pnl_usd": 951.2711732036777,
+    "tx_items_count": 57385
+  },
+  {
+    "address": "0x01d71e5443e8f6d02f2387837e010e0712830658",
+    "chain": "bsc",
+    "cov_total_pnl_usd": -737.613570805601,
+    "cov_realized_pnl_usd": -864.528102690388,
+    "cov_unrealized_pnl_usd": 126.914531884787,
+    "tx_items_count": 8876
+  },
+  {
+    "address": "0x1b7db4f2f3a35e43c603ae0a0f2111c2120fdac0",
+    "chain": "bsc",
+    "cov_total_pnl_usd": -1524.6914384640797,
+    "cov_realized_pnl_usd": -2749.8314440168197,
+    "cov_unrealized_pnl_usd": 1225.14000555274,
+    "tx_items_count": 7519
+  },
+  {
+    "address": "0xba31691d4ee292de9949a75eeb806df3da7f5484",
+    "chain": "bsc",
+    "cov_total_pnl_usd": -347.60493055239397,
+    "cov_realized_pnl_usd": -459.893245305981,
+    "cov_unrealized_pnl_usd": 112.288314753587,
+    "tx_items_count": 12757
+  },
+  {
+    "address": "0x9a98c8b4e29989e05fb374ba9370e9143828f6a0",
+    "chain": "bsc",
+    "cov_total_pnl_usd": -562.1765753364772,
+    "cov_realized_pnl_usd": -1451.1203404435619,
+    "cov_unrealized_pnl_usd": 888.9437651070847,
+    "tx_items_count": 4864
+  },
+  {
+    "address": "0x27872ee8f6cf0f4da4a6eae61924afaa86d48482",
+    "chain": "bsc",
+    "cov_total_pnl_usd": -584.0519618791208,
+    "cov_realized_pnl_usd": -742.0515526496046,
+    "cov_unrealized_pnl_usd": 157.99959077048382,
+    "tx_items_count": 8768
+  },
+  {
+    "address": "0xcab95d237a94be9e55d1b91eb304ea6ccc7c3adb",
+    "chain": "bsc",
+    "cov_total_pnl_usd": -558.64602057016,
+    "cov_realized_pnl_usd": -766.71307133986,
+    "cov_unrealized_pnl_usd": 208.0670507697,
+    "tx_items_count": 8660
+  },
+  {
+    "address": "0xfe6b440a8a8eef748e381b624d656bcdc886100d",
+    "chain": "bsc",
+    "cov_total_pnl_usd": 5878.801698030602,
+    "cov_realized_pnl_usd": 428.98781128700455,
+    "cov_unrealized_pnl_usd": 5449.813886743597,
+    "tx_items_count": 6315
+  },
+  {
+    "address": "0x9221ed8021a815f3e48e5ce304fd5bb2720e42b2",
+    "chain": "bsc",
+    "cov_total_pnl_usd": 899.1818372321277,
+    "cov_realized_pnl_usd": 0.0,
+    "cov_unrealized_pnl_usd": 899.1818372321277,
+    "tx_items_count": 13180
+  },
+  {
+    "address": "0x050563495057213b2d7d6cb20a9bf4b4c3085b0d",
+    "chain": "bsc",
+    "cov_total_pnl_usd": 958.9438843116877,
+    "cov_realized_pnl_usd": 0.0,
+    "cov_unrealized_pnl_usd": 958.9438843116877,
+    "tx_items_count": 12240
+  }
+]

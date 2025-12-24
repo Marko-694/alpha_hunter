@@ -1,161 +1,933 @@
 telegram:
-  bot_token: "8546560935:AAFe-KhO4gomL3P5yDX_zAZtF9IhFxAePNs" # Telegram bot token from @BotFather
-  chat_ids: # List of chat IDs to receive alerts
-    - 575051810
-    - 563766348
-
+  bot_token: 8546560935:AAFe-KhO4gomL3P5yDX_zAZtF9IhFxAePNs
+  chat_ids:
+  - 575051810
+  - 563766348
+  dry_run: false
 scanner:
-  interval_seconds: 60 # How often to scan Binance (seconds)
-  min_24h_volume_usdt: 1000000 # Skip pairs with too little 24h liquidity (quoteVolume in USDT)
-  max_24h_volume_usdt: 300000000 # Skip top-cap pairs that dominate volume
-  min_price_usdt: 0.02 # Lower price bound for symbols (USDT)
-  max_price_usdt: 30 # Upper price bound for symbols (USDT)
-  max_symbols_per_scan: 80 # Max number of symbols to do 1m-candle analysis per scan
-  cooldown_seconds: 120 # Cooldown per symbol between alerts (to avoid spam), in seconds
-
+  interval_seconds: 60
+  min_24h_volume_usdt: 1000000
+  max_24h_volume_usdt: 300000000
+  min_price_usdt: 0.02
+  max_price_usdt: 30
+  max_symbols_per_scan: 80
+  cooldown_seconds: 120
 signals:
-  volume_multiplier_threshold: 1.1 # How many times last 1m volume must exceed avg volume (N previous candles)
-  min_volume_1m_usdt: 10000 # Minimum 1m quote volume (USDT) for last candle to consider it a real move
-  price_delta_percent_threshold: 0.2 # Minimum price growth in % between last and previous 1m candle
-
+  volume_multiplier_threshold: 1.1
+  min_volume_1m_usdt: 10000
+  price_delta_percent_threshold: 0.2
+thresholds:
+  trust_min: 0.25
+  trust_weight: 0.9
+  trust_cooldown_min_seconds: 60
+  trust_cooldown_max_seconds: 240
+  trust_override_score: 1.2
 whales:
-  enabled: true # Enable/disable whale wallet monitoring
-  poll_interval_seconds: 300 # How often to poll wallets (seconds)
-  min_usd_value: 200000 # Min USD-sized action to alert
-  lookback_seconds: 900 # Lookback window for new actions (seconds)
-
-explorers:
-  etherscan_api_key: "8SXB2IMRI9TB7NVHNIEBY1PU8JG7YZ4ID9"
-  bscscan_api_key: "N7FPKABEIU24GT8NIDSZKIXIUQCSXG9I9C"
-  arbiscan_api_key: "5KUKSMGPVP5QWYDS82Z8ERC8GM19ISXKFS"
-  polygonscan_api_key: "NDJGEY856FCJEBZJVR1CS4B6F6KU6C8WZN"
-  optimistic_api_key: "U2TC54GEFNRGDFVNY9M643B663PVB4448P"
-  basescan_api_key: "MIXEEX2CS983GUVME1QH7SXI9AJ2M3ABED"
-
-nansen:
-  nansen:
   enabled: true
-  base_url: "https://api.nansen.ai"
-  api_key: "vYMtGMFkfePtBff1ljg1qDUHNEP2l0bt"
+  poll_interval_seconds: 300
+  min_usd_value: 200000
+  lookback_seconds: 900
+explorers:
+  etherscan_api_key: 8SXB2IMRI9TB7NVHNIEBY1PU8JG7YZ4ID9
+  bscscan_api_key: N7FPKABEIU24GT8NIDSZKIXIUQCSXG9I9C
+  arbiscan_api_key: 5KUKSMGPVP5QWYDS82Z8ERC8GM19ISXKFS
+  polygonscan_api_key: NDJGEY856FCJEBZJVR1CS4B6F6KU6C8WZN
+  optimistic_api_key: U2TC54GEFNRGDFVNY9M643B663PVB4448P
+  basescan_api_key: MIXEEX2CS983GUVME1QH7SXI9AJ2M3ABED
+nansen:
+  enabled: true
+  base_url: https://api.nansen.ai
+  api_key: vYMtGMFkfePtBff1ljg1qDUHNEP2l0bt
   enrich_binance_signals: true
   enrich_profiler_clusters: true
   max_calls_per_minute: 30
   min_token_netflow_usd_24h: 50000
   min_smart_wallets_count: 5
-
+  mode: auto
+  max_calls_per_cycle: 1
 covalent:
   enabled: true
-  api_key: "cqt_rQjVCvWyhQFv4yWqfGRqVYvjjMbH"
-  base_url: "https://api.covalenthq.com"
+  api_key: cqt_rQjVCvWyhQFv4yWqfGRqVYvjjMbH
+  base_url: https://api.covalenthq.com
   max_calls_per_minute: 50
-
 birdeye:
   enabled: true
   api_keys:
-    - "336384de45ae40ecad6eeab4d3adeb3f"
-    - "5ce342cb4593469aa5a6d77b73963999"
-
-  # optional per-request limits
+  - ff2baf4c7ae44f50a4b31d9dae5bd551
+  - e6d8b6a5d030449aad167dae6f1fb3d0
+  - 65884062071444a9a82fa19e0981ee11
+  - c1efe223ddd84cf38ea60d03d061c574
+  - e6d8b6a5d030449aad167dae6f1fb3d0
+  - 7122cce2f9f741c787eb042a65501608
+  - 10a2df2a7e4e45cc87cf7af77a6420c2
+  - 1defb445ad634cad8091b4f733f274e4
+  - f6ce7e514d3440058d68a3bbdd77fde7
+  - 455075cdf5894936bd458eadc7953aef
+  - bb58f7b186374975929b949c53414cbe
+  - baaa0c960bb14bd8ac6831524a0263d7
+  - 87359492940a4f0fa04f008d2e5b206b
+  - 8ca68f2df4b545bf94cac0105855d9d0
   max_calls_per_minute: 300
   request_timeout_seconds: 30
   rotate_on_http_status:
-    - 401
-    - 402
-    - 403
-    - 409
-    - 420
-    - 429
-
+  - 401
+  - 402
+  - 403
+  - 409
+  - 420
+  - 429
 arkham:
-  api_key: "PUT_ARKHAM_API_KEY_HERE" # <-- Arkham Intelligence key (optional)
-
+  api_key: PUT_ARKHAM_API_KEY_HERE
 stablecoin_inflow:
-  enabled: false # Monitor toggle
+  enabled: false
   poll_interval_seconds: 300
   min_usd_value: 200000
   lookback_seconds: 3600
-  state_file: "data/stablecoin_inflow_state.json"
+  state_file: data/stablecoin_inflow_state.json
   stable_symbols:
-    - "USDT"
-    - "USDC"
-    - "DAI"
-    - "TUSD"
-    - "BUSD"
+  - USDT
+  - USDC
+  - DAI
+  - TUSD
+  - BUSD
   exchange_addresses:
     eth:
-      - "0x28C6c06298d514Db089934071355E5743bf21d60"
-      - "0x21a31Ee1afC51d94C2eFcCAa2092aAF9F5C3A7AF"
-      - "0xF977814e90dA44bFA03b6295A0616a897441aceC"
+    - '0x28C6c06298d514Db089934071355E5743bf21d60'
+    - '0x21a31Ee1afC51d94C2eFcCAa2092aAF9F5C3A7AF'
+    - '0xF977814e90dA44bFA03b6295A0616a897441aceC'
     bsc:
-      - "0x3f16c3c7249A1427BFB24764B07EEd8E1fBb6667"
-      - "0xd551234ae421e3bcba99a0da6d736074f22192ff"
-      - "0x2ca5a36de6fd4bf61b263a592ca21bf46fdf3165"
-
+    - '0x3f16c3c7249A1427BFB24764B07EEd8E1fBb6667'
+    - '0xd551234ae421e3bcba99a0da6d736074f22192ff'
+    - '0x2ca5a36de6fd4bf61b263a592ca21bf46fdf3165'
 bsc_rpc:
-  url: "https://rpc.ankr.com/bsc/38ec23a54bfa110e8b9a40a3476335063e7270f13dec7fa97866f8c740dec2eb"
-
+  url: https://rpc.ankr.com/bsc/38ec23a54bfa110e8b9a40a3476335063e7270f13dec7fa97866f8c740dec2eb
 profiler:
-  retention_days: 30 # сколько дней хранить сырые профили пампов в data/alpha_profiler
-
+  retention_days: 30
 alpha_profiler:
-  retention_days: 30 # сколько дней хранить профили пампов (приоритетнее, чем profiler.retention_days)
+  retention_days: 30
   pumps:
-    - name: "ARTX_2025_12_05"
-      symbol: "ARTX"
-      chain: "bsc"
-      contract: "0x8105743e8a19c915a604d7d9e7aa3a060a4c2c32"
-      start_utc: "2025_12_05 10:40"
-      end_utc: "2025_12_05 11:12"
-      pre_pump_minutes: 240
-      min_whale_net_usd: 2000
-      use_nansen: true
-
-    - name: "ARTX_2025_11_25"
-      symbol: "ARTX"
-      chain: "bsc"
-      contract: "0x8105743e8a19c915a604d7d9e7aa3a060a4c2c32"
-      start_utc: "2025_11_25 14:00"
-      end_utc: "2025_11_25 19:00"
-      pre_pump_minutes: 140
-      min_whale_net_usd: 2500
-      use_nansen: true
-
-    - name: "ARTX_2025_11_26"
-      symbol: "ARTX"
-      chain: "bsc"
-      contract: "0x8105743e8a19c915a604d7d9e7aa3a060a4c2c32"
-      start_utc: "2025_11_26 10:00"
-      end_utc: "2025_11_26 16:00"
-      pre_pump_minutes: 80
-      min_whale_net_usd: 2500
-      use_nansen: true
-
-    - name: "TIMI_2025_11_23"
-      symbol: "TIMI"
-      chain: "bsc"
-      contract: "0xaafe1f781bc5e4d240c4b73f6748d76079678fa8"
-      start_utc: "2025_11_23 15:00"
-      end_utc: "2025_11_24 11:00"
-      pre_pump_minutes: 100
-      min_whale_net_usd: 2500
-      use_nansen: true
-
-    - name: "IRYS_2025_11_26"
-      symbol: "IRYS"
-      chain: "bsc"
-      contract: "0x91152b4ef635403efbae860edd0f8c321d7c035d"
-      start_utc: "2025_11_26 16:00"
-      end_utc: "2025_11_24 22:00"
-      pre_pump_minutes: 100
-      min_whale_net_usd: 2500
-      use_nansen: true
-
-# Example section for future alpha token automation
-alpha_tokens:
-  # - symbol: "BOB"
-  #   chain: "bsc"
-  #   contract: "0x5b5...5eb7e7"
-  #   pre_window_minutes: 180
-  #   min_whale_buy_usd: 30000
-  #   pump_start: "2025-12-03T12:00:00Z"
-  #   pump_end: "2025-12-03T20:00:00Z"
+#  - name: ARTX_bsc
+#    symbol: ARTX
+#    chain: bsc
+#    contract: '0x8105743e8a19c915a604d7d9e7aa3a060a4c2c32'
+#    start_utc: 2025_12_05 10:40
+#    end_utc: 2025_12_05 11:12
+#    pre_pump_minutes: 240
+#    min_whale_net_usd: 2000
+#    use_nansen: true
+#  - name: ARTX_bsc_2
+#    symbol: ARTX
+#    chain: bsc
+#    contract: '0x8105743e8a19c915a604d7d9e7aa3a060a4c2c32'
+#    start_utc: 2025_11_25 14:00
+#    end_utc: 2025_11_25 19:00
+#    pre_pump_minutes: 140
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+#  - name: ARTX_bsc_3
+#    symbol: ARTX
+#    chain: bsc
+#    contract: '0x8105743e8a19c915a604d7d9e7aa3a060a4c2c32'
+#    start_utc: 2025_11_26 10:00
+#    end_utc: 2025_11_26 16:00
+#    pre_pump_minutes: 80
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+#  - name: TIMI_bsc
+#    symbol: TIMI
+#    chain: bsc
+#    contract: '0xaafe1f781bc5e4d240c4b73f6748d76079678fa8'
+#    start_utc: 2025_11_23 15:00
+#    end_utc: 2025_11_24 11:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+#  - name: IRYS_bsc
+#    symbol: IRYS
+#    chain: bsc
+#    contract: '0x91152b4ef635403efbae860edd0f8c321d7c035d'
+#    start_utc: 2025_11_26 16:00
+#    end_utc: 2025_11_26 22:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+  - name: LAB_bsc
+    symbol: LAB
+    chain: bsc
+    contract: '0x7ec43cf65f1663f820427c62a5780b8f2e25593a'
+    start_utc: 2025_10_30 19:00
+    end_utc: 2025_10_31 01:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: LAB_bsc_2
+    symbol: LAB
+    chain: bsc
+    contract: '0x7ec43cf65f1663f820427c62a5780b8f2e25593a'
+    start_utc: 2025_11_02 10:00
+    end_utc: 2025_11_02 20:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: LAB_bsc_3
+    symbol: LAB
+    chain: bsc
+    contract: '0x7ec43cf65f1663f820427c62a5780b8f2e25593a'
+    start_utc: 2025_11_07 11:00
+    end_utc: 2025_11_07 16:10
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: RAVE_bsc
+    symbol: RAVE
+    chain: bsc
+    contract: '0x97693439ea2f0ecdeb9135881e49f354656a911c'
+    start_utc: 2025_12_12 14:00
+    end_utc: 2025_12_13 08:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+#  - name: RAVE_bsc_2
+#    symbol: RAVE
+#    chain: bsc
+#    contract: '0x97693439ea2f0ecdeb9135881e49f354656a911c'
+#    start_utc: 2025_12_15 07:00
+#    end_utc: 2025_12_15 14:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+#  - name: POVER_bsc
+#    symbol: POVER
+#    chain: bsc
+#    contract: '0x9dc44ae5be187eca9e2a67e33f27a4c91cea1223'
+#    start_utc: 2025_12_06 08:00
+#    end_utc: 2025_12_06 14:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+#  - name: TAKE_bsc
+#    symbol: TAKE
+#    chain: bsc
+#    contract: '0xe747e54783ba3f77a8e5251a3cba19ebe9c0e197'
+#    start_utc: 2025_10_05 11:00
+#    end_utc: 2025_10_05 21:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+  - name: SQD_bsc
+    symbol: SQD
+    chain: bsc
+    contract: '0xe50e3d1a46070444f44df911359033f2937fcc13'
+    start_utc: 2025_09_25 16:00
+    end_utc: 2025_09_26 19:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: SQD_bsc_2
+    symbol: SQD
+    chain: bsc
+    contract: '0xe50e3d1a46070444f44df911359033f2937fcc13'
+    start_utc: 2025_10_09 14:00
+    end_utc: 2025_10_09 18:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+#  - name: SQD_bsc_3
+#    symbol: SQD
+#    chain: bsc
+#    contract: '0xe50e3d1a46070444f44df911359033f2937fcc13'
+#    start_utc: 2025_07_28 17:00
+#    end_utc: 2025_07_29 07:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+  - name: SOON_bsc
+    symbol: SOON
+    chain: bsc
+    contract: '0xb9e1fd5a02d3a33b25a14d661414e6ed6954a721'
+    start_utc: 2025_11_14 20:00
+    end_utc: 2025_11_14 23:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: SOON_bsc_2
+    symbol: SOON
+    chain: bsc
+    contract: '0xb9e1fd5a02d3a33b25a14d661414e6ed6954a721'
+    start_utc: 2025_11_05 21:00
+    end_utc: 2025_11_06 01:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: SSS_bsc
+    symbol: SSS
+    chain: bsc
+    contract: '0xcc442a4c0b9c35578aa285f0d39f2bcc0e152acd'
+    start_utc: 2025_12_14 08:00
+    end_utc: 2025_12_14 13:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+#  - name: SSS_bsc_2
+    symbol: SSS
+    chain: bsc
+    contract: '0xcc442a4c0b9c35578aa285f0d39f2bcc0e152acd'
+    start_utc: 2025_12_07 05:00
+    end_utc: 2025_12_07 09:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+#  - name: DIGI_bsc
+#    symbol: DIGI
+#    chain: bsc
+#    contract: '0x5b6e1ccf4cbbe27f588f8dcea8e9e39acb595e3d'
+#    start_utc: 2025_12_04 12:00
+#    end_utc: 2025_12_04 20:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+  - name: DIGI_bsc_2
+    symbol: DIGI
+    chain: bsc
+    contract: '0x5b6e1ccf4cbbe27f588f8dcea8e9e39acb595e3d'
+    start_utc: 2025_12_10 21:00
+    end_utc: 2025_12_11 02:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: DIGI_bsc_3
+    symbol: DIGI
+    chain: bsc
+    contract: '0x5b6e1ccf4cbbe27f588f8dcea8e9e39acb595e3d'
+    start_utc: 2025_12_14 10:00
+    end_utc: 2025_12_14 14:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+#  - name: BEAT_bsc
+#    symbol: BEAT
+#    chain: bsc
+#    contract: '0xcf3232b85b43bca90e51d38cc06cc8bb8c8a3e36'
+#    start_utc: 2025_11_12 11:00
+#    end_utc: 2025_11_12 20:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+  - name: BEAT_bsc_2
+    symbol: BEAT
+    chain: bsc
+    contract: '0xcf3232b85b43bca90e51d38cc06cc8bb8c8a3e36'
+    start_utc: 2025_11_20 09:00
+    end_utc: 2025_11_20 17:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: BEAT_bsc_3
+    symbol: BEAT
+    chain: bsc
+    contract: '0xcf3232b85b43bca90e51d38cc06cc8bb8c8a3e36'
+    start_utc: 2025_12_12 15:00
+    end_utc: 2025_12_13 17:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: BEAT_bsc_4
+    symbol: BEAT
+    chain: bsc
+    contract: '0xcf3232b85b43bca90e51d38cc06cc8bb8c8a3e36'
+    start_utc: 2025_12_14 16:00
+    end_utc: 2025_12_16 12:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PTB_bsc
+    symbol: PTB
+    chain: bsc
+    contract: '0x95c9b514566fbd224dc2037f5914eb8ab91c9201'
+    start_utc: 2025_09_04 20:00
+    end_utc: 2025_09_05 04:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PTB_bsc_2
+    symbol: PTB
+    chain: bsc
+    contract: '0x95c9b514566fbd224dc2037f5914eb8ab91c9201'
+    start_utc: 2025_10_07 11:00
+    end_utc: 2025_10_08 01:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PTB_bsc_3
+    symbol: PTB
+    chain: bsc
+    contract: '0x95c9b514566fbd224dc2037f5914eb8ab91c9201'
+    start_utc: 2025_09_11 03:00
+    end_utc: 2025_09_12 09:10
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: GAIB_bsc
+    symbol: GAIB
+    chain: bsc
+    contract: '0xc19d38925f9f645337b1d1f37baf3c0647a48e50'
+    start_utc: 2025_11_23 07:00
+    end_utc: 2025_11_23 18:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: DGRAM_bsc
+    symbol: DGRAM
+    chain: bsc
+    contract: '0x49c6c91ec839a581de2b882e868494215250ee59'
+    start_utc: 2025_11_19 04:00
+    end_utc: 2025_11_19 12:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: DGRAM_bsc_2
+    symbol: DGRAM
+    chain: bsc
+    contract: '0x49c6c91ec839a581de2b882e868494215250ee59'
+    start_utc: 2025_11_29 16:00
+    end_utc: 2025_11_30 07:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PIEVERSE_bsc
+    symbol: PIEVERSE
+    chain: bsc
+    contract: '0x0e63b9c287e32a05e6b9ab8ee8df88a2760225a9'
+    start_utc: 2025_11_15 04:00
+    end_utc: 2025_11_16 02:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PIEVERSE_bsc_2
+    symbol: PIEVERSE
+    chain: bsc
+    contract: '0x0e63b9c287e32a05e6b9ab8ee8df88a2760225a9'
+    start_utc: 2025_11_20 13:00
+    end_utc: 2025_11_20 23:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PIEVERSE_bsc_3
+    symbol: PIEVERSE
+    chain: bsc
+    contract: '0x0e63b9c287e32a05e6b9ab8ee8df88a2760225a9'
+    start_utc: 2025_11_22 05:00
+    end_utc: 2025_11_22 14:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PIEVERSE_bsc_4
+    symbol: PIEVERSE
+    chain: bsc
+    contract: '0x0e63b9c287e32a05e6b9ab8ee8df88a2760225a9'
+    start_utc: 2025_11_24 04:00
+    end_utc: 2025_11_24 20:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PIEVERSE_bsc_5
+    symbol: PIEVERSE
+    chain: bsc
+    contract: '0x0e63b9c287e32a05e6b9ab8ee8df88a2760225a9'
+    start_utc: 2025_11_30 16:00
+    end_utc: 2025_11_30 23:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PIEVERSE_bsc_6
+    symbol: PIEVERSE
+    chain: bsc
+    contract: '0x0e63b9c287e32a05e6b9ab8ee8df88a2760225a9'
+    start_utc: 2025_12_01 21:00
+    end_utc: 2025_12_03 03:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PIEVERSE_bsc_7
+    symbol: PIEVERSE
+    chain: bsc
+    contract: '0x0e63b9c287e32a05e6b9ab8ee8df88a2760225a9'
+    start_utc: 2025_12_06 04:00
+    end_utc: 2025_12_07 21:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PLANCK_bsc
+    symbol: PLANCK
+    chain: bsc
+    contract: '0x004d50b3fc784b580531d8e8615aa96cf7fbb919'
+    start_utc: 2025_11_23 05:00
+    end_utc: 2025_11_23 11:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: PLANCK_bsc_2
+    symbol: PLANCK
+    chain: bsc
+    contract: '0x004d50b3fc784b580531d8e8615aa96cf7fbb919'
+    start_utc: 2025_11_23 22:00
+    end_utc: 2025_11_24 07:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: CROSS_bsc
+    symbol: CROSS
+    chain: bsc
+    contract: '0x6bf62ca91e397b5a7d1d6bce97d9092065d7a510'
+    start_utc: 2025_07_09 18:00
+    end_utc: 2025_07_10 04:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: CROSS_bsc_2
+    symbol: CROSS
+    chain: bsc
+    contract: '0x6bf62ca91e397b5a7d1d6bce97d9092065d7a510'
+    start_utc: 2025_07_10 23:00
+    end_utc: 2025_07_11 08:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: CROSS_bsc_3
+    symbol: CROSS
+    chain: bsc
+    contract: '0x6bf62ca91e397b5a7d1d6bce97d9092065d7a510'
+    start_utc: 2025_07_17 03:00
+    end_utc: 2025_07_18 08:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: CROSS_bsc_4
+    symbol: CROSS
+    chain: bsc
+    contract: '0x6bf62ca91e397b5a7d1d6bce97d9092065d7a510'
+    start_utc: 2025_10_20 04:00
+    end_utc: 2025_10_20 14:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: JCT_bsc
+    symbol: JCT
+    chain: bsc
+    contract: '0xea37a8de1de2d9d10772eeb569e28bfa5cb17707'
+    start_utc: 2025_11_10 12:00
+    end_utc: 2025_11_10 15:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: JCT_bsc_2
+    symbol: JCT
+    chain: bsc
+    contract: '0xea37a8de1de2d9d10772eeb569e28bfa5cb17707'
+    start_utc: 2025_11_12 20:00
+    end_utc: 2025_11_13 06:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: JCT_bsc_3
+    symbol: JCT
+    chain: bsc
+    contract: '0xea37a8de1de2d9d10772eeb569e28bfa5cb17707'
+    start_utc: 2025_11_17 10:00
+    end_utc: 2025_11_17 23:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: ELIZAOS_bsc
+    symbol: ELIZAOS
+    chain: bsc
+    contract: '0xea17df5cf6d172224892b5477a16acb111182478'
+    start_utc: 2025_11_11 18:00
+    end_utc: 2025_11_12 06:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: ELIZAOS_bsc_2
+    symbol: ELIZAOS
+    chain: bsc
+    contract: '0xea17df5cf6d172224892b5477a16acb111182478'
+    start_utc: 2025_11_18 17:00
+    end_utc: 2025_11_19 02:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: FOLKS_bsc
+    symbol: FOLKS
+    chain: bsc
+    contract: '0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b'
+    start_utc: 2025_11_06 13:00
+    end_utc: 2025_11_06 17:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: FOLKS_bsc_2
+    symbol: FOLKS
+    chain: bsc
+    contract: '0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b'
+    start_utc: 2025_11_07 17:00
+    end_utc: 2025_11_07 19:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: FOLKS_bsc_3
+    symbol: FOLKS
+    chain: bsc
+    contract: '0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b'
+    start_utc: 2025_11_08 07:00
+    end_utc: 2025_11_08 16:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: FOLKS_bsc_4
+    symbol: FOLKS
+    chain: bsc
+    contract: '0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b'
+    start_utc: 2025_11_20 03:00
+    end_utc: 2025_11_21 03:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: FOLKS_bsc_5
+    symbol: FOLKS
+    chain: bsc
+    contract: '0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b'
+    start_utc: 2025_11_30 21:00
+    end_utc: 2025_12_01 23:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: FOLKS_bsc_6
+    symbol: FOLKS
+    chain: bsc
+    contract: '0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b'
+    start_utc: 2025_12_07 09:00
+    end_utc: 2025_12_07 21:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: FOLKS_bsc_7
+    symbol: FOLKS
+    chain: bsc
+    contract: '0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b'
+    start_utc: 2025_12_09 02:00
+    end_utc: 2025_12_09 15:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: FOLKS_bsc_8
+    symbol: FOLKS
+    chain: bsc
+    contract: '0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b'
+    start_utc: 2025_12_12 23:00
+    end_utc: 2025_12_13 19:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: FOLKS_bsc_9
+    symbol: FOLKS
+    chain: bsc
+    contract: '0xff7f8f301f7a706e3cfd3d2275f5dc0b9ee8009b'
+    start_utc: 2025_12_13 23:00
+    end_utc: 2025_12_14 06:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: UAI_bsc
+    symbol: UAI
+    chain: bsc
+    contract: '0x3e5d4f8aee0d9b3082d5f6da5d6e225d17ba9ea0'
+    start_utc: 2025_11_07 15:00
+    end_utc: 2025_11_07 19:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: BAY_bsc
+    symbol: BAY
+    chain: bsc
+    contract: '0xa7bef5abd9265ab97ee43d2fc4a56e0ba25aca25'
+    start_utc: 2025_11_01 10:00
+    end_utc: 2025_11_01 18:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: BAY_bsc_2
+    symbol: BAY
+    chain: bsc
+    contract: '0xa7bef5abd9265ab97ee43d2fc4a56e0ba25aca25'
+    start_utc: 2025_11_21 14:00
+    end_utc: 2025_11_21 18:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: BAY_bsc_3
+    symbol: BAY
+    chain: bsc
+    contract: '0xa7bef5abd9265ab97ee43d2fc4a56e0ba25aca25'
+    start_utc: 2025_11_22 15:00
+    end_utc: 2025_11_22 17:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: BAY_bsc_4
+    symbol: BAY
+    chain: bsc
+    contract: '0xa7bef5abd9265ab97ee43d2fc4a56e0ba25aca25'
+    start_utc: 2025_12_16 14:00
+    end_utc: 2025_12_16 16:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: BAY_bsc_5
+    symbol: BAY
+    chain: bsc
+    contract: '0xa7bef5abd9265ab97ee43d2fc4a56e0ba25aca25'
+    start_utc: 2025_12_17 04:00
+    end_utc: 2025_12_17 06:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+# - name: NB_bsc
+#   symbol: NB
+#   chain: bsc
+#   contract: '0xc2bd425a63800731e3ae42b6596bdd783299fcb1'
+#   start_utc: 2025_11_26 19:00
+#   end_utc: 2025_11_28 12:00
+#   pre_pump_minutes: 100
+#   min_whale_net_usd: 2500
+#   use_nansen: true
+  - name: NB_bsc_2
+    symbol: NB
+    chain: bsc
+    contract: '0xc2bd425a63800731e3ae42b6596bdd783299fcb1'
+    start_utc: 2025_12_14 12:00
+    end_utc: 2025_12_14 15:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: NB_bsc_3
+    symbol: NB
+    chain: bsc
+    contract: '0xc2bd425a63800731e3ae42b6596bdd783299fcb1'
+    start_utc: 2025_12_16 12:00
+    end_utc: 2025_12_16 14:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: NB_bsc_4
+    symbol: NB
+    chain: bsc
+    contract: '0xc2bd425a63800731e3ae42b6596bdd783299fcb1'
+    start_utc: 2025_11_10 11:00
+    end_utc: 2025_11_11 20:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: 客服小何_bsc
+    symbol: 客服小何
+    chain: bsc
+    contract: '0x3ac8e2c113d5d7824ac6ebe82a3c60b1b9d64444'
+    start_utc: 2025_11_10 11:00
+    end_utc: 2025_11_11 20:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: 客服小何_bsc_2
+    symbol: 客服小何
+    chain: bsc
+    contract: '0x3ac8e2c113d5d7824ac6ebe82a3c60b1b9d64444'
+    start_utc: 2025_10_07 07:00
+    end_utc: 2025_10_08 08:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: 客服小何_bsc_3
+    symbol: 客服小何
+    chain: bsc
+    contract: '0x3ac8e2c113d5d7824ac6ebe82a3c60b1b9d64444'
+    start_utc: 2025_10_09 11:00
+    end_utc: 2025_10_09 17:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: 客服小何_bsc_4
+    symbol: 客服小何
+    chain: bsc
+    contract: '0x3ac8e2c113d5d7824ac6ebe82a3c60b1b9d64444'
+    start_utc: 2025_10_20 13:00
+    end_utc: 2025_10_20 19:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: 客服小何_bsc_5
+    symbol: 客服小何
+    chain: bsc
+    contract: '0x3ac8e2c113d5d7824ac6ebe82a3c60b1b9d64444'
+    start_utc: 2025_10_16 07:00
+    end_utc: 2025_10_16 13:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: 客服小何_bsc_6
+    symbol: 客服小何
+    chain: bsc
+    contract: '0x3ac8e2c113d5d7824ac6ebe82a3c60b1b9d64444'
+    start_utc: 2025_10_11 19:00
+    end_utc: 2025_10_11 22:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: 客服小何_bsc_7
+    symbol: 客服小何
+    chain: bsc
+    contract: '0x3ac8e2c113d5d7824ac6ebe82a3c60b1b9d64444'
+    start_utc: 2025_12_03 06:00
+    end_utc: 2025_12_03 10:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: 客服小何_bsc_8
+    symbol: 客服小何
+    chain: bsc
+    contract: '0x3ac8e2c113d5d7824ac6ebe82a3c60b1b9d64444'
+    start_utc: 2025_12_03 21:00
+    end_utc: 2025_12_04 06:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: BTG_bsc
+    symbol: BTG
+    chain: bsc
+    contract: '0x4c9027e10c5271efca82379d3123917ae3f2374e'
+    start_utc: 2025_10_02 16:00
+    end_utc: 2025_10_03 07:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+#  - name: BTG_bsc_2
+#    symbol: BTG
+#    chain: bsc
+#    contract: '0x4c9027e10c5271efca82379d3123917ae3f2374e'
+#    start_utc: 2025_10_13 17:00
+#    end_utc: 2025_10_14 04:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+  - name: BTG_bsc_3
+    symbol: BTG
+    chain: bsc
+    contract: '0x4c9027e10c5271efca82379d3123917ae3f2374e'
+    start_utc: 2025_10_14 17:00
+    end_utc: 2025_10_15 06:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+  - name: BTG_bsc_4
+    symbol: BTG
+    chain: bsc
+    contract: '0x4c9027e10c5271efca82379d3123917ae3f2374e'
+    start_utc: 2025_10_20 18:00
+    end_utc: 2025_10_21 12:00
+    pre_pump_minutes: 100
+    min_whale_net_usd: 2500
+    use_nansen: true
+#  - name: BTG_bsc_5
+#    symbol: BTG
+#    chain: bsc
+#    contract: '0x4c9027e10c5271efca82379d3123917ae3f2374e'
+#    start_utc: 2025_10_22 02:00
+#    end_utc: 2025_10_22 06:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+#  - name: BTG_bsc_6
+#    symbol: BTG
+#    chain: bsc
+#    contract: '0x4c9027e10c5271efca82379d3123917ae3f2374e'
+#    start_utc: 2025_10_23 02:00
+#    end_utc: 2025_10_23 04:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+#  - name: BTG_bsc_7
+#    symbol: BTG
+#    chain: bsc
+#    contract: '0x4c9027e10c5271efca82379d3123917ae3f2374e'
+#    start_utc: 2025_11_11 03:00
+#    end_utc: 2025_11_11 08:00
+#    pre_pump_minutes: 100
+#    min_whale_net_usd: 2500
+#    use_nansen: true
+initiator_tracking:
+  enabled: true
+  lookback_seconds: 600
+  max_tokens_per_cycle: 10
+  min_pumps_count: 2
+  min_actor_score: 15
+  require_cluster_hits: 1
+  allowed_levels:
+  - core_operator
+  - inner_circle
+  - outer_circle
+  threshold_ping: 0.4
+  threshold_alarm: 0.75
+  reasons_line: true
+alerts:
+  enabled: true
+  ping_prefix: 👀
+  alarm_prefix: 🚨
+  min_seconds_between_pings_per_symbol: 900
+  min_seconds_between_alarms_per_symbol: 1800
+  min_seconds_between_actor_activity_alerts: 900
+  max_per_hour: 20
+actor_activity:
+  enabled: true
+  interval_seconds: 600
+  max_addresses_per_tick: 25
+  lookback_minutes: 15
+  window_minutes: 15
+  max_addrs_per_run: 40
+  shuffle_each_cycle: false
+  min_tx_count: 8
+  min_total_usd_volume: 2000
+  alert_top_tokens: 3
+fusion:
+  enabled: true
+  hot_tokens_ttl_seconds: 3600
+  max_hot_tokens: 200
+  prefer_hot_tokens_in_scan: true
+  relax_thresholds_for_hot_tokens: true
+  relax_volume_multiplier_delta: -0.8
+  relax_price_delta_percent_delta: -0.2
+  emit_setup_alerts: true
+  setup_alert_min_initiator_score: 0.7
+  setup_alert_min_new_tokens: 1
+  setup_alert_cooldown_seconds: 1800
+new_token:
+  enabled: true
+  history_days: 14
+  max_tokens_per_actor_history: 2000
+  min_first_seen_minutes_ago: 3
+dump_alerts:
+  enabled: true
+  lookback_minutes: 15
+  min_tx_count: 10
+  min_total_usd_volume: 3000
+  min_sell_usd: 2000
+  min_sell_ratio: 0.65
+  min_initiator_score: 18
+  require_initiator: true
+  cooldown_seconds: 1800
+  market_volume_multiplier: 1.5
+  market_price_drop_percent: 0.4
+  min_tx: 6
+  window_minutes: 15
+  exit_wave:
+    enabled: true
+    accel_threshold: 0.2
+    score_threshold: 0.7
+alpha_tokens: null

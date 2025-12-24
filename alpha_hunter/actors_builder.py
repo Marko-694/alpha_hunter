@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Optional
 
 from .logger import get_logger
 
+SYSTEM_DIR = os.path.join("data", "alpha_profiler", "system")
 
 def _load_json(path: str) -> Any:
     if not os.path.exists(path):
@@ -24,8 +25,8 @@ def _save_json(data: Any, path: str) -> None:
 
 def build_actors_watchlist(
     profiles_dir: str = "data/alpha_profiler",
-    actors_path: str = "data/alpha_profiler/actors.json",
-    watchlist_path: str = "data/alpha_profiler/watchlist.json",
+    actors_path: str = os.path.join(SYSTEM_DIR, "actors.json"),
+    watchlist_path: str = os.path.join(SYSTEM_DIR, "watchlist.json"),
     logger=None,
 ) -> Dict[str, str]:
     log = logger or get_logger("actors_builder")

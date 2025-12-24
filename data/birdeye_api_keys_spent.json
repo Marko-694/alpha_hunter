@@ -1,0 +1,68 @@
+[
+  {
+    "api_key": "c1efe223ddd84cf38ea60d03d061c574",
+    "proxy": "http://52b5afabc9d30ea44b2b__cr.de:3ad0a2c8f1f5b635@gw.dataimpulse.com:10001",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-21T20:20:30Z"
+  },
+  {
+    "api_key": "65884062071444a9a82fa19e0981ee11",
+    "proxy": "http://52b5afabc9d30ea44b2b__cr.de:3ad0a2c8f1f5b635@gw.dataimpulse.com:10001",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-21T20:36:47Z"
+  },
+  {
+    "api_key": "ff2baf4c7ae44f50a4b31d9dae5bd551",
+    "proxy": "http://T0443WX4:3850RKQZ@146.103.8.66:46132",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-21T22:34:32Z"
+  },
+  {
+    "api_key": "ff2baf4c7ae44f50a4b31d9dae5bd551",
+    "proxy": "http://T0443WX4:3850RKQZ@146.103.8.66:46132",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-21T22:45:57Z"
+  },
+  {
+    "api_key": "ff2baf4c7ae44f50a4b31d9dae5bd551",
+    "proxy": "http://T0443WX4:3850RKQZ@146.103.8.66:46132",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-21T22:53:45Z"
+  },
+  {
+    "api_key": "ff2baf4c7ae44f50a4b31d9dae5bd551",
+    "proxy": "http://T0443WX4:3850RKQZ@146.103.8.66:46132",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-21T23:09:23Z"
+  },
+  {
+    "api_key": "ff2baf4c7ae44f50a4b31d9dae5bd551",
+    "proxy": "http://T0443WX4:3850RKQZ@146.103.8.66:46132",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-21T23:14:39Z"
+  },
+  {
+    "api_key": "ff2baf4c7ae44f50a4b31d9dae5bd551",
+    "proxy": "http://T0443WX4:3850RKQZ@146.103.8.66:46132",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-21T23:23:25Z"
+  },
+  {
+    "api_key": "ff2baf4c7ae44f50a4b31d9dae5bd551",
+    "proxy": "http://T0443WX4:3850RKQZ@146.103.8.66:46132",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-22T12:06:26Z"
+  },
+  {
+    "api_key": "ff2baf4c7ae44f50a4b31d9dae5bd551",
+    "proxy": "http://T0443WX4:3850RKQZ@146.103.8.66:46132",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-22T12:09:26Z"
+  },
+  {
+    "api_key": "ff2baf4c7ae44f50a4b31d9dae5bd551",
+    "proxy": "http://T0443WX4:3850RKQZ@146.103.8.66:46132",
+    "reason": "HTTP 429",
+    "spent_at": "2025-12-22T12:13:32Z"
+  }
+]
